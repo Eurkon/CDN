@@ -1,7 +1,7 @@
 const gitcalendar = new Vue({
   el: '#gitcalendar',
   data: {
-    simplemode: true,
+    simplemode: false,
     //打开时使用canvas绘制gitgitcalendar，关闭时使用svg绘制gitgitcalendar
     //canvas：dom数少，但图像会发生模糊，自适应一般  svg：dom数多，图像清晰，自适应更佳
     user: 'Empty-HYH',
@@ -38,10 +38,10 @@ const gitcalendar = new Vue({
     first2date: [],
     montharrbefore: [],
     monthindex: 0,
-    purple: ['#ebedf0', '#fdcdec', '#fc9bd9', '#fa6ac5', '#f838b2', '#f5089f', '#c4067e', '#92055e', '#540336', '#48022f', '#30021f'],
-    green: ['#ebedf0', '#f0fff4', '#dcffe4', '#bef5cb', '#85e89d', '#34d058', '#28a745', '#22863a', '#176f2c', '#165c26', '#144620'],
-    blue: ['#ebedf0', '#f1f8ff', '#dbedff', '#c8e1ff', '#79b8ff', '#2188ff', '#0366d6', '#005cc5', '#044289', '#032f62', '#05264c'],
-    color: ['#ebedf0', '#fdcdec', '#fc9bd9', '#fa6ac5', '#f838b2', '#f5089f', '#c4067e', '#92055e', '#540336', '#48022f', '#30021f']
+    purple: ['#cccccc', '#fdcdec', '#fc9bd9', '#fa6ac5', '#f838b2', '#f5089f', '#c4067e', '#92055e', '#540336', '#48022f', '#30021f'],
+    green: ['#cccccc', '#f0fff4', '#dcffe4', '#bef5cb', '#85e89d', '#34d058', '#28a745', '#22863a', '#176f2c', '#165c26', '#144620'],
+    blue: ['#cccccc', '#f1f8ff', '#dbedff', '#c8e1ff', '#79b8ff', '#2188ff', '#0366d6', '#005cc5', '#044289', '#032f62', '#05264c'],
+    color: ['#cccccc', '#fdcdec', '#fc9bd9', '#fa6ac5', '#f838b2', '#f5089f', '#c4067e', '#92055e', '#540336', '#48022f', '#30021f']
   },
   methods: {
     selectStyle (data, event) {
@@ -70,7 +70,9 @@ const gitcalendar = new Vue({
   }
 });
 
-let githubapiurl = "https://python-github-calendar-api.vercel.app/api?" + gitcalendar.user;
+let githubapiurl = "https://github-calendar-python-api.vercel.app/api?" + gitcalendar.user;
+
+//let githubapiurl = "https://python-github-calendar-api.vercel.app/api?" + gitcalendar.user;
 //let githubapiurl = "https://githubapi.ryanchristian.dev/user/" + gitcalendar.user;  
 //旧的api策略
 //canvas绘图
@@ -228,9 +230,9 @@ fetch(githubapiurl)
   });
 
 //手机版更换为svg绘制
-if (document.getElementById("gitcalendarcanvasbox").offsetWidth < 500) {
-  gitcalendar.simplemode = false
-}
+// if (document.getElementById("gitcalendarcanvasbox").offsetWidth < 500) {
+//   gitcalendar.simplemode = false
+// }
 
 //当改变窗口大小时重新绘制canvas
 window.onresize = function () {

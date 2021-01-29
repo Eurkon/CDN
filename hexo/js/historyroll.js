@@ -10,7 +10,7 @@ btf.isJqueryLoad(() => {
         function () {
           scrollTimer = setInterval(function () {
             scrollNews($this);
-          }, 4000);
+          }, 5000);
         }
       )
       .trigger("mouseleave");
@@ -33,5 +33,5 @@ btf.isJqueryLoad(() => {
         }
       );
     }
-  })
+  });
 });
