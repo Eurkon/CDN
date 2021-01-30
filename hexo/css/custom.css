@@ -1,0 +1,181 @@
+body {
+	cursor: url(/images/user/default.cur), auto !important;
+}
+
+a, img, svg, canvas {
+	cursor: url(/images/user/pointer.cur), auto !important;
+}
+
+/* 文章 */
+.reward-button, #pagination .page-number:hover {
+	cursor: url(/images/user/pointer.cur), auto !important;
+}
+
+/* 图片预览 */
+.fancybox, .fancybox-button, .fancybox-content {
+	cursor: url(/images/user/pointer.cur), auto !important;
+}
+
+/* 评论与回复 */
+.switch-btn, .vcol * , .v[data-class=v] .vicon, .v[data-class=v] .vbtn, .vat, .vemojis *, .vcontent.expand {
+	cursor: url(/images/user/pointer.cur), auto !important;
+}
+
+.v[data-class=v] .vwrap .vheader .vinput {
+	font-size: 0.9em;
+}
+
+/* 提交按钮 */
+#vcomment button {
+	padding: 0.3rem 0.8rem;
+	border-color: #fff;
+	background-color: #e58a8a;
+	color: #fff;
+	font-size: 0.7rem;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.hexo-douban-active {
+  background: var(--btn-bg) !important;
+  color: var(--btn-color) !important;
+}
+
+.hexo-douban-button:hover {
+  background: var(--btn-bg) !important;
+  color: var(--btn-color) !important;
+}
+
+hr:before {
+	content: '\f197'
+}
+
+#web_bg {
+  /* 背景图像的地址（url括号里） */
+	background-image: url('/images/user/background.png');
+	background-repeat: no-repeat;
+  /* 背景图像不重复 */
+	background-repeat: no-repeat;
+  /* 背景图像大小 */
+	background-size: cover;
+}
+
+/* 旋转标题 before */
+#article-container.post-content h1:before, h2:before, h3:before, h4:before, h5:before, h6:before {
+	-webkit-animation: avatar_turn_around 2s linear infinite;
+	-moz-animation: avatar_turn_around 2s linear infinite;
+	-o-animation: avatar_turn_around 2s linear infinite;
+	-ms-animation: avatar_turn_around 2s linear infinite;
+	animation: avatar_turn_around 2s linear infinite;
+}
+
+/* 分页器的三个点(...) */
+.space {
+	color: var(--btn-bg)
+}
+
+#vcomment textarea {
+	/* background: url(/images/user/textarea.png) 100% 100% no-repeat */
+}
+
+.v[data-class=v] .vcards .vcard .vh .vmeta .vat {
+	color: var(--btn-bg) !important;
+}
+
+.hide-block>a.hide-button.open,.hide-inline>a.hide-button.open {
+	display: inline-block;
+}
+
+.layout_post img {
+	display: inline-block;
+}
+
+.imgList li::before {
+	content: none !important;
+}
+
+/* 滚动条 */
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+::-webkit-scrollbar-track {
+	border-radius: 2em;
+	background-color: var(--card-bg);
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 1em;
+	background-color: var(--btn-bg);
+	background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.4) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.4) 50%,rgba(255,255,255,.4) 75%,transparent 75%,transparent);
+}
+
+::-webkit-scrollbar-corner {
+	background-color: transparent;
+}
+
+::-moz-selection {
+	background-color: var(--btn-bg);
+	color: #fff;
+}
+
+/* 页脚透明 */
+#footer {
+	background: transparent !important;
+}
+
+/* 页头图片透明 */
+#page-header {
+  background: 0 0 !important;
+}
+
+#footer #footer-wrap {
+	color: #ffffff !important;
+	padding: 0.5rem 1rem;
+}
+
+/* 所有背景（包括首页卡片、文章页、页面页等） */
+#aside_content .card-widget, #recent-posts>.recent-post-item, .layout_page>div:first-child:not(.recent-posts), .layout_post>#page,.layout_post>#post,.read-mode .layout_post>#post, .cover, .gallery-group-img {
+	background: var(--card-bg);
+}
+
+[data-theme=dark] #nav,[data-theme=dark] .layout_page>div:first-child:not(.recent-posts),[data-theme=dark] .layout_post>#post {
+	background-color: var(--card-bg);
+}
+
+[data-theme="dark"]
+  .read-mode #aside_content .card-widget {
+	background: rgba(0, 0, 0, 0.5) !important;
+	color: #ffffff;
+}
+
+[data-theme="dark"]
+  .read-mode div#post {
+	background: rgba(0, 0, 0, 0.5) !important;
+	color: #ffffff;
+}
+
+/* 阅读模式 */
+.read-mode #article-container pre *, .read-mode #article-container .highlight:not(.js-file-line-container) * {
+	color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.read-mode #aside_content .card-widget {
+	background: rgba(60, 100, 40, 0.4) !important;
+}
+
+.read-mode div#post {
+	background: rgba(60, 100, 40, 0.4) !important;
+}
+
+table th, table td {
+	border: 1px solid var(--font-color);
+}
+
+.table-wrap {
+	overflow-x: auto;
+}
