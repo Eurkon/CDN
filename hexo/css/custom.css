@@ -21,6 +21,10 @@ a, img, svg, canvas {
 	cursor: url(/images/user/pointer.cur), auto !important;
 }
 
+.card-star {
+  cursor: url(/images/user/pointer.cur), auto !important;
+}
+
 .v[data-class=v] .vwrap .vheader .vinput {
 	font-size: 0.9em;
 }

@@ -1,0 +1,131 @@
+.links-content {
+	margin-top: 1rem;
+}
+
+.link-navigation::after {
+	content: " ";
+	display: block;
+	clear: both
+}
+
+h2 {
+	padding-left: 1.3rem;
+}
+
+h2::before {
+	margin-left: -1.1rem;
+	font-size: 0.9rem;
+	position: absolute;
+	top: calc(50% - 0.35rem);
+	color: #f47466;
+	content: '\f863';
+	line-height: 1;
+	font-family: 'Font Awesome 5 Free';
+}
+
+.card-star {
+	position: relative;
+	width: 25%;
+	padding: 0;
+	border-radius: 10px;
+	transition-duration: .3s;
+	margin-bottom: 1rem;
+	margin-left: 16px;
+	display: block;
+	float: left;
+	box-shadow: 0 2px 6px 0 var(--btn-bg);
+	background: transparent;
+	overflow: hidden;
+}
+
+.card-star:hover:before, .card-star:focus:before, .card-star:active:before {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+.card-star:before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-image: linear-gradient(to right, var(--btn-bg) 0%, var(--btn-bg) 1%, var(--btn-color) 100%);
+	-webkit-transform: scale(0);
+	transform: scale(0);
+	-webkit-transition-property: transform;
+	transition-property: transform;
+	-webkit-transition-duration: 0.15s;
+	transition-duration: all 0.15s;
+	-webkit-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+}
+
+.card-star:hover,.card-star:hover > .star-header a,.card-star:hover > .star-content a {
+	transform: scale(1);
+}
+
+@media(max-width:567px) {
+	.card-star {
+		margin-left: 16px;
+		width: calc((100% - 16px)/2)
+	}
+
+	.card-star:nth-child(2n+1) {
+		margin-left: 0
+	}
+
+	.card-star:not(:nth-child(2n+1)) {
+		margin-left: 16px
+	}
+}
+
+@media(min-width:567px) {
+	.card-star {
+		margin-left: 16px;
+		width: calc((100% - 32px)/3)
+	}
+
+	.card-star:nth-child(3n+1) {
+		margin-left: 0
+	}
+
+	.card-star:not(:nth-child(3n+1)) {
+		margin-left: 16px
+	}
+}
+
+@media(min-width:768px) {
+	.card-star {
+		margin-left: 16px;
+		width: calc((100% - 48px)/4)
+	}
+
+	.card-star:nth-child(4n+1) {
+		margin-left: 0
+	}
+
+	.card-star:not(:nth-child(4n+1)) {
+		margin-left: 16px
+	}
+}
+
+.card-star .star-header {
+	text-align: center;
+	padding: .25rem .25rem;
+	font-weight: 500;
+	white-space: nowrap;
+}
+
+.card-star .star-content {
+	text-align: center;
+	padding: 0 .25rem .25rem .25rem;
+	font-weight: 500;
+	font-size: smaller;
+	white-space: nowrap;
+}
+
+.card-star .star-content div {
+	overflow: hidden
+}
