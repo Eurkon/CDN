@@ -7,7 +7,7 @@ var getDate = String(myDate.getDate());
 getDate = getDate < 10 ? ("0" + String(getDate)) : String(getDate);
 
 var getMonthDate = "S" + getMonth + getDate;
-var geturl = "https://cdn.jsdelivr.net/gh/empty-hyh/cdn/hexo/history/" + getMonth + ".json";
+var geturl = "https://cdn.jsdelivr.net/gh/empty-hyh/cdn/hexo/json/history/" + getMonth + ".json";
 
 btf.isJqueryLoad(() => {
   $(function () {
