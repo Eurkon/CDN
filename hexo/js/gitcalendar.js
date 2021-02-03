@@ -4,7 +4,7 @@ const gitcalendar = new Vue({
     simplemode: false,
     //打开时使用canvas绘制gitgitcalendar，关闭时使用svg绘制gitgitcalendar
     //canvas：dom数少，但图像会发生模糊，自适应一般  svg：dom数多，图像清晰，自适应更佳
-    user: 'Empty-HYH',
+    user: 'Eurkon',
     //这里填写你的github用户名
     fixed: 'fixed',
     px: 'px',

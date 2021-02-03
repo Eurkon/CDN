@@ -121,7 +121,6 @@ h2::before {
 .card-star .star-content {
 	text-align: center;
 	padding: 0 .25rem .25rem .25rem;
-	font-weight: 500;
 	font-size: smaller;
 	white-space: nowrap;
 }

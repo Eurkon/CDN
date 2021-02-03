@@ -151,30 +151,6 @@ hr:before {
 	background-color: var(--card-bg);
 }
 
-[data-theme="dark"]
-  .read-mode #aside_content .card-widget {
-	background: rgba(0, 0, 0, 0.5) !important;
-	color: #ffffff;
-}
-
-[data-theme="dark"]
-  .read-mode div#post {
-	background: rgba(0, 0, 0, 0.5) !important;
-	color: #ffffff;
-}
-
-/* 阅读模式 */
-.read-mode #article-container pre *, .read-mode #article-container .highlight:not(.js-file-line-container) * {
-	color: rgba(255, 255, 255, 0.7) !important;
-}
-
-.read-mode #aside_content .card-widget {
-	background: rgba(60, 100, 40, 0.4) !important;
-}
-
-.read-mode div#post {
-	background: rgba(60, 100, 40, 0.4) !important;
-}
 
 table th, table td {
 	border: 1px solid var(--font-color);
