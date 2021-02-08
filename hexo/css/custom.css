@@ -6,6 +6,10 @@ a, img, svg, canvas {
 	cursor: url(/images/user/pointer.cur), auto !important;
 }
 
+.search-dialog {
+	border-radius: 8px;
+}
+
 /* 文章 */
 .reward-button, #pagination .page-number:hover {
 	cursor: url(/images/user/pointer.cur), auto !important;
@@ -59,7 +63,7 @@ hr:before {
 
 #web_bg {
   /* 背景图像的地址（url括号里） */
-	background-image: url('/images/user/background.png');
+	background-image: url('/images/user/background_tiny.png');
 	background-repeat: no-repeat;
   /* 背景图像不重复 */
 	background-repeat: no-repeat;
