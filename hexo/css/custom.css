@@ -26,7 +26,7 @@ a, img, svg, canvas {
 }
 
 .card-star {
-  cursor: url(/images/user/pointer.cur), auto !important;
+	cursor: url(/images/user/pointer.cur), auto !important;
 }
 
 .v[data-class=v] .vwrap .vheader .vinput {
@@ -48,17 +48,13 @@ a, img, svg, canvas {
 }
 
 .hexo-douban-active {
-  background: var(--btn-bg) !important;
-  color: var(--btn-color) !important;
+	background: var(--btn-bg) !important;
+	color: var(--btn-color) !important;
 }
 
 .hexo-douban-button:hover {
-  background: var(--btn-bg) !important;
-  color: var(--btn-color) !important;
-}
-
-hr:before {
-	content: '\f197'
+	background: var(--btn-bg) !important;
+	color: var(--btn-color) !important;
 }
 
 #web_bg {
@@ -138,7 +134,7 @@ hr:before {
 
 /* 页头图片透明 */
 #page-header {
-  background: 0 0 !important;
+	background: 0 0 !important;
 }
 
 #footer #footer-wrap {
@@ -148,11 +144,11 @@ hr:before {
 
 /* 所有背景（包括首页卡片、文章页、页面页等） */
 #aside_content .card-widget, #recent-posts>.recent-post-item, .layout_page>div:first-child:not(.recent-posts), .layout_post>#page,.layout_post>#post,.read-mode .layout_post>#post, .cover, .gallery-group-img {
-	background: var(--card-bg);
+	/* background-color: var(--card-bg); */
 }
 
 [data-theme=dark] #nav,[data-theme=dark] .layout_page>div:first-child:not(.recent-posts),[data-theme=dark] .layout_post>#post {
-	background-color: var(--card-bg);
+	/* background-color: var(--card-bg); */
 }
 
 
