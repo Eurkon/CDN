@@ -4,5 +4,5 @@ date: 2020-01-08 15:00:38
 ---
 
 {% gallery %}
-![](/images/gallery/wallpaper/background.png)
+![](https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/gallery/wallpaper/background.png)
 {% endgallery %}

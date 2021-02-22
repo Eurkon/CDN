@@ -4,5 +4,5 @@ date: 2020-01-08 15:00:38
 ---
 
 {% gallery %}
-![](/images/gallery/marvel/marvel.jpg)
+![](https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/gallery/marvel/marvel.jpg)
 {% endgallery %}

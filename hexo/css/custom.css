@@ -1,32 +1,32 @@
 body {
-	cursor: url(/images/user/default.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/default.cur), auto !important;
 }
 
 a, img, svg, canvas {
-	cursor: url(/images/user/pointer.cur), auto !important;
-}
-
-.search-dialog {
-	border-radius: 8px;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
 }
 
 /* 文章 */
 .reward-button, #pagination .page-number:hover {
-	cursor: url(/images/user/pointer.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
 }
 
 /* 图片预览 */
 .fancybox, .fancybox-button, .fancybox-content {
-	cursor: url(/images/user/pointer.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
 }
 
 /* 评论与回复 */
 .switch-btn, .vcol * , .v[data-class=v] .vicon, .v[data-class=v] .vbtn, .vat, .vemojis *, .vcontent.expand {
-	cursor: url(/images/user/pointer.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
 }
 
 .card-star {
-	cursor: url(/images/user/pointer.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
+}
+
+.search-dialog {
+	border-radius: 8px;
 }
 
 .v[data-class=v] .vwrap .vheader .vinput {
@@ -59,7 +59,7 @@ a, img, svg, canvas {
 
 #web_bg {
   /* 背景图像的地址（url括号里） */
-	background-image: url('/images/user/background_tiny.png');
+	background-image: url('https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/background_tiny.png');
 	background-repeat: no-repeat;
   /* 背景图像不重复 */
 	background-repeat: no-repeat;
@@ -82,7 +82,7 @@ a, img, svg, canvas {
 }
 
 #vcomment textarea {
-	/* background: url(/images/user/textarea.png) 100% 100% no-repeat */
+	/* background: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/textarea.png) 100% 100% no-repeat */
 }
 
 .v[data-class=v] .vcards .vcard .vh .vmeta .vat {
