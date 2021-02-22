@@ -32,10 +32,9 @@ function history_get_data () {
   return ["https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/json/history/" + getMonth + ".json", getMonthDate]
 }
 
-let history_data = history_get_data()
-fetch(history_data[0]).then(data => data.json()).then(data => {
+fetch(history_get_data()[0]).then(data => data.json()).then(data => {
   html_item = ''
-  for (let item of data[history_data[1]]) {
+  for (let item of data[history_get_data()[1]]) {
     html_item += '<div class="swiper-slide history_slide"><span class="history_slide_time">A.D.' +
       item.year + '</span>' + '<span class="history_slide_link">' + item.title + '</span></div>'
   }
