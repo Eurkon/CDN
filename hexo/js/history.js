@@ -29,7 +29,7 @@ function history_get_data () {
     getDate = String(getDate);
   }
   let getMonthDate = "S" + getMonth + getDate;
-  return ["https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/json/history/" + getMonth + ".json", getMonthDate]
+  return ["https://cdn.jsdelivr.net/gh/Eurkon/CDN@latest/hexo/json/history/" + getMonth + ".json", getMonthDate]
 }
 
 fetch(history_get_data()[0]).then(data => data.json()).then(data => {

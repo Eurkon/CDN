@@ -1,28 +1,28 @@
 body {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/default.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@latest/hexo/images/user/default.cur), auto !important;
 }
 
 a, img, svg, canvas {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@latest/hexo/images/user/pointer.cur), auto !important;
 }
 
 /* 文章 */
 .reward-button, #pagination .page-number:hover {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@latest/hexo/images/user/pointer.cur), auto !important;
 }
 
 /* 图片预览 */
 .fancybox, .fancybox-button, .fancybox-content {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@latest/hexo/images/user/pointer.cur), auto !important;
 }
 
 /* 评论与回复 */
 .switch-btn, .vcol * , .v[data-class=v] .vicon, .v[data-class=v] .vbtn, .vat, .vemojis *, .vcontent.expand {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@latest/hexo/images/user/pointer.cur), auto !important;
 }
 
 .card-star {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@latest/hexo/images/user/pointer.cur), auto !important;
 }
 
 
