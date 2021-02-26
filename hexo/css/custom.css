@@ -65,6 +65,12 @@ table th, table td {
 	transition: all 0.3s;
 }
 
+/* Twikoo评论框高度 */
+.el-textarea__inner {
+	min-height: 150px !important;
+	height: 150px !important;
+}
+
 /* 豆瓣页面按钮 */
 .hexo-douban-active {
 	color: var(--btn-color) !important;
