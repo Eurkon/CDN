@@ -3,24 +3,9 @@
 }
 
 .link-navigation::after {
-	content: " ";
+	content: "";
 	display: block;
 	clear: both
-}
-
-h2 {
-	padding-left: 1.3rem;
-}
-
-h2::before {
-	margin-left: -1.1rem;
-	font-size: 0.9rem;
-	position: absolute;
-	top: calc(50% - 0.35rem);
-	color: #f47466;
-	content: '\f863';
-	line-height: 1;
-	font-family: 'Font Awesome 5 Free';
 }
 
 .card-star {
@@ -114,7 +99,8 @@ h2::before {
 .card-star .star-header {
 	text-align: center;
 	padding: .25rem .25rem;
-	font-weight: 500;
+	font-weight: bold;
+	font-size: larger;
 	white-space: nowrap;
 }
 
