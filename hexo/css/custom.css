@@ -2,7 +2,7 @@ body {
 	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@latest/hexo/images/user/default.cur), auto !important;
 }
 
-a, img, svg, canvas {
+a, img, button, svg, canvas {
 	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@latest/hexo/images/user/pointer.cur), auto !important;
 }
 
