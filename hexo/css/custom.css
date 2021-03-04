@@ -83,13 +83,13 @@ table th, table td {
 }
 
 /* 旋转标题 before */
-#article-container.post-content h1:before, h2:before, h3:before, h4:before, h5:before, h6:before {
+/* #article-container.post-content h1:before, h2:before, h3:before, h4:before, h5:before, h6:before {
 	-webkit-animation: avatar_turn_around 2s linear infinite;
 	-moz-animation: avatar_turn_around 2s linear infinite;
 	-o-animation: avatar_turn_around 2s linear infinite;
 	-ms-animation: avatar_turn_around 2s linear infinite;
 	animation: avatar_turn_around 2s linear infinite;
-}
+} */
 
 /* 评论按钮 */
 .v[data-class=v] .vcards .vcard .vh .vmeta .vat {
