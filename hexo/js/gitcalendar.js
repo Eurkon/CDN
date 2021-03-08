@@ -277,5 +277,5 @@ var loading_git = (color) => {
   var git_blue = ['#d7dbe2', '#f1f8ff', '#dbedff', '#c8e1ff', '#79b8ff', '#2188ff', '#0366d6', '#005cc5', '#044289', '#032f62', '#05264c'];
   var git_color = git_purple;
   append_div_gitcalendar(github_container, loading_git(git_color[4]));
-  // github_canlendar(git_user, git_color)
+  github_canlendar(git_user, git_color)
 })()
