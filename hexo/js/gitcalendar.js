@@ -39,6 +39,7 @@ var github_canlendar = (git_user, git_color) => {
       context.scale(ratio, ratio);
     }
   };
+
   function responsiveChart () {
     var ratio = window.devicePixelRatio || 1
     var git_tooltip_container = document.getElementById('git_tooltip_container');
@@ -46,74 +47,78 @@ var github_canlendar = (git_user, git_color) => {
     var git_y = '';
     var git_span1 = '';
     var git_span2 = '';
-    var c = document.getElementById("gitcanvas");
-    c.style.width = '100%';
-    c.style.height = '';
-    var cmessage = document.getElementById("gitmessage");
-    var ctx = c.getContext("2d");
-    width = c.width = document.getElementById("gitcalendarcanvasbox").offsetWidth;
-    height = c.height = 9 * 0.96 * c.width / git_data.length;
-    retinaCanvas(c, ctx, ratio)
-    var linemaxwitdh = height / 9;
-    var lineminwitdh = 0.8 * linemaxwitdh;
-    var setposition = { x: 0.02 * width, y: 0.025 * width };
-    for (var week in git_data) {
-      weekdata = git_data[week];
-      for (var day in weekdata) {
-        var dataitem = { date: "", count: "", x: 0, y: 0 };
-        git_positionplusdata.push(dataitem);
-        ctx.fillStyle = git_thiscolor(git_color, weekdata[day].count);
-        setposition.y = Math.round(setposition.y * 100) / 100;
-        dataitem.date = weekdata[day].date;
-        dataitem.count = weekdata[day].count;
-        dataitem.x = setposition.x;
-        dataitem.y = setposition.y;
-        ctx.fillRect(setposition.x, setposition.y, lineminwitdh, lineminwitdh);
-        setposition.y = setposition.y + linemaxwitdh
+    if (document.getElementById("gitcanvas")) {
+      var c = document.getElementById("gitcanvas");
+      c.style.width = '100%';
+      c.style.height = '';
+      var cmessage = document.getElementById("gitmessage");
+      var ctx = c.getContext("2d");
+      width = c.width = document.getElementById("gitcalendarcanvasbox").offsetWidth;
+      height = c.height = 9 * 0.96 * c.width / git_data.length;
+      retinaCanvas(c, ctx, ratio)
+      var linemaxwitdh = height / 9;
+      var lineminwitdh = 0.8 * linemaxwitdh;
+      var setposition = { x: 0.02 * width, y: 0.025 * width };
+      for (var week in git_data) {
+        weekdata = git_data[week];
+        for (var day in weekdata) {
+          var dataitem = { date: "", count: "", x: 0, y: 0 };
+          git_positionplusdata.push(dataitem);
+          ctx.fillStyle = git_thiscolor(git_color, weekdata[day].count);
+          setposition.y = Math.round(setposition.y * 100) / 100;
+          dataitem.date = weekdata[day].date;
+          dataitem.count = weekdata[day].count;
+          dataitem.x = setposition.x;
+          dataitem.y = setposition.y;
+          ctx.fillRect(setposition.x, setposition.y, lineminwitdh, lineminwitdh);
+          setposition.y = setposition.y + linemaxwitdh
+        }
+        setposition.y = 0.025 * width;
+        setposition.x = setposition.x + linemaxwitdh
       }
-      setposition.y = 0.025 * width;
-      setposition.x = setposition.x + linemaxwitdh
-    }
-    if (document.body.clientWidth > 700) {
-      ctx.font = "600  Arial";
-      ctx.fillStyle = '#aaa';
-      ctx.fillText("日", 0, 1.9 * linemaxwitdh);
-      ctx.fillText("二", 0, 3.9 * linemaxwitdh);
-      ctx.fillText("四", 0, 5.9 * linemaxwitdh);
-      ctx.fillText("六", 0, 7.9 * linemaxwitdh);
-      var monthindexlist = width / 24;
-      for (var index in git_monthchange) {
-        ctx.fillText(git_monthchange[index], monthindexlist, 0.7 * linemaxwitdh);
-        monthindexlist = monthindexlist + width / 12
-      }
-    }
-    c.onmousemove = function (event) {
-      if (document.querySelector('.gitmessage')) {
-        git_tooltip_container.innerHTML = ""
-      }
-      getMousePos(c, event)
-    };
-    git_tooltip_container.onmousemove = function (event) {
-      if (document.querySelector('.gitmessage')) {
-        git_tooltip_container.innerHTML = ""
-      }
-    };
 
-    function getMousePos (canvas, event) {
-      var rect = canvas.getBoundingClientRect();
-      var x = event.clientX - rect.left * (canvas.width / rect.width);
-      var y = event.clientY - rect.top * (canvas.height / rect.height);
-      for (var item of git_positionplusdata) {
-        var lenthx = x - item.x;
-        var lenthy = y - item.y;
-        if (0 < lenthx && lenthx < lineminwitdh) {
-          if (0 < lenthy && lenthy < lineminwitdh) {
-            git_span1 = item.date;
-            git_span2 = item.count;
-            git_x = event.clientX - 100;
-            git_y = event.clientY - 60;
-            html = tooltip_html(git_x, git_y, git_span1, git_span2);
-            append_div_gitcalendar(git_tooltip_container, html)
+      if (document.body.clientWidth > 700) {
+        ctx.font = "600  Arial";
+        ctx.fillStyle = '#aaa';
+        ctx.fillText("日", 0, 1.9 * linemaxwitdh);
+        ctx.fillText("二", 0, 3.9 * linemaxwitdh);
+        ctx.fillText("四", 0, 5.9 * linemaxwitdh);
+        ctx.fillText("六", 0, 7.9 * linemaxwitdh);
+        var monthindexlist = width / 24;
+        for (var index in git_monthchange) {
+          ctx.fillText(git_monthchange[index], monthindexlist, 0.7 * linemaxwitdh);
+          monthindexlist = monthindexlist + width / 12
+        }
+      }
+
+      c.onmousemove = function (event) {
+        if (document.querySelector('.gitmessage')) {
+          git_tooltip_container.innerHTML = ""
+        }
+        getMousePos(c, event)
+      };
+      git_tooltip_container.onmousemove = function (event) {
+        if (document.querySelector('.gitmessage')) {
+          git_tooltip_container.innerHTML = ""
+        }
+      };
+
+      function getMousePos (canvas, event) {
+        var rect = canvas.getBoundingClientRect();
+        var x = event.clientX - rect.left * (canvas.width / rect.width);
+        var y = event.clientY - rect.top * (canvas.height / rect.height);
+        for (var item of git_positionplusdata) {
+          var lenthx = x - item.x;
+          var lenthy = y - item.y;
+          if (0 < lenthx && lenthx < lineminwitdh) {
+            if (0 < lenthy && lenthy < lineminwitdh) {
+              git_span1 = item.date;
+              git_span2 = item.count;
+              git_x = event.clientX - 100;
+              git_y = event.clientY - 60;
+              html = tooltip_html(git_x, git_y, git_span1, git_span2);
+              append_div_gitcalendar(git_tooltip_container, html)
+            }
           }
         }
       }
