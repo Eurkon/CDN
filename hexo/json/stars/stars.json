@@ -21,6 +21,63 @@
       "content": "应用管理，数据控制"
     }
   ],
+  "navigation": [
+    {
+      "nickname": "书享家",
+      "site": "http://shuxiangjia.cn/",
+      "content": "电子书下载导航"
+    },
+    {
+      "nickname": "学吧导航",
+      "site": "https://www.xue8nav.com/",
+      "content": "学习导航网站"
+    },
+    {
+      "nickname": "科塔学术",
+      "site": "https://site.sciping.com/",
+      "content": "学术资源导航平台"
+    },
+    {
+      "nickname": "HiPPTer",
+      "site": "http://www.hippter.com/",
+      "content": "PPT资源导航"
+    },
+    {
+      "nickname": "Seeseed",
+      "site": "https://www.seeseed.com/",
+      "content": "设计素材资源导航，无穷尽设计可能"
+    },
+    {
+      "nickname": "创造狮",
+      "site": "http://chuangzaoshi.com/index",
+      "content": "创意工作者导航，为创意工作者而设计"
+    },
+    {
+      "nickname": "阿猫阿狗导航",
+      "site": "https://dh.woshipm.com/",
+      "content": "互联网工具导航、产品汪、运营猫必备。"
+    },
+    {
+      "nickname": "199it",
+      "site": "http://hao.199it.com/",
+      "content": "大数据工具导航"
+    },
+    {
+      "nickname": "打假导航",
+      "site": "http://www.dajiadaohang.com/",
+      "content": "国家部门导航"
+    },
+    {
+      "nickname": "搜狗网址导航",
+      "site": "http://123.sogou.com/diqu/",
+      "content": "地方部门导航"
+    },
+    {
+      "nickname": "addog",
+      "site": "https://www.addog.vip/",
+      "content": "广告人的网址导航"
+    }
+  ],
   "docs": [
     {
       "nickname": "Java",
