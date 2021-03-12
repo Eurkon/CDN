@@ -21,11 +21,6 @@ a, img, button, svg, canvas {
 	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@latest/hexo/images/user/pointer.cur), auto !important;
 }
 
-/* valine 评论表情悬停放大 */
-img.vemoji:hover{
-	transform: scale(2);
-}
-
 /* 评论与回复 */
 .switch-btn, .vcol * , .v[data-class=v] .vicon, .v[data-class=v] .vbtn, .vat, .vemojis *, .vcontent.expand {
 	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@latest/hexo/images/user/pointer.cur), auto !important;
@@ -49,6 +44,17 @@ table th, table td {
 /* 搜索框 */
 .search-dialog {
 	border-radius: 8px;
+}
+
+/* 右下角按钮 */
+#rightside > div > button, #rightside > div > a {
+	margin-bottom: 2px;
+	border-radius: 15px;
+}
+
+/* valine 评论表情悬停放大 */
+img.vemoji:hover{
+	transform: scale(2);
 }
 
 /* 评论输入框 */
