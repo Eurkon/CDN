@@ -197,7 +197,7 @@ var github_canlendar = (git_user, git_color) => {
     addweek(data);
     addlastmonth();
     var html = github_main_box(git_monthchange, git_data, git_user, git_color, git_total, git_thisweekdatacore, git_weekdatacore, git_oneyearbeforeday, git_thisday, git_aweekago, git_amonthago);
-    append_div_gitcalendar(github_container, html);
+    append_div_gitcalendar(document.getElementById('github_container'), html);
     if (document.getElementById('github_loading')) {
       document.getElementById('github_loading').remove()
     };
@@ -255,16 +255,18 @@ var github_canlendar = (git_user, git_color) => {
   }
 };
 var append_div_gitcalendar = (parent, text) => {
-  if (typeof text === 'string') {
-    var temp = document.createElement('div');
-    temp.innerHTML = text;
-    var frag = document.createDocumentFragment();
-    while (temp.firstChild) {
-      frag.appendChild(temp.firstChild)
+  if (parent !== null) {
+    if (typeof text === 'string') {
+      var temp = document.createElement('div');
+      temp.innerHTML = text;
+      var frag = document.createDocumentFragment();
+      while (temp.firstChild) {
+        frag.appendChild(temp.firstChild)
+      }
+      parent.appendChild(frag)
+    } else {
+      parent.appendChild(text)
     }
-    parent.appendChild(frag)
-  } else {
-    parent.appendChild(text)
   }
 };
 var loading_git = (color) => {
