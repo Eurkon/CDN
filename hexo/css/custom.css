@@ -1,34 +1,34 @@
 body {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@latest/hexo/images/user/default.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/default.cur), auto !important;
 }
 
 a, img, button, svg, canvas {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@latest/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
 }
 
 /* 打赏按钮 */
 .reward-button {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@latest/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
 }
 
 /* 文章翻页 */
 #pagination .page-number:hover {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@latest/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
 }
 
 /* 图片预览 */
 .fancybox, .fancybox-button, .fancybox-content {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@latest/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
 }
 
 /* 评论与回复 */
 .switch-btn, .vcol * , .v[data-class=v] .vicon, .v[data-class=v] .vbtn, .vat, .vemojis *, .vcontent.expand {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@latest/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
 }
 
 /* 网站收藏卡片 */
 .card-star {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@latest/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
 }
 
 /* 表格边框 */
