@@ -21,6 +21,11 @@ a, img, button, svg, canvas {
 	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
 }
 
+/* 代码块 */
+#article-container figure.highlight .highlight-tools .expand ~ .copy-button, #article-container figure.highlight .highlight-tools .expand, #article-container .code-expand-btn {
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
+}
+
 /* 评论与回复 */
 .switch-btn, .vcol * , .v[data-class=v] .vicon, .v[data-class=v] .vbtn, .vat, .vemojis *, .vcontent.expand {
 	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
@@ -44,6 +49,11 @@ table th, table td {
 /* 搜索框 */
 .search-dialog {
 	border-radius: 8px;
+}
+
+/* 页数颜色 */
+.pagination a, .pagination span {
+	color: var(--white);
 }
 
 /* 右下角按钮 */
