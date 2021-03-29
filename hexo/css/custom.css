@@ -53,7 +53,7 @@ table th, table td {
 
 /* 页数颜色 */
 .pagination a, .pagination span {
-	color: var(--white);
+	color: #99a9bf;
 }
 
 /* 右下角按钮 */
