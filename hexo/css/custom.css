@@ -51,6 +51,11 @@ table th, table td {
 	border-radius: 8px;
 }
 
+/* 加粗字体颜色 */
+b, strong {
+	color: #f47466;
+}
+
 /* 页数颜色 */
 .pagination a, .pagination span {
 	color: #99a9bf;
