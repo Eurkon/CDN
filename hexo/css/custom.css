@@ -1,8 +1,16 @@
-body {
+html {
 	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/default.cur), auto !important;
 }
 
-a, img, button, svg, canvas {
+#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .post-meta-date {
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/default.cur), auto !important;
+}
+
+a, img, button, svg, canvas, select {
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
+}
+
+i.scroll-down-effects {
 	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
 }
 
@@ -31,8 +39,17 @@ a, img, button, svg, canvas {
 	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
 }
 
+/* twikoo */
+.tk-action-icon, .tk-panel .tk-tab, .tk-pagination-pager, .OwO .OwO-body, .OwO .OwO-body .OwO-items .OwO-item, .OwO .OwO-body .OwO-bar .OwO-packages li{
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
+}
+
 /* 网站收藏卡片 */
 .card-star {
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
+}
+
+.swiper-pagination-clickable .swiper-pagination-bullet {
 	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
 }
 
