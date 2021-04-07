@@ -40,7 +40,7 @@ i.scroll-down-effects {
 }
 
 /* twikoo */
-.tk-action-icon, .tk-panel .tk-tab, .tk-pagination-pager, .OwO .OwO-body, .OwO .OwO-body .OwO-items .OwO-item, .OwO .OwO-body .OwO-bar .OwO-packages li{
+.tk-action-icon, .tk-panel .tk-tab, .tk-expand, .tk-pagination-pager, .OwO .OwO-body, .OwO .OwO-body .OwO-items .OwO-item, .OwO .OwO-body .OwO-bar .OwO-packages li{
 	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
 }
 
@@ -110,8 +110,15 @@ img.vemoji:hover{
 
 /* Twikoo评论框高度 */
 .el-textarea__inner {
-	min-height: 150px !important;
-	height: 150px !important;
+	min-height: 100px !important;
+}
+
+.tk-comment {
+	margin: .3rem;
+	padding: .8rem;
+	border: 1px solid var(--light-grey);
+	border-radius: 8px;
+	box-shadow: 1px 1px 5px;
 }
 
 /* 豆瓣页面按钮 */
