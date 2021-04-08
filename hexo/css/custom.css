@@ -40,7 +40,7 @@ i.scroll-down-effects {
 }
 
 /* twikoo */
-.tk-action-icon, .tk-panel .tk-tab, .tk-expand, .tk-pagination-pager, .OwO .OwO-body, .OwO .OwO-body .OwO-items .OwO-item, .OwO .OwO-body .OwO-bar .OwO-packages li{
+.tk-action-icon, .tk-panel .tk-tab, .tk-expand, .tk-pagination-pager, .OwO .OwO-body, .OwO .OwO-body .OwO-items .OwO-item, .OwO .OwO-body .OwO-bar .OwO-packages li {
 	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
 }
 
@@ -68,6 +68,41 @@ table th, table td {
 	border-radius: 8px;
 }
 
+/* 文章段落标题 */
+#article-container .headerlink {
+	float: right;
+	opacity: .5;
+	border-bottom-style: none;
+	border-bottom: none;
+	position: relative;
+}
+
+#article-container .headerlink::before {
+	content: "\f0c1";
+	font-family: "Font Awesome 5 Free";
+	font-size: smaller;
+}
+
+#article-container .headerlink:hover {
+	background: 0 0;
+	opacity: 1;
+	border-bottom: none;
+	text-decoration: none;
+}
+
+/* 目录 */
+#aside-content #card-toc .toc-content .toc-link.active {
+	border-radius: 8px;
+	border-left-color: var(--btn-bg);
+	background-color: var(--btn-bg);
+	font-weight: 700;
+}
+
+/* 文章图片 */
+#article-container img {
+	border-radius: 8px;
+}
+
 /* 加粗字体颜色 */
 b, strong {
 	color: #f47466;
@@ -85,7 +120,7 @@ b, strong {
 }
 
 /* valine 评论表情悬停放大 */
-img.vemoji:hover{
+img.vemoji:hover {
 	transform: scale(2);
 }
 
