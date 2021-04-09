@@ -71,7 +71,7 @@ table th, table td {
 /* 文章段落标题 */
 #article-container .headerlink {
 	float: right;
-	opacity: .5;
+	opacity: .6;
 	border-bottom-style: none;
 	border-bottom: none;
 	position: relative;
@@ -83,29 +83,197 @@ table th, table td {
 	font-size: smaller;
 }
 
+#article-container :hover .headerlink {
+	opacity: 1;
+	text-decoration: none
+}
+
 #article-container .headerlink:hover {
 	background: 0 0;
 	opacity: 1;
 	border-bottom: none;
-	text-decoration: none;
 }
 
 /* 目录 */
 #aside-content #card-toc .toc-content .toc-link.active {
 	border-radius: 8px;
-	border-left-color: var(--btn-bg);
-	background-color: var(--btn-bg);
+	border-left-color: var(--text-bg-hover);
+	background-color: var(--text-bg-hover);
 	font-weight: 700;
 }
 
 /* 文章图片 */
-#article-container img {
+#article-container img, .post-qr-code-img {
 	border-radius: 8px;
+}
+
+/* button */
+.button--animated {
+	border-radius: 8px;
+}
+
+.button--animated:before {
+	border-radius: 8px;
+	background-color: var(--btn-hover-color);
+}
+
+/* a */
+#article-container a:hover {
+	color: #f47466;
+}
+
+a {
+	text-decoration: none !important;
+}
+
+/* 侧边栏 */
+/* #aside-content .aside-list > .aside-list-item:hover {
+	color: var(--btn-color) !important;
+	background: var(--text-bg-hover);
+	border-radius: 8px;
+} */
+
+#aside-content .card-archives ul.card-archive-list>.card-archive-list-item a:hover {
+	color: var(--btn-color) !important;
+	background: var(--text-bg-hover);
+	border-radius: 8px;
+}
+
+#aside-content .card-categories ul.card-category-list>.card-category-list-item a:hover {
+	color: var(--btn-color) !important;
+	background: var(--text-bg-hover);
+	border-radius: 8px;
+}
+
+#aside-content .card-tag-cloud a:hover {
+	color: var(--btn-color) !important;
+	background: var(--text-bg-hover);
+	border-radius: 8px;
+	transform: scale(0.95)
+}
+
+/* 首页文章 */
+#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap a {
+	padding: 0 0.1rem;
+}
+
+#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap a:hover {
+	color: var(--btn-color) !important;
+	background: var(--text-bg-hover);
+	border-radius: 6px;
+	transform: scale(0.95)
+}
+
+
+/* 上下一篇文章 */
+#pagination .prev_info, #pagination .next_info {
+	font-size: medium;
+	font-weight: 500;
+}
+
+#pagination img.prev-cover, #pagination img.next-cover {
+	background-color: var(--card-bg);
+}
+
+#pagination .prev-post:hover img.prev-cover, #pagination .next-post:hover img.next-cover {
+	opacity: .7;
+}
+
+#pagination.pagination-post {
+	border-radius: 8px
+}
+
+/* 推荐文章 */
+.relatedPosts > .relatedPosts-list .content .date {
+	font-size: larger;
+}
+
+.relatedPosts>.relatedPosts-list .content .title {
+	font-size: larger;
+	font-weight: 500;
+}
+
+.relatedPosts>.relatedPosts-list .cover {
+	background-color: var(--card-bg);
+}
+
+.relatedPosts>.relatedPosts-list>div:hover .cover {
+	opacity: .7;
+}
+
+@media screen and (min-width:769px) {
+	#post>div.relatedPosts>div.relatedPosts-list>div:nth-child(1) {
+		border-radius: 8px 0 0 0
+	}
+
+	#post>div.relatedPosts>div.relatedPosts-list>div:nth-child(3) {
+		border-radius: 0 8px 0 0
+	}
+
+	#post>div.relatedPosts>div.relatedPosts-list>div:nth-child(4) {
+		border-radius: 0 0 0 8px
+	}
+
+	#post>div.relatedPosts>div.relatedPosts-list>div:nth-child(6) {
+		border-radius: 0 0 8px 0
+	}
+}
+
+@media (max-width:768px) and (min-width:601px) {
+	#post>div.relatedPosts>div.relatedPosts-list>div:nth-child(1) {
+		border-radius: 8px 0 0 0
+	}
+
+	#post>div.relatedPosts>div.relatedPosts-list>div:nth-child(2) {
+		border-radius: 0 8px 0 0
+	}
+
+	#post>div.relatedPosts>div.relatedPosts-list>div:nth-child(5) {
+		border-radius: 0 0 0 8px
+	}
+
+	#post>div.relatedPosts>div.relatedPosts-list>div:nth-child(6) {
+		border-radius: 0 0 8px 0
+	}
+}
+
+@media (max-width:600px) {
+	#post>div.relatedPosts>div.relatedPosts-list>div:nth-child(1) {
+		border-radius: 8px 8px 0 0
+	}
+
+	#post>div.relatedPosts>div.relatedPosts-list>div:nth-child(6) {
+		border-radius: 0 0 8px 8px
+	}
+}
+
+/* 顶部菜单栏 */
+#nav .menus_items .menus_item .menus_item_child {
+	padding: 2px;
+	border-radius: 8px;
+}
+
+#nav .menus_items .menus_item i.expand {
+	/* display: none */
+}
+
+#nav .menus_items .menus_item .menus_item_child li:hover {
+	background: var(--text-bg-hover);
+	border-radius: 8px;
+}
+
+#nav .menus_items .menus_item .menus_item_child li a:hover {
+	color: var(--btn-color) !important;
 }
 
 /* 加粗字体颜色 */
 b, strong {
 	color: #f47466;
+}
+
+/* 赞赏 */
+.post-reward {
+	margin-top: 2rem;
 }
 
 /* 页数颜色 */
@@ -133,7 +301,7 @@ img.vemoji:hover {
 #vcomment button {
 	padding: 0.3rem 0.8rem;
 	border-color: #fff;
-	background-color: #e58a8a;
+	background-color: #f47466;
 	color: #fff;
 	font-size: 0.7rem;
 	-webkit-transition: all 0.3s;
@@ -149,14 +317,63 @@ img.vemoji:hover {
 }
 
 .tk-comment {
-	margin: .3rem;
+	margin: .1rem;
 	padding: .8rem;
 	border: 1px solid var(--light-grey);
 	border-radius: 8px;
 	box-shadow: 1px 1px 5px;
 }
 
-/* 豆瓣页面按钮 */
+.OwO .OwO-body {
+	color: var(--font-color) !important;
+	background-color: var(--card-bg) !important;
+}
+
+.OwO.OwO-open .OwO-body {
+	border-radius: 8px;
+}
+
+.OwO .OwO-body .OwO-items .OwO-item:hover {
+	color: var(--card-bg) !important;
+	background-color: var(--font-color) !important;
+	transform: scale(1.2);
+}
+
+.OwO .OwO-body .OwO-bar .OwO-packages .OwO-package-active {
+	color: var(--card-bg) !important;
+	background-color: var(--font-color) !important;
+}
+
+.tk-content :not(pre) > code[class*="language-"], .tk-content pre[class*="language-"] {
+	border-radius: 8px;
+}
+
+.tk-nick, .tk-nick-link {
+	font-size: larger !important;
+}
+
+.tk-content {
+	margin-top: 0 !important;
+}
+
+.tk-expand:hover {
+	background-color: var(--tab-button-hover-bg) !important;
+	border-radius: 8px;
+}
+
+/* 豆瓣页面 */
+.hexo-douban-item {
+	background-color: var(--blockquote-bg);
+	border-radius: 8px;
+	margin: 8px 0;
+	border-bottom: none !important;
+}
+
+.hexo-douban-item .hexo-douban-picture img {
+	margin: 0 !important;
+	margin-left: .5rem !important
+}
+
 .hexo-douban-active {
 	color: var(--btn-color) !important;
 	background: var(--btn-bg) !important;
@@ -165,6 +382,33 @@ img.vemoji:hover {
 .hexo-douban-button:hover {
 	color: var(--btn-color) !important;
 	background: var(--btn-bg) !important;
+}
+
+/* 朋友圈 */
+.moments-item {
+	background-color: var(--card-bg);
+	border-radius: 8px !important;
+	padding: 8px;
+	margin: 0 0 .5rem .5rem !important;
+}
+
+#info_user_pool {
+	padding: 0px !important;
+}
+
+@media screen and (max-width: 500px) {
+	.moments_chart {
+		padding: 5px;
+	}
+}
+
+.flink-list > a .info img {
+	border-radius: 50% !important;
+}
+
+/* 音乐播放器 */
+#article-container .aplayer {
+	border-radius: 8px !important;
 }
 
 /* 旋转标题 before */
@@ -196,10 +440,6 @@ img.vemoji:hover {
 	border-radius: 1em;
 	background-color: var(--btn-bg);
 	background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.4) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.4) 50%,rgba(255,255,255,.4) 75%,transparent 75%,transparent);
-}
-
-::-webkit-scrollbar-corner {
-	background-color: transparent;
 }
 
 /* 首页头图透明 */
