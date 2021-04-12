@@ -2,16 +2,16 @@ html {
 	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/default.cur), auto !important;
 }
 
-#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .post-meta-date {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/default.cur), auto !important;
-}
-
 a, img, button, svg, canvas, select {
 	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
 }
 
 i.scroll-down-effects {
 	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
+}
+
+#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .post-meta-date {
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/default.cur), auto !important;
 }
 
 /* 打赏按钮 */
@@ -49,6 +49,7 @@ i.scroll-down-effects {
 	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
 }
 
+/* 文章轮播 */
 .swiper-pagination-clickable .swiper-pagination-bullet {
 	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
 }
@@ -94,14 +95,6 @@ table th, table td {
 	border-bottom: none;
 }
 
-/* 目录 */
-#aside-content #card-toc .toc-content .toc-link.active {
-	border-radius: 8px;
-	border-left-color: var(--text-bg-hover);
-	background-color: var(--text-bg-hover);
-	font-weight: 700;
-}
-
 /* 文章图片 */
 #article-container img, .post-qr-code-img {
 	border-radius: 8px;
@@ -118,12 +111,12 @@ table th, table td {
 }
 
 /* a */
-#article-container a:hover {
-	color: #f47466;
-}
-
 a {
 	text-decoration: none !important;
+}
+
+#article-container a:hover {
+	color: #f47466;
 }
 
 /* 侧边栏 */
@@ -149,7 +142,35 @@ a {
 	color: var(--btn-color) !important;
 	background: var(--text-bg-hover);
 	border-radius: 8px;
-	transform: scale(0.95)
+	-webkit-transform: scale(0.95);
+	-moz-transform: scale(0.95);
+	-o-transform: scale(0.95);
+	-ms-transform: scale(0.95);
+	transform: scale(0.95);
+}
+
+#aside-content .aside-list > .aside-list-item .thumbnail {
+	border-radius: 8px;
+}
+
+#aside-content .aside-list > .aside-list-item .content > .title, #aside-content .aside-list > .aside-list-item .content > .comment {
+	font-weight: 500;
+}
+
+.history_slide {
+	font-size: 95% !important;
+}
+
+/* 目录 */
+#aside-content #card-toc .toc-content .toc-link.active {
+	border-radius: 8px;
+	border-left-color: var(--text-bg-hover);
+	background-color: var(--text-bg-hover);
+	font-weight: 700;
+}
+
+#aside-content #card-toc .toc-content .toc-link {
+	font-size: 95%;
 }
 
 /* 首页文章 */
@@ -161,9 +182,24 @@ a {
 	color: var(--btn-color) !important;
 	background: var(--text-bg-hover);
 	border-radius: 6px;
-	transform: scale(0.95)
+	-webkit-transform: scale(0.95);
+	-moz-transform: scale(0.95);
+	-o-transform: scale(0.95);
+	-ms-transform: scale(0.95);
+	transform: scale(0.95);
 }
 
+.post-meta-date .article-meta-label {
+	display: none
+}
+
+.blog-slider__img:after {
+	border-radius: 8px !important;
+}
+
+#recent-posts>.recent-post-item {
+	height: 16em;
+}
 
 /* 上下一篇文章 */
 #pagination .prev_info, #pagination .next_info {
@@ -185,11 +221,11 @@ a {
 
 /* 推荐文章 */
 .relatedPosts > .relatedPosts-list .content .date {
-	font-size: larger;
+	font-size: medium;
 }
 
 .relatedPosts>.relatedPosts-list .content .title {
-	font-size: larger;
+	font-size: medium;
 	font-weight: 500;
 }
 
@@ -249,7 +285,7 @@ a {
 
 /* 顶部菜单栏 */
 #nav .menus_items .menus_item .menus_item_child {
-	padding: 2px;
+	padding: 5px;
 	border-radius: 8px;
 }
 
@@ -276,7 +312,7 @@ b, strong {
 	margin-top: 2rem;
 }
 
-/* 页数颜色 */
+/* 翻页 */
 .pagination a, .pagination span {
 	color: #99a9bf;
 }
@@ -287,31 +323,7 @@ b, strong {
 	border-radius: 15px;
 }
 
-/* valine 评论表情悬停放大 */
-img.vemoji:hover {
-	transform: scale(2);
-}
-
-/* 评论输入框 */
-.v[data-class=v] .vwrap .vheader .vinput {
-	font-size: 0.9em;
-}
-
-/* 提交按钮 */
-#vcomment button {
-	padding: 0.3rem 0.8rem;
-	border-color: #fff;
-	background-color: #f47466;
-	color: #fff;
-	font-size: 0.7rem;
-	-webkit-transition: all 0.3s;
-	-moz-transition: all 0.3s;
-	-o-transition: all 0.3s;
-	-ms-transition: all 0.3s;
-	transition: all 0.3s;
-}
-
-/* Twikoo评论框高度 */
+/* Twikoo */
 .el-textarea__inner {
 	min-height: 100px !important;
 }
@@ -336,7 +348,11 @@ img.vemoji:hover {
 .OwO .OwO-body .OwO-items .OwO-item:hover {
 	color: var(--card-bg) !important;
 	background-color: var(--font-color) !important;
-	transform: scale(1.2);
+	-webkit-transform: scale(1.20);
+	-moz-transform: scale(1.20);
+	-o-transform: scale(1.20);
+	-ms-transform: scale(1.20);
+	transform: scale(1.20);
 }
 
 .OwO .OwO-body .OwO-bar .OwO-packages .OwO-package-active {
@@ -358,6 +374,10 @@ img.vemoji:hover {
 
 .tk-expand:hover {
 	background-color: var(--tab-button-hover-bg) !important;
+	border-radius: 8px;
+}
+
+.tk-avatar-img {
 	border-radius: 8px;
 }
 
@@ -392,6 +412,18 @@ img.vemoji:hover {
 	margin: 0 0 .5rem .5rem !important;
 }
 
+.moments-item-img {
+	border-radius: 8px;
+}
+
+.moments-item-img img:hover {
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-o-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	transform: scale(1.1);
+}
+
 #info_user_pool {
 	padding: 0px !important;
 }
@@ -419,11 +451,6 @@ img.vemoji:hover {
 	-ms-animation: avatar_turn_around 2s linear infinite;
 	animation: avatar_turn_around 2s linear infinite;
 } */
-
-/* 评论按钮 */
-.v[data-class=v] .vcards .vcard .vh .vmeta .vat {
-	color: var(--btn-bg) !important;
-}
 
 /* 滚动条 */
 ::-webkit-scrollbar {
