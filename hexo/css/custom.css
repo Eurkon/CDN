@@ -238,6 +238,67 @@ a {
 }
 
 /* 首页文章 */
+@media screen and (min-width: 769px) {
+	#recent-posts>.recent-post-item {
+		height: 16em;
+	}
+
+	#recent-posts>.recent-post-item>.recent-post-info>.article-title {
+		margin-top: 4rem;
+		transition: all .6s;
+	}
+
+	#recent-posts>.recent-post-item:hover>.recent-post-info>.article-title {
+		margin-top: 0;
+		margin-bottom: 0.3rem;
+		transition: all .6s;
+	}
+
+	#recent-posts>.recent-post-item>.recent-post-info>.article-meta-wrap {
+		transform: translateY(.5rem);
+		transition: all .6s;
+	}
+
+	#recent-posts>.recent-post-item:hover>.recent-post-info>.article-meta-wrap {
+		transform: translateY(0);
+		transition: all .6s;
+	}
+
+	#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .post-meta-date ,
+#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .article-meta,
+#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags-meta {
+		padding: .3em 0;
+		display: block;
+		transition: all .6s;
+	}
+
+	#recent-posts > .recent-post-item:hover >.recent-post-info > .article-meta-wrap > .post-meta-date ,
+#recent-posts > .recent-post-item:hover >.recent-post-info > .article-meta-wrap > .article-meta,
+#recent-posts > .recent-post-item:hover >.recent-post-info > .article-meta-wrap > .tags-meta {
+		display: inline;
+		transition: all .6s;
+	}
+
+	#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap .article-meta__separator {
+		display: none;
+		transition: all .6s;
+	}
+
+	#recent-posts > .recent-post-item:hover >.recent-post-info > .article-meta-wrap .article-meta__separator {
+		display: inline;
+		transition: all .6s;
+	}
+
+	#recent-posts > .recent-post-item >.recent-post-info > .content {
+		opacity: 0;
+	}
+
+	#recent-posts>.recent-post-item:hover>.recent-post-info>.content {
+		opacity: 1;
+		transition: all 1.0s;
+	}
+}
+
 #recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap a {
 	padding: 0 .2rem;
 }
@@ -259,10 +320,6 @@ a {
 
 .blog-slider__img:after {
 	border-radius: 8px !important;
-}
-
-#recent-posts>.recent-post-item {
-	height: 16em;
 }
 
 /* 上下一篇文章 */
@@ -649,4 +706,8 @@ div#post, div#page, div#archive, div#tag, div#category, div.card-widget, #recent
 
 [data-theme=dark] div#post, [data-theme=dark] div#page, [data-theme=dark] div#archive, [data-theme=dark] div#tag, [data-theme=dark] div#category, [data-theme=dark] div.card-widget, [data-theme=dark] #recent-posts > .recent-post-item {
 	background: rgba(0,0,0,.9) !important;
+}
+
+.card-star {
+	background: var(--card-bg) !important;
 }
