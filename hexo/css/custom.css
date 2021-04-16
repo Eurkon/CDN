@@ -19,8 +19,12 @@ i.scroll-down-effects {
 	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
 }
 
-/* 文章翻页 */
-#pagination .page-number:hover {
+/* 翻页 */
+#pagination span {
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/default.cur), auto !important;
+}
+
+#pagination a {
 	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
 }
 
@@ -81,7 +85,7 @@ table th, table td {
 #article-container .headerlink::before {
 	content: "\f0c1";
 	font-family: "Font Awesome 5 Free";
-	font-size: smaller;
+	font-size: .9em;
 }
 
 #article-container :hover .headerlink {
@@ -116,7 +120,7 @@ a {
 }
 
 #article-container a:hover {
-	color: #f47466;
+	color: #ff7242;
 }
 
 /* 侧边栏 */
@@ -142,11 +146,11 @@ a {
 	color: var(--btn-color) !important;
 	background: var(--text-bg-hover);
 	border-radius: 8px;
-	-webkit-transform: scale(0.95);
-	-moz-transform: scale(0.95);
-	-o-transform: scale(0.95);
-	-ms-transform: scale(0.95);
-	transform: scale(0.95);
+	-webkit-transform: scale(.95);
+	-moz-transform: scale(.95);
+	-o-transform: scale(.95);
+	-ms-transform: scale(.95);
+	transform: scale(.95);
 }
 
 #aside-content .aside-list > .aside-list-item .thumbnail {
@@ -159,6 +163,66 @@ a {
 
 .history_slide {
 	font-size: 95% !important;
+}
+
+/* 归档 */
+.article-sort-item {
+	background-color: var(--card-bg);
+	padding: 8px;
+	margin: 0 0 .5rem .5rem !important;
+	border-radius: 8px;
+	position: relative;
+	display: flex;
+	-webkit-box-align: center;
+	-moz-box-align: center;
+	-o-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+	box-shadow: rgb(0 0 0 / 7%) 0 2px 2px 0, rgb(0 0 0 / 10%) 0 1px 5px 0;
+}
+
+.article-sort-item-img {
+	border-radius: 8px;
+}
+
+.article-sort-item-title {
+	color: #49b1f5;
+	font-weight: 500;
+}
+
+.article-sort-item-title:hover {
+	color: #f47466;
+}
+
+.article-sort-item-time {
+	float: right;
+	font-size: 1em
+}
+
+.article-sort-item-categories, .article-sort-item-tags {
+	margin: 0 .5rem 0 0;
+}
+
+.article-sort-item-categories a.article-meta__categories, .article-sort-item-tags a.article-meta__tags {
+	padding: .2rem;
+	color: var(--font-color);
+}
+
+.article-sort-item-categories a.article-meta__categories:hover, .article-sort-item-tags a.article-meta__tags:hover {
+	color: var(--btn-color) !important;
+	background: var(--text-bg-hover);
+	border-radius: 8px;
+	-webkit-transform: scale(.95);
+	-moz-transform: scale(.95);
+	-o-transform: scale(.95);
+	-ms-transform: scale(.95);
+	transform: scale(.95);
 }
 
 /* 目录 */
@@ -175,18 +239,18 @@ a {
 
 /* 首页文章 */
 #recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap a {
-	padding: 0 0.1rem;
+	padding: 0 .2rem;
 }
 
 #recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap a:hover {
 	color: var(--btn-color) !important;
 	background: var(--text-bg-hover);
 	border-radius: 6px;
-	-webkit-transform: scale(0.95);
-	-moz-transform: scale(0.95);
-	-o-transform: scale(0.95);
-	-ms-transform: scale(0.95);
-	transform: scale(0.95);
+	-webkit-transform: scale(.95);
+	-moz-transform: scale(.95);
+	-o-transform: scale(.95);
+	-ms-transform: scale(.95);
+	transform: scale(.95);
 }
 
 .post-meta-date .article-meta-label {
@@ -203,7 +267,7 @@ a {
 
 /* 上下一篇文章 */
 #pagination .prev_info, #pagination .next_info {
-	font-size: medium;
+	font-size: 1.1em;
 	font-weight: 500;
 }
 
@@ -219,13 +283,47 @@ a {
 	border-radius: 8px
 }
 
+/* 翻页 */
+#pagination a.extend, #pagination .page-number, #pagination span {
+	color: var(--btn-color);
+	background: var(--btn-bg);
+	border-radius: 8px;
+	height: 1.6rem;
+	text-align: center;
+	line-height: 1.6rem;
+	display: inline-block;
+	min-width: 1.6rem;
+}
+
+#pagination a.page-number:hover, #pagination a.extend:hover {
+	background: var(--btn-hover-color);
+}
+
+.pagination span.space {
+	font-weight: 700;
+	color: #99a9bf !important;
+	background: none !important;
+}
+
+#pagination a.extend.prev {
+	float: left;
+	padding: 0 10px 0 6px;
+	/* margin: 0 2rem; */
+}
+
+#pagination a.extend.next {
+	float: right;
+	padding: 0 6px 0 10px;
+	/* margin: 0 2rem; */
+}
+
 /* 推荐文章 */
 .relatedPosts > .relatedPosts-list .content .date {
-	font-size: medium;
+	font-size: 1.1em;
 }
 
 .relatedPosts>.relatedPosts-list .content .title {
-	font-size: medium;
+	font-size: 1.1em;
 	font-weight: 500;
 }
 
@@ -312,15 +410,19 @@ b, strong {
 	margin-top: 2rem;
 }
 
-/* 翻页 */
-.pagination a, .pagination span {
-	color: #99a9bf;
+/* 右下角按钮 */
+
+#rightside #rightside-config-hide {
+	transform: translate(43px, 0);
 }
 
-/* 右下角按钮 */
+#rightside {
+	transform: translateX(-46px) !important;
+}
+
 #rightside > div > button, #rightside > div > a {
 	margin-bottom: 2px;
-	border-radius: 15px;
+	border-radius: 50%;
 }
 
 /* Twikoo */
@@ -365,7 +467,7 @@ b, strong {
 }
 
 .tk-nick, .tk-nick-link {
-	font-size: larger !important;
+	font-size: 1.1em !important;
 }
 
 .tk-content {
@@ -428,6 +530,15 @@ b, strong {
 	padding: 0px !important;
 }
 
+a.moments-item-title {
+	font-weight: 500;
+}
+
+a.moments-item-title:hover {
+	color: #f47466 !important;
+	transform: translateX(10px);
+}
+
 @media screen and (max-width: 500px) {
 	.moments_chart {
 		padding: 5px;
@@ -460,13 +571,24 @@ b, strong {
 
 ::-webkit-scrollbar-track {
 	border-radius: 2em;
-	background-color: var(--card-bg);
+	background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
 	border-radius: 1em;
 	background-color: var(--btn-bg);
 	background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.4) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.4) 50%,rgba(255,255,255,.4) 75%,transparent 75%,transparent);
+}
+
+::-webkit-scrollbar-thumb:hover {
+	opacity: 1;
+	display: block !important;
+	background-color: var(--btn-hover-color);
+	background-image: none;
+}
+
+html {
+	overflow-y: overlay;
 }
 
 /* 首页头图透明 */
@@ -517,7 +639,7 @@ b, strong {
 
 /* 页脚padding */
 #footer #footer-wrap {
-	padding: 0.5rem 1rem;
+	padding: .5rem 1rem;
 }
 
 /* 卡片背景 */
