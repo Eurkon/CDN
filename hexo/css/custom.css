@@ -244,13 +244,12 @@ a {
 	}
 
 	#recent-posts>.recent-post-item>.recent-post-info>.article-title {
-		margin-top: 4rem;
+		padding-top: 4rem;
 		transition: all .6s;
 	}
 
 	#recent-posts>.recent-post-item:hover>.recent-post-info>.article-title {
-		margin-top: 0;
-		margin-bottom: 0.3rem;
+		padding-top: 0;
 		transition: all .6s;
 	}
 
@@ -291,6 +290,7 @@ a {
 
 	#recent-posts > .recent-post-item >.recent-post-info > .content {
 		opacity: 0;
+		transition: all .6s;
 	}
 
 	#recent-posts>.recent-post-item:hover>.recent-post-info>.content {
@@ -300,6 +300,10 @@ a {
 }
 
 #recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap a {
+	padding: 0 .2rem;
+}
+
+#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .post-meta-date time {
 	padding: 0 .2rem;
 }
 
