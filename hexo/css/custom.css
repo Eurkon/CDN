@@ -256,7 +256,7 @@ a {
 	#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .post-meta-date ,
 #recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .article-meta,
 #recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags-meta {
-		padding: .3em 0;
+		padding: .45em 0;
 		display: block;
 	}
 
@@ -275,11 +275,15 @@ a {
 	}
 
 	#recent-posts > .recent-post-item >.recent-post-info > .content {
-		display: none;
+		height: 0;
+		transform: translateY(2.5rem);
+		transition: all .6s;
 	}
 
 	#recent-posts>.recent-post-item:hover>.recent-post-info>.content {
-		display:-webkit-box;
+		height: auto;
+		transform: translateY(0);
+		transition: all .6s;
 	}
 }
 
