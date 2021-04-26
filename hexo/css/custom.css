@@ -434,25 +434,6 @@ a {
 	}
 }
 
-/* 顶部菜单栏 */
-#nav .menus_items .menus_item .menus_item_child {
-	padding: 5px;
-	border-radius: 8px;
-}
-
-#nav .menus_items .menus_item i.expand {
-	/* display: none */
-}
-
-#nav .menus_items .menus_item .menus_item_child li:hover {
-	background: var(--text-bg-hover);
-	border-radius: 8px;
-}
-
-#nav .menus_items .menus_item .menus_item_child li a:hover {
-	color: var(--btn-color) !important;
-}
-
 /* 加粗字体颜色 */
 b, strong {
 	color: #f47466;
@@ -708,6 +689,11 @@ div#post, div#page, div#archive, div#tag, div#category, div.card-widget, #recent
 	background: var(--card-bg) !important;
 }
 
+/* 提示框 */
+.snackbar-container {
+	border-radius: 8px!important;
+}
+
 /* pace进度条 */
 .pace {
 	-webkit-pointer-events: none;
@@ -730,4 +716,153 @@ div#post, div#page, div#archive, div#tag, div#category, div.card-widget, #recent
 	right: 100%;
 	width: 100%;
 	height: 4px
+}
+
+/* 顶部菜单栏 */
+#nav.show {
+	transform: translate3d(0,0,0) !important;
+	position: fixed;
+	z-index: 91;
+}
+
+/* 固定顶部菜单栏 */
+#page-header.not-top-img #nav {
+	top: 0;
+	background-color: rgba(255,255,255,.9);
+}
+
+[data-theme=dark]#page-header.not-top-img #nav {
+	background-color: rgba(0,0,0,.9);
+}
+
+#aside-content > .sticky_layout {
+	top: 70px;
+	transition: top .5s
+}
+
+#page-header.not-top-img {
+	margin-bottom: 0;
+}
+
+/* 页面名称 */
+#page_name {
+	overflow: hidden;
+	align-items: center;
+	display: inline;
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	-o-box-flex: 1;
+	box-flex: 1;
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+}
+
+@media screen and (max-width:899px) {
+	#nav #page_name {
+		display: none!important;
+	}
+}
+
+#nav #page-name-text {
+	display: inline;
+	font-weight: 700;
+	padding: 8px;
+	opacity: 0;
+	transition: .1s;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	position: relative;
+	text-align: center;
+	cursor: pointer;
+	top: 0;
+}
+
+#nav #page-name-text:hover::before {
+	transform: scaleX(1);
+	transform-origin: bottom left;
+}
+
+#page-header.nav-fixed #nav #page-name-text {
+	display: inline;
+	opacity: 1;
+	transition: .15s;
+	top: 0;
+}
+
+#page-header.nav-fixed.nav-visible #nav #page-name-text {
+	display: inline;
+	opacity: 0;
+	transition: .15s;
+	top: 30px;
+}
+
+/* 顶部菜单栏导航 */
+#nav .menus_items {
+	position: absolute;
+	text-align: center;
+  width: 650px;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+#page-header.nav-fixed #nav div.menus_items {
+	display: inline;
+	opacity: 0;
+	transition: .3s;
+	transform: translateY(-60px);
+}
+
+#page-header.nav-fixed.nav-visible #nav div.menus_items {
+	display: inline;
+	opacity: 1;
+	transition: .3s;
+	transform: translateY(0);
+}
+
+#nav .menus_items .menus_item {
+	padding: 0 .4rem
+}
+
+#nav .menus_items .menus_item .menus_item_child {
+	border-radius: 8px;
+	margin-top: 10px;
+	padding: 6px 8px 8px 8px;
+	background-color: rgba(255,255,255,.9);
+}
+
+[data-theme=dark] #nav .menus_items .menus_item .menus_item_child {
+	background-color: rgba(0,0,0,.9);
+}
+
+#nav .menus_items .menus_item .menus_item_child li:hover {
+	background: var(--text-bg-hover);
+	border-radius: 8px;
+}
+
+#nav .menus_items .menus_item .menus_item_child li a:hover {
+	color: var(--btn-color) !important;
+}
+
+/* 隐藏page-tile */
+#page h1.page-title{
+  display: none;
+  text-align: center;
+}
+
+/* 搜索按钮 */
+#search-button span{
+  display: none;
+}
+
+#search-button i, #darkmode-button i{
+font-size: .9rem;
+}
+
+/* 明亮/暗黑模式按钮 */
+#darkmode-button{
+  display: inline;
+  padding: 0 8px 0 16px;
 }
