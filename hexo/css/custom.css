@@ -802,7 +802,7 @@ div#post, div#page, div#archive, div#tag, div#category, div.card-widget, #recent
 #nav .menus_items {
 	position: absolute;
 	text-align: center;
-  width: 650px;
+	width: 650px;
 	left: 0;
 	right: 0;
 	margin: auto;
@@ -847,22 +847,22 @@ div#post, div#page, div#archive, div#tag, div#category, div.card-widget, #recent
 }
 
 /* 隐藏page-tile */
-#page h1.page-title{
-  display: none;
-  text-align: center;
+#page h1.page-title {
+	display: none;
+	text-align: center;
 }
 
 /* 搜索按钮 */
-#search-button span{
-  display: none;
+#search-button span {
+	display: none;
 }
 
-#search-button i, #darkmode-button i{
-font-size: .9rem;
+#search-button i, #darkmode-button i {
+	font-size: .9rem;
 }
 
 /* 明亮/暗黑模式按钮 */
-#darkmode-button{
-  display: inline;
-  padding: 0 8px 0 16px;
+#darkmode-button {
+	display: inline;
+	padding: 0 8px 0 16px;
 }
