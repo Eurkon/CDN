@@ -361,13 +361,11 @@ a {
 #pagination a.extend.prev {
 	float: left;
 	padding: 0 10px 0 6px;
-	/* margin: 0 2rem; */
 }
 
 #pagination a.extend.next {
 	float: right;
 	padding: 0 6px 0 10px;
-	/* margin: 0 2rem; */
 }
 
 /* 推荐文章 */
@@ -785,17 +783,17 @@ div#post, div#page, div#archive, div#tag, div#category, div.card-widget, #recent
 }
 
 #page-header.nav-fixed #nav #page-name-text {
-	display: inline;
-	opacity: 1;
-	transition: .15s;
 	top: 0;
+	opacity: 1;
+	display: inline;
+	transition: .15s;
 }
 
 #page-header.nav-fixed.nav-visible #nav #page-name-text {
-	display: inline;
-	opacity: 0;
-	transition: .15s;
 	top: 30px;
+	opacity: 0;
+	display: inline;
+	transition: .15s;
 }
 
 /* 顶部菜单栏导航 */
@@ -865,4 +863,42 @@ div#post, div#page, div#archive, div#tag, div#category, div.card-widget, #recent
 #darkmode-button {
 	display: inline;
 	padding: 0 8px 0 16px;
+}
+
+/* 无头图文章标题信息--方案1 */
+/* #post > #post-info {
+	position: relative;
+	padding: 0.5rem 0.8rem;
+	border: 1px solid var(--light-grey);
+	-webkit-transition: box-shadow 0.3s ease-in-out;
+	-moz-transition: box-shadow 0.3s ease-in-out;
+	-o-transition: box-shadow 0.3s ease-in-out;
+	-ms-transition: box-shadow 0.3s ease-in-out;
+	transition: box-shadow 0.3s ease-in-out;
+	overflow: hidden;
+	border-radius: 12px !important;
+	-webkit-box-shadow: 1px 1px 3px;
+	box-shadow: 1px 1px 3px;
+	text-shadow: #969696 0 0 1px;
+} */
+
+/* 无头图文章标题信息--方案2 */
+.post #post,.post .layout #aside-content {
+	margin-top: 8rem;
+}
+
+#post > #post-info {
+	position: absolute;
+	top: 4rem;
+	left: 10%;
+	width: 80%;
+	text-align: center;
+}
+
+#post > #post-info .post-title {
+	border-bottom: none
+}
+
+#post > #post-info .post-title,#post > #post-info #post-meta, #post > #post-info #post-meta a {
+	color: var(--light-grey);
 }
