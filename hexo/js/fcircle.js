@@ -10,15 +10,15 @@ var loadingCutom = ''
 
 //处理数据
 
-if (document.getElementById('moments_container')) {
+if (document.getElementById('article-container')) {
   //添加加载动画
-  var loading_pic = document.getElementById('moments_container');
+  var loading_pic = document.getElementById('article-container');
 
   // 判断loadingCutom值是否为空
   if (typeof loadingCutom == "undefined" || loadingCutom == null || loadingCutom === "") {
-    loading_pic.innerHTML = '<span id="moments_loading"><center><i class="fa fa-spinner fa-spin"></i></center></span>';
+    loading_pic.innerHTML = '<span id="article_loading"><center><i class="fa fa-spinner fa-spin"></i></center></span>';
   } else {
-    loading_pic.innerHTML = '<span id="moments_loading">' + loadingCutom + '</span>';
+    loading_pic.innerHTML = '<span id="article_loading">' + loadingCutom + '</span>';
   }
 
   fetch(requests_url).then(
@@ -62,15 +62,16 @@ var data_handle = (nofollow, data, maxnumber) => {
       error += 1;
     }
   }
-  var html_item = '<h2>统计信息</h2>';
-  html_item += '<div id="info_user_pool" class="moments-item info_user_pool" style="">';
-  html_item += '<div class="moments_chart"><span class="moments_post_info_title">当前友链数：</span><span class="moments_post_info_number">' + user_lenth + ' 个</span><br><span class="moments_post_info_title">失败数：</span><span class="moments_post_info_number">' + error + ' 个</span><br></div>';
-  html_item += '<div class="moments_chart"><span class="moments_post_info_title">活跃友链数：</span><span class="moments_post_info_number">' + unique_live_link + ' 个</span><br><span class="moments_post_info_title">当前库存：</span><span class="moments_post_info_number">' + listlenth + ' 篇</span><br></div>';
-  html_item += '<div class="moments_chart"><span class="moments_post_info_title">今日更新：</span><span class="moments_post_info_number">' + today_post + ' 篇</span><br><span class="moments_post_info_title">最近更新：</span><span class="moments_post_info_number">' + last_update_time + '</span><br></div>';
-  html_item += '</div>';
+  var html_item = '<div class="article-sort-title">统计信息</div>';
+  html_item += '<div class="article-sort">'
+  html_item += '<div id="info_user_pool" class="article-sort-item">';
+  html_item += '<div class="friend-chart"><span class="friend-post-info-title">当前友链数：</span><span class="friend-post-info-number">' + user_lenth + ' 个</span><br><span class="friend-post-info-title">失败数：</span><span class="friend-post-info-number">' + error + ' 个</span><br></div>';
+  html_item += '<div class="friend-chart"><span class="friend-post-info-title">活跃友链数：</span><span class="friend-post-info-number">' + unique_live_link + ' 个</span><br><span class="friend-post-info-title">当前库存：</span><span class="friend-post-info-number">' + listlenth + ' 篇</span><br></div>';
+  html_item += '<div class="friend-chart"><span class="friend-post-info-title">今日更新：</span><span class="friend-post-info-number">' + today_post + ' 篇</span><br><span class="friend-post-info-title">最近更新：</span><span class="friend-post-info-number">' + last_update_time + '</span><br></div>';
+  html_item += '</div></div>';
 
   for (var month_item of datalist_slice) {
-    html_item += '<h2>' + month_item[0] + '</h2>';
+    html_item += '<div class="article-sort-title">' + month_item[0] + '</div> <div class="article-sort">';
     for (var post_item of month_item[1]) {
       var rel = '';
       if (nofollow && opentype == '_blank') {
@@ -82,46 +83,39 @@ var data_handle = (nofollow, data, maxnumber) => {
       } else {
         rel = '';
       }
-      html_item += ' <div class="moments-item">';
-      html_item += ' <a target="' + opentype + '" class="moments-item-img" href="' + post_item[2] + '" title="' + post_item[0] + '"rel="' + rel + '">';
-      html_item += '<img onerror="this.onerror=null,this.src="/img/404.png"';
-      html_item += ' src="' + post_item[4] + '"></a>';
-      html_item += '<div class="moments-item-info"><div class="moments-item-time"><i class="far fa-user"></i>';
-      html_item += '<span>' + post_item[3] + '</span>';
-      html_item += ' <div class="moments_post_time"><i class="far fa-calendar-alt"></i>' +
-        '<time datetime="' + post_item[1] + '" title="' + post_item[1] + '">' + post_item[1] + '</time></div>';
-      html_item += `</div><a target="${opentype}" class="moments-item-title" href="${post_item[2]}" title="${post_item[0]}"rel="${rel}">${post_item[0]}</a></div>`;
-      html_item += '</div>';
-
+      html_item += '<div class="article-sort-item">';
+      html_item += '<a target="' + opentype + '" class="article-sort-item-img" href="' + post_item[2] + '" title="' + post_item[0] + '"rel="' + rel + '">';
+      html_item += '<img onerror="this.onerror=null,this.src="/img/404.png" src="' + post_item[4] + '"></a>';
+      html_item += '<div class="article-sort-item-info">';
+      html_item += `<a target="${opentype}" class="article-sort-item-title" href="${post_item[2]}" title="${post_item[0]}"rel="${rel}">${post_item[0]}</a>`;
+      html_item += '<div class="article-meta-wrap">'
+      html_item += '<i class="far fa-user"></i><span style="padding:0 .2rem;">' + post_item[3] + '</span>';
+      html_item += '<div class="article-sort-item-time"><i class="far fa-calendar-alt"></i>' + '<time datetime="' + post_item[1] + '" title="' + post_item[1] + '">' + post_item[1] + '</time></div>';
+      html_item += '</div></div></div>';
     }
+    html_item += '</div>'
   }
   if (data[1].length - maxnumber > 0) {
-    html_item += '<div style="text-align: center"><button type="button" class="moments_load_button" ' +
-      'onclick="load_more_post()">加载更多...</button>' +
-      '</div>'
+    html_item += '<a class="button--animated" style="display:block;margin-top:0.7rem;background-color:var(--btn-bg);color:var(--btn-color);text-align:center;line-height:2.4;" onclick="load_more_post()">加载更多</a></div>'
   }
-  html_item += '<style>.moments-item-info span{padding-left:.3rem;padding-right:.3rem}.moments_post_time time{padding-left:.3rem;cursor:default}.moments_post_info_title{font-weight:700}.moments_post_info_number{float:right}.moments_chart{align-items:flex-start;flex:1;width:100px;height:60px;margin:20px}@media screen and (max-width:500px){.info_user_pool{padding:10px;flex-direction:column;max-height:200px}.moments_chart{flex:0;width:100%;height:160px;margin:0}}.moments-item:before{border:0}@media screen and (min-width:500px){.moments_post_time{float:right}}.moments_load_button{-webkit-transition-duration:.4s;transition-duration:.4s;text-align:center;border:1px solid #ededed;border-radius:.3em;display:inline-block;background:transparent;color:#555;padding:.5em 1.25em}.moments_load_button:hover{color:#3090e4;border-color:#3090e4}.moments-item{position:relative;display:-webkit-box;display:-moz-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-moz-box-align:center;-o-box-align:center;-ms-flex-align:center;-webkit-align-items:center;align-items:center;margin:0 0 1rem .5rem;-webkit-transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out;-ms-transition:all .2s ease-in-out;transition:all .2s ease-in-out;box-shadow:rgba(0,0,0,0.07) 0 2px 2px 0,rgba(0,0,0,0.1) 0 1px 5px 0;border-radius:2px}.moments-item-img{overflow:hidden;width:80px;height:80px}.moments-item-img img{max-width:100%;width:100%;height:100%;object-fit:cover}.moments-item-info{-webkit-box-flex:1;-moz-box-flex:1;-o-box-flex:1;box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;padding:0 .8rem}.moments-item-title{display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;font-size:1.1em;-webkit-transition:all .3s;-moz-transition:all .3s;-o-transition:all .3s;-ms-transition:all .3s;transition:all .3s;-webkit-line-clamp:1}</style>'
+  html_item += '<style>.friend-post-info-title{font-weight:700}.friend-post-info-number{float:right}.friend-chart{align-items:flex-start;flex:1;width:100px;height:60px;margin:10px}@media screen and (max-width:500px){#info_user_pool{flex-direction:column;max-height:200px}.friend-chart{flex:0;width:100%;height:160px;margin:0}}</style>'
 
-
-
-  var moments_container = document.getElementById('moments_container');
-  append_div(moments_container, html_item)
+  var article_container = document.getElementById('article-container');
+  append_div(article_container, html_item)
 };
 
 var load_more_post = () => {
-  if (document.getElementById('moments_container')) {
+  if (document.getElementById('article-container')) {
     maxnumber = maxnumber + addnumber;
-    document.getElementById('moments_container').innerHTML = "";
+    document.getElementById('article-container').innerHTML = "";
     data_handle(nofollow, orign_data, maxnumber)
   }
 };
 
-
-
 //加载更多文章
 //将html放入指定id的div容器
 var append_div = (parent, text) => {
-  if (document.getElementById('moments_container')) {
+  if (document.getElementById('article-container')) {
     loading_pic.innerHTML = ``;
   };
   if (typeof text === 'string') {
