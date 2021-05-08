@@ -863,3 +863,14 @@ div#post, div#page, div#archive, div#tag, div#category, div.card-widget, #recent
 #post > #post-info .post-title,#post > #post-info #post-meta, #post > #post-info #post-meta a {
 	color: var(--light-grey);
 }
+
+.tag-cloud-list a:hover {
+	color: var(--btn-color) !important;
+	background: var(--text-bg-hover);
+	border-radius: 8px;
+	-webkit-transform: scale(.95);
+	-moz-transform: scale(.95);
+	-o-transform: scale(.95);
+	-ms-transform: scale(.95);
+	transform: scale(.95);
+}
