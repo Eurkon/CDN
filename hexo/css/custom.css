@@ -128,11 +128,25 @@ a {
 }
 
 /* 侧边栏 */
-/* #aside-content .aside-list > .aside-list-item:hover {
+#aside-content .aside-list > .aside-list-item {
+	padding: .3rem !important;
+}
+
+#aside-content .aside-list > .aside-list-item:hover {
 	color: var(--btn-color) !important;
 	background: var(--text-bg-hover);
 	border-radius: 8px;
-} */
+	transition: all .2s;
+}
+
+#aside-content .aside-list > .aside-list-item:hover a,#aside-content .aside-list > .aside-list-item:hover span,#aside-content .aside-list > .aside-list-item:hover time {
+	color: var(--btn-color) !important;
+	transition: all .2s;
+}
+
+#aside-content .aside-list > .aside-list-item:not(:last-child) {
+	border-bottom: none;
+}
 
 #aside-content .card-archives ul.card-archive-list>.card-archive-list-item a:hover {
 	color: var(--btn-color) !important;
@@ -453,12 +467,23 @@ b, strong {
 }
 
 #rightside {
+	display: none;
 	transform: translateX(-46px) !important;
 }
 
 #rightside > div > button, #rightside > div > a {
 	margin-bottom: 2px;
 	border-radius: 50%;
+}
+
+#to-top a i {
+	display: none;
+	transform: rotate(-45deg);
+	color: var(--btn-bg);
+	position: fixed;
+	right: 3rem;
+	bottom: 1.5rem;
+	font-size: 2rem;
 }
 
 /* Twikoo */
@@ -738,6 +763,12 @@ div#post, div#page, div#archive, div#tag, div#category, div.card-widget, #recent
 	top: 0;
 }
 
+#nav #page-name-text i {
+	transform: rotate( -45deg);
+	padding: 0 1.4rem 0 0rem;
+	margin: .5rem;
+}
+
 #nav #page-name-text:hover::before {
 	transform: scaleX(1);
 	transform-origin: bottom left;
@@ -811,31 +842,26 @@ div#post, div#page, div#archive, div#tag, div#category, div.card-widget, #recent
 	text-align: center;
 }
 
-/* 搜索按钮 */
-#search-button span {
-	display: none;
-}
-
-#search-button i, #darkmode-button i {
+/* nav 按钮 */
+#search-button i, #mode-button i, #comment-button i {
 	font-size: .9rem;
 }
 
-/* 明亮/暗黑模式按钮 */
-#darkmode-button {
+#mode-button, #comment-button, #read-button {
 	display: inline;
-	padding: 0 8px 0 16px;
+	padding: 0 0 0 .4rem;
 }
 
 /* 无头图文章标题信息--方案1 */
 /* #post > #post-info {
 	position: relative;
-	padding: 0.5rem 0.8rem;
+	padding: .5rem .8rem;
 	border: 1px solid var(--light-grey);
-	-webkit-transition: box-shadow 0.3s ease-in-out;
-	-moz-transition: box-shadow 0.3s ease-in-out;
-	-o-transition: box-shadow 0.3s ease-in-out;
-	-ms-transition: box-shadow 0.3s ease-in-out;
-	transition: box-shadow 0.3s ease-in-out;
+	-webkit-transition: box-shadow .3s ease-in-out;
+	-moz-transition: box-shadow .3s ease-in-out;
+	-o-transition: box-shadow .3s ease-in-out;
+	-ms-transition: box-shadow .3s ease-in-out;
+	transition: box-shadow .3s ease-in-out;
 	overflow: hidden;
 	border-radius: 12px !important;
 	-webkit-box-shadow: 1px 1px 3px;
