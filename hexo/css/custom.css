@@ -763,12 +763,6 @@ div#post, div#page, div#archive, div#tag, div#category, div.card-widget, #recent
 	top: 0;
 }
 
-#nav #page-name-text i {
-	transform: rotate( -45deg);
-	padding: 0 1.4rem 0 0rem;
-	margin: .5rem;
-}
-
 #nav #page-name-text:hover::before {
 	transform: scaleX(1);
 	transform-origin: bottom left;
@@ -843,13 +837,19 @@ div#post, div#page, div#archive, div#tag, div#category, div.card-widget, #recent
 }
 
 /* nav 按钮 */
-#search-button i, #mode-button i, #comment-button i {
+#search-button i, #mode-button i, #comment-button i, #top-button i {
 	font-size: .9rem;
 }
 
-#mode-button, #comment-button, #read-button {
+#search-button, #mode-button, #comment-button, #top-button{
 	display: inline;
 	padding: 0 0 0 .4rem;
+}
+
+#top-button i {
+  transform: rotate( 
+    -45deg
+    ) translate(-0.1rem,.1rem);
 }
 
 /* 无头图文章标题信息--方案1 */
