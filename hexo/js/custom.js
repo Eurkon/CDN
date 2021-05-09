@@ -20,11 +20,17 @@
 // }
 
 
-function navTitle () {
-  var e = document.title.replace(" | ", "").replace("Eurkon", "");
-  document.getElementById("page-name-text").innerHTML = e
+function navSetting () {
+  var title = document.title.replace(" | ", "").replace("Eurkon", "");
+  document.getElementById("page-name-text").innerHTML = title + '<i class="fas fa-rocket fa-fw"></i>'
+
+  if (document.getElementById("post-comment")) {
+    document.getElementById("comment-button").style.display = "inline"
+  } else {
+    document.getElementById("comment-button").style.display = "none"
+  }
 }
-navTitle()
+navSetting()
 
 function switchReadMode () { // read-mode
   const $body = document.body
