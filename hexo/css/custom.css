@@ -139,6 +139,14 @@ a {
 	transition: all .2s;
 }
 
+#aside-content .aside-list > .aside-list-item:hover .thumbnail > img {
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-o-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	transform: scale(1.1);
+}
+
 #aside-content .aside-list > .aside-list-item:hover a,#aside-content .aside-list > .aside-list-item:hover span,#aside-content .aside-list > .aside-list-item:hover time {
 	color: var(--btn-color) !important;
 	transition: all .2s;
@@ -772,14 +780,14 @@ div#post, div#page, div#archive, div#tag, div#category, div.card-widget, #recent
 	top: 0;
 	opacity: 1;
 	display: inline;
-	transition: .15s;
+	transition: .2s;
 }
 
 #page-header.nav-fixed.nav-visible #nav #page-name-text {
 	top: 30px;
 	opacity: 0;
 	display: inline;
-	transition: .15s;
+	transition: .2s;
 }
 
 /* 顶部菜单栏导航 */
@@ -841,15 +849,13 @@ div#post, div#page, div#archive, div#tag, div#category, div.card-widget, #recent
 	font-size: .9rem;
 }
 
-#search-button, #mode-button, #comment-button, #top-button{
+#search-button, #mode-button, #comment-button, #top-button {
 	display: inline;
 	padding: 0 0 0 .4rem;
 }
 
 #top-button i {
-  transform: rotate( 
-    -45deg
-    ) translate(-0.1rem,.1rem);
+	transform: rotate(-45deg) translate(-0.1rem,.1rem);
 }
 
 /* 无头图文章标题信息--方案1 */
