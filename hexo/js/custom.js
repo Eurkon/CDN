@@ -19,18 +19,58 @@
 //   }
 // }
 
-
-function navSetting () {
-  var title = document.title.replace(" | ", "").replace("Eurkon", "");
-  document.getElementById("page-name-text").innerHTML = title
-
-  if (document.getElementById("post-comment")) {
-    document.getElementById("comment-button").style.display = "inline"
+function copyContentFn (ctx) {
+  if (document.queryCommandSupported && document.queryCommandSupported('copy')) {
+    if (GLOBAL_CONFIG.Snackbar !== undefined) {
+      btf.snackbarShow(GLOBAL_CONFIG.copy.success)
+    } else {
+      const prevEle = ctx.previousElementSibling
+      prevEle.innerText = GLOBAL_CONFIG.copy.success
+      prevEle.style.opacity = 1
+      setTimeout(() => { prevEle.style.opacity = 0 }, 700)
+    }
   } else {
-    document.getElementById("comment-button").style.display = "none"
+    if (GLOBAL_CONFIG.Snackbar !== undefined) {
+      btf.snackbarShow(GLOBAL_CONFIG.copy.noSupport)
+    } else {
+      ctx.previousElementSibling.innerText = GLOBAL_CONFIG.copy.noSupport
+    }
   }
 }
-navSetting()
+
+function copyClickFn (text, ctx) {
+  if (document.queryCommandSupported && document.queryCommandSupported('copy')) {
+    document.execCommand('copy')
+    if (GLOBAL_CONFIG.Snackbar !== undefined) {
+      btf.snackbarShow(GLOBAL_CONFIG.copy.success)
+    } else {
+      const prevEle = ctx.previousElementSibling
+      prevEle.innerText = GLOBAL_CONFIG.copy.success
+      prevEle.style.opacity = 1
+      setTimeout(() => { prevEle.style.opacity = 0 }, 700)
+    }
+  } else {
+    if (GLOBAL_CONFIG.Snackbar !== undefined) {
+      btf.snackbarShow(GLOBAL_CONFIG.copy.noSupport)
+    } else {
+      ctx.previousElementSibling.innerText = GLOBAL_CONFIG.copy.noSupport
+    }
+  }
+}
+
+function postUrlCopyFn (ele) {
+  const $buttonParent = ele.parentNode
+  $buttonParent.classList.add('copy-true')
+  const selection = window.getSelection()
+  const range = document.createRange()
+  range.selectNodeContents($buttonParent.querySelectorAll('#post-url')[0])
+  selection.removeAllRanges()
+  selection.addRange(range)
+  const text = selection.toString()
+  copyClickFn(text, ele.prevEle)
+  selection.removeAllRanges()
+  $buttonParent.classList.remove('copy-true')
+}
 
 function switchReadMode () { // read-mode
   const $body = document.body
@@ -39,6 +79,7 @@ function switchReadMode () { // read-mode
   newEle.type = 'button'
   newEle.className = 'fas fa-sign-out-alt exit-readmode'
   $body.appendChild(newEle)
+
   function clickFn () {
     $body.classList.remove('read-mode')
     newEle.remove()
@@ -98,3 +139,21 @@ function adjustFontSize (plus) {
   saveToLocal.set('global-font-size', newValue, 2)
   // document.getElementById('font-text').innerText = newValue
 }
+
+navSet = function () {
+  var title = document.title.replace(" | ", "").replace("Eurkon", "");
+  document.getElementById("page-name-text").innerHTML = title
+
+  if (document.getElementById("post-comment")) {
+    document.getElementById("comment-button").style.display = "inline"
+  } else {
+    document.getElementById("comment-button").style.display = "none"
+  }
+}
+
+navSet()
+document.addEventListener("copy", function () { copyContentFn(this) })
+document.getElementById("mode-button").addEventListener("click", function () { switchDarkMode() })
+document.getElementById("top-button").addEventListener("click", function () { scrollToTop() })
+document.getElementById("page-name-text").addEventListener("click", function () { scrollToTop() })
+if (document.getElementById("post-url-copy")) document.getElementById("post-url-copy").addEventListener("click", function () { postUrlCopyFn(this) })
