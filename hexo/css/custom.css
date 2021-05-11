@@ -502,6 +502,11 @@ strong {
 	margin-top: 2rem;
 }
 
+/* 文章链接复制 */
+.post-copyright #post-url-copy {
+	margin-left: .5rem;
+}
+
 /* 右下角按钮 */
 
 #rightside #rightside-config-hide {
@@ -517,16 +522,6 @@ strong {
 #rightside > div > a {
 	margin-bottom: 2px;
 	border-radius: 50%;
-}
-
-#to-top a i {
-	display: none;
-	transform: rotate(-45deg);
-	color: var(--btn-bg);
-	position: fixed;
-	right: 3rem;
-	bottom: 1.5rem;
-	font-size: 2rem;
 }
 
 /* Twikoo */
@@ -973,9 +968,8 @@ div.card-widget,
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	margin-top: 1rem;
-	width: 110%;
-	transform: translateX(-5%);
+	width: 140%;
+	transform: translateX(-15%);
 	margin-top: 3rem;
 }
 
@@ -984,10 +978,10 @@ div.card-widget,
 	margin: .5rem 0;
 }
 
-@media (max-width: 1100px) and (min-width: 769px) {
+@media (max-width: 1400px) and (min-width: 769px) {
 	#body-wrap.error .aside-list {
-		width: 95%;
-		transform: translateX(2.5%);
+		width: 80%;
+		transform: translateX(10%);
 	}
 
 	#body-wrap.error .aside-list .aside-list-item {
@@ -1002,6 +996,7 @@ div.card-widget,
 }
 
 #body-wrap.error .aside-list .aside-list-item:hover .thumbnail > img {
+	border-radius: 8px 8px 0 0;
 	-webkit-transform: scale(1.1);
 	-moz-transform: scale(1.1);
 	-o-transform: scale(1.1);
@@ -1013,30 +1008,37 @@ div.card-widget,
 #body-wrap.error .aside-list .aside-list-item img {
 	width: 100%;
 	object-fit: cover;
-	border-radius: 8px;
 }
 
 #body-wrap.error .aside-list .aside-list-item .thumbnail {
-	border-radius: 8px;
 	overflow: hidden;
-	height: 130px;
-	margin: 0 .5rem;
 	display: flex;
+	height: 4rem;
+	margin: 0 .5rem;
+	border-radius: 8px 8px 0 0;
 }
 
 #body-wrap.error .aside-list .aside-list-item .content .title {
+	line-height: 1.5;
 	-webkit-line-clamp: 2;
 	overflow: hidden;
-	display: -webkit-box;
 	-webkit-box-orient: vertical;
-	line-height: 1.5;
+	display: flex;
+	align-items: center;
 	justify-content: center;
-	align-items: flex-end;
-	align-content: center;
+	color: var(--font-color);
+	background-color: var(--card-bg);
+	font-size: .9rem;
+	font-weight: 600;
+	height: 3rem;
 	margin: 0 .5rem;
-	color: var(--light-grey);
-	font-size: .8rem;
-	font-weight: 500;
+	padding: 0 .5rem;
+	border-radius: 0 0 8px 8px;
+}
+
+#body-wrap.error .aside-list .aside-list-item:hover .content .title {
+	color: var(--btn-color);
+	background-color: var(--text-bg-hover);
 }
 
 #body-wrap.error .aside-list .aside-list-item .content time {
