@@ -140,7 +140,7 @@ function adjustFontSize (plus) {
   // document.getElementById('font-text').innerText = newValue
 }
 
-navSet = function () {
+(function navSet () {
   var title = document.title.replace(" | ", "").replace("Eurkon", "");
   document.getElementById("page-name-text").innerHTML = title
 
@@ -149,9 +149,8 @@ navSet = function () {
   } else {
     document.getElementById("comment-button").style.display = "none"
   }
-}
+})()
 
-navSet()
 document.addEventListener("copy", function () { copyContentFn(this) })
 document.getElementById("mode-button").addEventListener("click", function () { switchDarkMode() })
 document.getElementById("top-button").addEventListener("click", function () { scrollToTop() })
