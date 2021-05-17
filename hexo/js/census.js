@@ -3,15 +3,17 @@ var date = new Date();
 var end_date = date.getFullYear() + (date.getMonth() > 8 ? (date.getMonth() + 1) : ("0" + (date.getMonth() + 1))) + (date.getDate() > 9 ? date.getDate() : ("0" + date.getDate())); // 结束日期
 var access_token = '121.777f81bf1db4cc8da3aee9337969b587.YQiJGmUJsP4SLUC4R956Igis_O0hzsiCsfT91Yp.wA6FeA' // accessToken
 var site_id = '16265874' // 网址id
-var data_url = 'https://baidu-tongji-api.vercel.app/api?access_token=' + access_token + '&site_id=' + site_id
+var dataUrl = 'https://baidu-tongji-api.vercel.app/api?access_token=' + access_token + '&site_id=' + site_id
 var metrics = 'pv_count' // 统计访问次数 PV 填写 'pv_count'，统计访客数 UV 填写 'visitor_count'，二选一
 var metricsName = (metrics === 'pv_count' ? '访问次数' : (metrics === 'visitor_count' ? '访客数' : ''))
+// 这里为了统一颜色选取的是“明暗模式”下的两种字体颜色，也可以自己定义
+let color = document.documentElement.getAttribute('data-theme') === 'light' ? '#4c4948' : 'rgba(255,255,255,0.7)'
 
-// 访问次数（PV）地图
+// 访问地图
 function mapChart () {
   let script = document.createElement("script")
-  let param_url = '&start_date=' + start_date + '&end_date=' + end_date + '&metrics=' + metrics + '&method=visit/district/a';
-  fetch(data_url + param_url).then(data => data.json()).then(data => {
+  let paramUrl = '&start_date=' + start_date + '&end_date=' + end_date + '&metrics=' + metrics + '&method=visit/district/a';
+  fetch(dataUrl + paramUrl).then(data => data.json()).then(data => {
     let mapName = data.result.items[0]
     let mapValue = data.result.items[1]
     let mapArr = []
@@ -23,14 +25,11 @@ function mapChart () {
     script.innerHTML = `
       var mapChart = echarts.init(document.getElementById('map-chart'), 'light');
       var mapOption = {
-        textStyle: {
-          color: '#FFF'
-        },
         title: {
           text: '博客访问来源地图',
           x: 'center',
           textStyle: {
-            color: '#FFF'
+            color: '${color}'
           }
         },
         tooltip: {
@@ -44,7 +43,7 @@ function mapChart () {
           text: ['高','低'],
           color: ['#1E90FF', '#AAFAFA'],
           textStyle: {
-            color: '#FFF'
+            color: '${color}'
           },
           calculable: true
         },
@@ -60,8 +59,8 @@ function mapChart () {
           },
           itemStyle: {
             normal: {
-              areaColor: '#111',
-              borderColor: '#20232a'
+              areaColor: 'rgba(255, 255, 255, 0.1)',
+              borderColor: '#121212'
             },
             emphasis: {
               areaColor: 'gold'
@@ -80,11 +79,11 @@ function mapChart () {
   });
 }
 
-// 访问次数（PV）月份趋势
+// 访问趋势
 function trendsChart () {
   let script = document.createElement("script")
-  let param_url = '&start_date=' + start_date + '&end_date=' + end_date + '&metrics=' + metrics + '&method=trend/time/a&gran=month'
-  fetch(data_url + param_url)
+  let paramUrl = '&start_date=' + start_date + '&end_date=' + end_date + '&metrics=' + metrics + '&method=trend/time/a&gran=month'
+  fetch(dataUrl + paramUrl)
     .then(data => data.json())
     .then(data => {
       let monthArr = []
@@ -105,13 +104,13 @@ function trendsChart () {
         var trendsChart = echarts.init(document.getElementById('trends-chart'), 'light');
         var trendsOption = {
           textStyle: {
-            color: '#FFF'
+            color: '${color}'
           },
           title: {
             text: '博客访问统计图',
             x: 'center',
             textStyle: {
-              color: '#FFF'
+              color: '${color}'
             }
           },
           tooltip: {
@@ -126,7 +125,7 @@ function trendsChart () {
             axisLine: {
               show: true,
               lineStyle: {
-                color: '#FFF'
+                color: '${color}'
               }
             },
             data: ${monthArrJson}
@@ -143,7 +142,7 @@ function trendsChart () {
             axisLine: {
               show: true,
               lineStyle: {
-                color: '#FFF'
+                color: '${color}'
               }
             }
           },
@@ -195,11 +194,11 @@ function trendsChart () {
     });
 }
 
-// 访问次数（PV）来源
+// 访问来源
 function sourcesChart () {
   let script = document.createElement("script")
-  let param_url = '&start_date=' + start_date + '&end_date=' + end_date + '&metrics=' + metrics + '&method=source/all/a';
-  fetch(data_url + param_url)
+  let paramUrl = '&start_date=' + start_date + '&end_date=' + end_date + '&metrics=' + metrics + '&method=source/all/a';
+  fetch(dataUrl + paramUrl)
     .then(data => data.json())
     .then(data => {
       monthArr = [];
@@ -214,19 +213,19 @@ function sourcesChart () {
         var sourcesChart = echarts.init(document.getElementById('sources-chart'), 'light');
         var sourcesOption = {
           textStyle: {
-            color: '#FFF'
+            color: '${color}'
           },
           title: {
             text: '博客访问来源统计图',
             x: 'center',
             textStyle: {
-              color: '#FFF'
+              color: '${color}'
             }
           },
           legend: {
             top: 'bottom',
             textStyle: {
-              color: '#FFF'
+              color: '${color}'
             }
           },
           tooltip: {
@@ -262,6 +261,41 @@ function sourcesChart () {
     });
 }
 
+function switchVisitChart () {
+  // 这里为了统一颜色选取的是“明暗模式”下的两种字体颜色，也可以自己定义
+  let color = document.documentElement.getAttribute('data-theme') === 'light' ? '#4c4948' : 'rgba(255,255,255,0.7)'
+  try {
+    let mapOptionNew = mapOption
+    mapOptionNew.title.textStyle.color = color
+    mapOptionNew.visualMap.textStyle.color = color
+    mapChart.setOption(mapOptionNew)
+  } catch (error) {
+    console.log(error)
+  }
+  try {
+    let trendsOptionNew = trendsOption
+    trendsOptionNew.title.textStyle.color = color
+    trendsOptionNew.xAxis.axisLine.lineStyle.color = color
+    trendsOptionNew.yAxis.axisLine.lineStyle.color = color
+    trendsOptionNew.textStyle.color = color
+    trendsChart.setOption(trendsOptionNew)
+  } catch (error) {
+    console.log(error)
+  }
+  try {
+    let sourcesOptionNew = sourcesOption
+    sourcesOptionNew.title.textStyle.color = color
+    sourcesOptionNew.legend.textStyle.color = color
+    sourcesOptionNew.textStyle.color = color
+    sourcesChart.setOption(sourcesOptionNew)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 if (document.getElementById('map-chart')) mapChart()
 if (document.getElementById('trends-chart')) trendsChart()
 if (document.getElementById('sources-chart')) sourcesChart()
+
+document.getElementById("mode-button").addEventListener("click", function () { setTimeout(switchVisitChart, 100) })
+document.getElementById("darkmode").addEventListener("click", function () { setTimeout(switchVisitChart, 100) })
