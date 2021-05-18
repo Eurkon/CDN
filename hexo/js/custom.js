@@ -141,8 +141,7 @@ function adjustFontSize (plus) {
 }
 
 (function navSet () {
-  var title = document.title.replace(" | ", "").replace("Eurkon", "");
-  document.getElementById("page-name-text").innerHTML = title
+  document.getElementById("page-name-text").innerHTML = GLOBAL_CONFIG_SITE.title.replace("Eurkon", "")
 
   if (document.getElementById("post-comment")) {
     document.getElementById("comment-button").style.display = "inline"
