@@ -529,14 +529,6 @@ strong {
 	min-height: 100px !important;
 }
 
-.tk-comment {
-	margin: .1rem;
-	padding: .8rem;
-	border: 1px solid var(--light-grey);
-	border-radius: 8px;
-	box-shadow: 1px 1px 5px;
-}
-
 .OwO .OwO-body {
 	color: var(--font-color) !important;
 	background-color: var(--card-bg) !important;
@@ -572,7 +564,9 @@ strong {
 }
 
 .tk-content {
-	margin-top: 0 !important;
+  background-color: var(--sidebar-bg);
+  padding: 0 1rem;
+  border-radius: 8px;
 }
 
 .tk-expand:hover {
@@ -767,8 +761,8 @@ div.card-widget,
 }
 
 #page-header #nav a:hover,
- #page-header #nav #site-name:hover,
-  #page-header #nav #toggle-menu:hover {
+#page-header #nav #site-name:hover,
+#page-header #nav #toggle-menu:hover {
 	color: #49b1f5;
 }
 
@@ -1021,6 +1015,7 @@ div.card-widget,
 	display: flex;
 	height: 4rem;
 	margin: 0 .5rem;
+	background-color: var(--card-bg);
 	border-radius: 8px 8px 0 0;
 }
 
