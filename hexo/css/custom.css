@@ -766,6 +766,12 @@ div.card-widget,
 	z-index: 91;
 }
 
+#page-header #nav a:hover,
+ #page-header #nav #site-name:hover,
+  #page-header #nav #toggle-menu:hover {
+	color: #49b1f5;
+}
+
 /* 固定顶部菜单栏 */
 #page-header.not-top-img #nav {
 	top: 0;
