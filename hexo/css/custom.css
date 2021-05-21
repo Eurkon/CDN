@@ -564,9 +564,9 @@ strong {
 }
 
 .tk-content {
-  background-color: var(--sidebar-bg);
-  padding: 0 1rem;
-  border-radius: 8px;
+	background-color: var(--tab-button-hover-bg);
+	padding: 0 1rem;
+	border-radius: 8px;
 }
 
 .tk-expand:hover {
