@@ -18,37 +18,13 @@
 	margin-left: 16px;
 	display: block;
 	float: left;
-	box-shadow: 0 2px 6px 0 var(--btn-bg);
-	background: transparent;
 	overflow: hidden;
+  background-color: var(--global-bg) !important;
 }
 
-.card-star:hover:before, .card-star:focus:before, .card-star:active:before {
-	-webkit-transform: scale(1);
-	transform: scale(1);
-}
-
-.card-star:before {
-	content: "";
-	position: absolute;
-	z-index: -1;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-image: linear-gradient(to right, var(--btn-bg) 0%, var(--btn-bg) 1%, var(--btn-color) 100%);
-	-webkit-transform: scale(0);
-	transform: scale(0);
-	-webkit-transition-property: transform;
-	transition-property: transform;
-	-webkit-transition-duration: 0.15s;
-	transition-duration: all 0.15s;
-	-webkit-transition-timing-function: ease-out;
-	transition-timing-function: ease-out;
-}
-
-.card-star:hover,.card-star:hover > .star-header a,.card-star:hover > .star-content a {
-	transform: scale(1);
+.card-star:hover {
+	color: #fff;
+	background-color: var(--btn-bg) !important;
 }
 
 @media(max-width:567px) {
