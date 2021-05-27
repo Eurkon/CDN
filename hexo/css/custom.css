@@ -765,43 +765,6 @@ html {
 	overflow-y: overlay;
 }
 
-/* 首页头图透明 */
-#page-header.full_page {
-	background: transparent !important;
-}
-
-[data-theme="dark"] #page-header.full_page:before {
-	background: transparent !important;
-}
-
-/* page页头图透明 */
-#page-header.not-home-page {
-	background: transparent !important;
-}
-
-[data-theme="dark"] #page-header.not-home-page:before {
-	background: transparent !important;
-}
-
-/* 文章top-img透明 */
-#page-header.post-bg {
-	background: transparent !important;
-}
-
-[data-theme="dark"] #page-header.post-bg {
-	background: transparent !important;
-}
-
-/* 文章top-img黑色透明玻璃效果移除 */
-#page-header.post-bg:before {
-	/* background-color: transparent !important; */
-}
-
-/*夜间模式文章top-img伪类遮罩层透明*/
-[data-theme="dark"] #page-header.post-bg:before {
-	/* background: transparent !important; */
-}
-
 /* 页脚透明 */
 #footer {
 	background: transparent !important;
@@ -825,18 +788,7 @@ div#tag,
 div#category,
 div.card-widget,
 #recent-posts > .recent-post-item {
-	/* background: rgba(255,255,255,.9) !important; */
 	box-shadow: none !important;
-}
-
-[data-theme=dark] div#post,
-[data-theme=dark] div#page,
-[data-theme=dark] div#archive,
-[data-theme=dark] div#tag,
-[data-theme=dark] div#category,
-[data-theme=dark] div.card-widget,
-[data-theme=dark] #recent-posts > .recent-post-item {
-	/* background: rgba(0,0,0,.9) !important; */
 }
 
 /* 提示框 */
@@ -882,22 +834,13 @@ div.card-widget,
 }
 
 /* 固定顶部菜单栏 */
-#page-header.not-top-img #nav {
-	top: 0;
-	/* background-color: rgba(255,255,255,.9); */
-}
-
-[data-theme=dark]#page-header.not-top-img #nav {
-	/* background-color: rgba(0,0,0,.9); */
+#page-header #nav {
+	top: 0 !important;
 }
 
 #aside-content > .sticky_layout {
 	top: 70px;
 	transition: top .5s
-}
-
-#page-header.not-top-img {
-	margin-bottom: 0;
 }
 
 /* 页面名称 */
@@ -1028,26 +971,59 @@ div.card-widget,
 	transform: rotate(-45deg) translate(-0.1rem,.1rem);
 }
 
-/* 无头图文章标题信息--方案1 */
-/* #post > #post-info {
-	position: relative;
-	padding: .5rem .8rem;
-	border: 1px solid var(--light-grey);
-	-webkit-transition: box-shadow .3s ease-in-out;
-	-moz-transition: box-shadow .3s ease-in-out;
-	-o-transition: box-shadow .3s ease-in-out;
-	-ms-transition: box-shadow .3s ease-in-out;
-	transition: box-shadow .3s ease-in-out;
+/* 文章头图 */
+#page-header.post-bg {
+	background-color: var(--main);
+	transition: 0s;
 	overflow: hidden;
-	border-radius: 12px !important;
-	-webkit-box-shadow: 1px 1px 3px;
-	box-shadow: 1px 1px 3px;
-	text-shadow: #969696 0 0 1px;
-} */
+}
 
-/* 无头图文章标题信息--方案2 */
-.post #post,.post .layout #aside-content {
-	margin-top: 8rem;
+#page-header.post-bg::before {
+	transition: 0s;
+	height: 20rem;
+	background-color: var(--main);
+}
+
+#post-cover {
+	width: 70%;
+	height: 100%;
+	position: relative;
+	margin: 0% -20% 0 auto;
+	display: block;
+	overflow: hidden;
+	margin-bottom: 0;
+	transform: rotate(10deg) translateY(-30px) scale(1.1);
+	filter: blur(10px);
+}
+
+#post-cover-img {
+	width: 100% !important;
+	height: 100% !important;
+	object-fit: cover;
+	min-width: 50vw;
+	min-height: 20rem;
+	opacity: .7;
+	border: 10px ridge var(--main);
+}
+
+#post-cover-img::after {
+	position: absolute;
+	content: '';
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	box-shadow: 110px -130px 300px 60px var(--main) inset;
+}
+
+/* 文章标题 */
+#page-header #post-info {
+	text-align: left;
+}
+
+#page-header #post-info .post-title, 
+#page-header #post-info #post-meta {
+  font-weight: 700;
 }
 
 #post > #post-info {
@@ -1058,21 +1034,15 @@ div.card-widget,
 	text-align: center;
 }
 
-#post > #post-info .post-title {
-	border-bottom: none
+#nav a,
+#post-info .post-title,
+#post-info #post-meta,
+#post-info #post-meta a {
+	color: var(--second);
+	text-shadow: none !important;
 }
 
-#post > #post-info .post-title,
-#post > #post-info #post-meta,
-#post > #post-info #post-meta a {
-	/* color: var(--light-grey); */
-}
-
-#post > #post-info #post-meta,
-#post > #post-info #post-meta a {
-	color: var(--font-color)
-}
-
+/* 标签云 */
 .tag-cloud-list a:hover {
 	color: var(--btn-color) !important;
 	background: var(--text-bg-hover);
