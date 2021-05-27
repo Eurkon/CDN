@@ -1,23 +1,30 @@
-// // 滚动条自动隐藏
-// var t1 = 0;
-// var t2 = 0;
-// var timer = null; // 定时器
-// document.styleSheets[0].addRule('::-webkit-scrollbar-thumb', 'display:none;');
+(function navSet () {
+  document.getElementById("page-name-text").innerHTML = GLOBAL_CONFIG_SITE.title.replace("Eurkon", "")
+  if (document.getElementById("post-comment")) {
+    document.getElementById("comment-button").style.display = "inline"
+  } else {
+    document.getElementById("comment-button").style.display = "none"
+  }
+})()
 
-// // scroll监听
-// document.onscroll = function () {
-//   clearTimeout(timer);
-//   timer = setTimeout(isScrollEnd, 1000);
-//   t1 = document.documentElement.scrollTop || document.body.scrollTop;
-//   document.styleSheets[0].addRule('::-webkit-scrollbar-thumb', 'display:block;');
-// }
-
-// function isScrollEnd () {
-//   t2 = document.documentElement.scrollTop || document.body.scrollTop;
-//   if (t2 == t1) {
-//     document.styleSheets[0].addRule('::-webkit-scrollbar-thumb', 'display:none;');
-//   }
-// }
+if (document.getElementById('post-cover-img')) {
+  RGBaster.colors(document.getElementById('post-cover-img').getAttribute("src"), {
+    paletteSize: 30,
+    exclude: ['rgb(255,255,255)', 'rgb(0,0,0)'],
+    success: function (payload) {
+      const c = payload.dominant.match(/\d+/g);
+      const grayLevel = c[0] * 0.299 + c[1] * 0.587 + c[2] * 0.114;
+      if (grayLevel >= 192) {
+        // 若为浅色，把文字设置为黑色
+        document.styleSheets[0].addRule(":root", "--second: #4c4948 !important")
+      } else {
+        document.styleSheets[0].addRule(":root", "--second: #eee !important")
+      }
+      const color = `rgba(${c[0]},${c[1]},${c[2]}, 0.9)`;
+      document.styleSheets[0].addRule(":root", "--main:" + color + "!important")
+    }
+  })
+}
 
 function copyContentFn (ctx) {
   if (document.queryCommandSupported && document.queryCommandSupported('copy')) {
@@ -139,16 +146,6 @@ function adjustFontSize (plus) {
   saveToLocal.set('global-font-size', newValue, 2)
   // document.getElementById('font-text').innerText = newValue
 }
-
-(function navSet () {
-  document.getElementById("page-name-text").innerHTML = GLOBAL_CONFIG_SITE.title.replace("Eurkon", "")
-
-  if (document.getElementById("post-comment")) {
-    document.getElementById("comment-button").style.display = "inline"
-  } else {
-    document.getElementById("comment-button").style.display = "none"
-  }
-})()
 
 function switchPostChart () {
   // 这里为了统一颜色选取的是“明暗模式”下的两种字体颜色，也可以自己定义
