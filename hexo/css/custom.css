@@ -1024,7 +1024,15 @@ div.card-widget,
 
 #page-header #post-info .post-title, 
 #page-header #post-info #post-meta {
-  font-weight: 700;
+	font-weight: 700;
+}
+
+#page-header #post-info .post-title {
+	font-size: 3.5em;
+}
+
+#page-header #post-info .post-title {
+	font-size: 1.1em;
 }
 
 #post > #post-info {
