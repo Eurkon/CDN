@@ -1031,8 +1031,8 @@ div.card-widget,
 	font-size: 3.5em;
 }
 
-#page-header #post-info .post-title {
-	font-size: 1.1em;
+#page-header #post-info #post-meta {
+	font-size: 1em;
 }
 
 #post > #post-info {
