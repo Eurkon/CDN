@@ -20,7 +20,7 @@ if (document.getElementById('post-cover-img')) {
       } else {
         document.styleSheets[0].addRule(":root", "--second: #eee !important")
       }
-      const color = `rgba(${c[0]},${c[1]},${c[2]}, 0.9)`;
+      const color = `rgba(${c[0]},${c[1]},${c[2]}, 0.8)`;
       document.styleSheets[0].addRule(":root", "--main:" + color + "!important")
     }
   })
