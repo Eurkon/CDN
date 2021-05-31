@@ -1004,7 +1004,6 @@ div.card-widget,
 	min-width: 50vw;
 	min-height: 20rem;
 	opacity: .7;
-	border: 10px ridge var(--main);
 }
 
 #post-cover-img::after {
