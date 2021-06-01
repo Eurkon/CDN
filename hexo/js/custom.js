@@ -1,29 +1,26 @@
-(function navSet () {
-  document.getElementById("page-name-text").innerHTML = GLOBAL_CONFIG_SITE.title.replace("Eurkon", "")
-  if (document.getElementById("post-comment")) {
-    document.getElementById("comment-button").style.display = "inline"
-  } else {
-    document.getElementById("comment-button").style.display = "none"
-  }
-})()
+if (GLOBAL_CONFIG_SITE.title.replace('Eurkon', '') === '') {
+  document.getElementById('page-name-text').style.display = 'none'
+} else {
+  document.getElementById('page-name-text').innerHTML = GLOBAL_CONFIG_SITE.title.replace('Eurkon', '')
+}
+if (!document.getElementById('post-comment')) document.getElementById('comment-button').style.display = 'none'
 
 if (document.getElementById('post-cover-img')) {
-  RGBaster.colors(document.getElementById('post-cover-img').getAttribute("src"), {
+  RGBaster.colors(document.getElementById('post-cover-img').getAttribute('src'), {
     paletteSize: 30,
     exclude: ['rgb(255,255,255)', 'rgb(0,0,0)'],
     success: function (payload) {
       const c = payload.dominant.match(/\d+/g);
       const grayLevel = c[0] * 0.299 + c[1] * 0.587 + c[2] * 0.114;
-      if (grayLevel >= 192) {
-        // 若为浅色，把文字设置为黑色
-        document.styleSheets[0].addRule(":root", "--second: #4c4948 !important")
-      } else {
-        document.styleSheets[0].addRule(":root", "--second: #eee !important")
-      }
-      const color = `rgba(${c[0]},${c[1]},${c[2]}, 0.8)`;
-      document.styleSheets[0].addRule(":root", "--main:" + color + "!important")
+      document.styleSheets[0].addRule(':root', '--main: ' + (grayLevel >= 192 ? '#49B1F5' : payload.dominant) + '!important')
+      document.styleSheets[0].addRule(':root', '--main-shadow: 0 8px 12px -3px ' + (grayLevel >= 192 ? 'rgba(73, 177, 245, .2)' : `rgba(${c[0]},${c[1]},${c[2]}, .2)`) + '!important')
+      document.styleSheets[0].addRule(':root', '--cover-text: ' + (grayLevel >= 192 ? '#4c4948' : '#eee') + '!important')
+      document.styleSheets[0].addRule(':root', `--cover-bg: rgba(${c[0]},${c[1]},${c[2]}, 0.8) !important`)
     }
   })
+} else {
+  document.styleSheets[0].addRule(':root', '--main: #49B1F5 !important')
+  document.styleSheets[0].addRule(':root', '--main-shadow: 0 8px 12px -3px rgba(73, 177, 245, .2) !important')
 }
 
 function copyContentFn (ctx) {
@@ -225,13 +222,13 @@ function switchVisitChart () {
   }
 }
 
-document.getElementById("mode-button").addEventListener("click", function () { setTimeout(switchPostChart, 100) })
-document.getElementById("darkmode").addEventListener("click", function () { setTimeout(switchPostChart, 100) })
-document.getElementById("mode-button").addEventListener("click", function () { setTimeout(switchVisitChart, 100) })
-document.getElementById("darkmode").addEventListener("click", function () { setTimeout(switchVisitChart, 100) })
+document.getElementById('mode-button').addEventListener('click', function () { setTimeout(switchPostChart, 100) })
+document.getElementById('darkmode').addEventListener('click', function () { setTimeout(switchPostChart, 100) })
+document.getElementById('mode-button').addEventListener('click', function () { setTimeout(switchVisitChart, 100) })
+document.getElementById('darkmode').addEventListener('click', function () { setTimeout(switchVisitChart, 100) })
 
-document.addEventListener("copy", function () { copyContentFn(this) })
-document.getElementById("mode-button").addEventListener("click", function () { switchDarkMode() })
-document.getElementById("top-button").addEventListener("click", function () { scrollToTop() })
-document.getElementById("page-name-text").addEventListener("click", function () { scrollToTop() })
-if (document.getElementById("post-url-copy")) document.getElementById("post-url-copy").addEventListener("click", function () { postUrlCopyFn(this) })
+document.addEventListener('copy', function () { copyContentFn(this) })
+document.getElementById('mode-button').addEventListener('click', function () { switchDarkMode() })
+document.getElementById('top-button').addEventListener('click', function () { scrollToTop() })
+document.getElementById('page-name-text').addEventListener('click', function () { scrollToTop() })
+if (document.getElementById('post-url-copy')) document.getElementById('post-url-copy').addEventListener('click', function () { postUrlCopyFn(this) })
