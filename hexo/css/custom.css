@@ -216,7 +216,7 @@ a {
 
 #aside-content .card-info .card-info-data > .card-info-data-item:hover a .headline,
 #aside-content .card-info .card-info-data > .card-info-data-item:hover a .length-num {
-	color: #FFF;
+	color: var(--white);
 }
 
 #aside-content .aside-list > .aside-list-item {
@@ -224,7 +224,7 @@ a {
 }
 
 #aside-content .aside-list > .aside-list-item:hover {
-	color: #FFF !important;
+	color: var(--white) !important;
 	background: var(--text-bg-hover);
 	border-radius: 8px;
 	transition: all .2s;
@@ -239,7 +239,7 @@ a {
 }
 
 #aside-content .aside-list > .aside-list-item:hover a,#aside-content .aside-list > .aside-list-item:hover span,#aside-content .aside-list > .aside-list-item:hover time {
-	color: #FFF !important;
+	color: var(--white) !important;
 	transition: all .2s;
 }
 
@@ -248,13 +248,13 @@ a {
 }
 
 #aside-content .card-archives ul.card-archive-list>.card-archive-list-item a:hover {
-	color: #FFF !important;
+	color: var(--white) !important;
 	background: var(--text-bg-hover);
 	border-radius: 8px;
 }
 
 #aside-content .card-categories ul.card-category-list>.card-category-list-item a:hover {
-	color: #FFF !important;
+	color: var(--white) !important;
 	background: var(--text-bg-hover);
 	border-radius: 8px;
 }
@@ -264,7 +264,7 @@ a {
 }
 
 #aside-content .card-tag-cloud a:hover {
-	color: #FFF !important;
+	color: var(--white) !important;
 	background: var(--text-bg-hover);
 	border-radius: 8px;
 	-webkit-transform: scale(.95);
@@ -340,7 +340,7 @@ a {
 
 .article-sort-item-categories a.article-meta__categories:hover,
 .article-sort-item-tags a.article-meta__tags:hover {
-	color: #FFF !important;
+	color: var(--white) !important;
 	background: var(--text-bg-hover);
 	border-radius: 8px;
 	-webkit-transform: scale(.95);
@@ -387,7 +387,7 @@ a {
 	display: block;
 	height: 3px;
 	border-radius: 3px;
-	background-color: #fff;
+	background-color: var(--white);
 }
 
 #page .category-lists .category-list .category-list-item .category-list-link:hover:after {
@@ -536,7 +536,7 @@ a {
 }
 
 #recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap a:hover {
-	color: #FFF !important;
+	color: var(--white) !important;
 	background: var(--text-bg-hover);
 	border-radius: 6px;
 	-webkit-transform: scale(.95);
@@ -776,12 +776,12 @@ strong {
 }
 
 .hexo-douban-active {
-	color: #FFF !important;
+	color: var(--white) !important;
 	background: var(--text-bg-hover) !important;
 }
 
 .hexo-douban-button:hover {
-	color: #FFF !important;
+	color: var(--white) !important;
 	background: var(--text-bg-hover) !important;
 }
 
@@ -925,13 +925,13 @@ div.card-widget,
 #page-header #nav a:hover,
 #page-header #nav #site-name:hover,
 #page-header #nav #toggle-menu:hover {
-	color: #eee !important;
+	color: var(--white) !important;
 	background-color: var(--main);
 	box-shadow: var(--main-shadow);
 }
 
 #page-header #nav .menus_item:hover .menus_item_child .site-page.child:hover {
-	color: #eee !important;
+	color: var(--white) !important;
 	background-color: var(--main);
 	box-shadow: var(--main-shadow);
 	-webkit-transition: all 0s;
@@ -996,7 +996,7 @@ div.card-widget,
 }
 
 #nav .menus_items .menus_item .menus_item_child li:hover a {
-	color: #FFF !important;
+	color: var(--white) !important;
 }
 
 /* 页面名称 */
@@ -1170,7 +1170,7 @@ div.card-widget,
 
 /* 标签云 */
 .tag-cloud-list a:hover {
-	color: #FFF !important;
+	color: var(--white) !important;
 	background: var(--text-bg-hover);
 	border-radius: 8px;
 	-webkit-transform: scale(.95);
@@ -1255,7 +1255,7 @@ div.card-widget,
 }
 
 #body-wrap.error .aside-list .aside-list-item:hover .content .title {
-	color: #FFF;
+	color: var(--white);
 	background-color: var(--text-bg-hover);
 }
 
