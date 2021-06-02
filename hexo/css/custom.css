@@ -127,10 +127,15 @@ table tr:nth-child(even) {
 	position: relative;
 }
 
-#article-container .headerlink::before {
+#article-container .headerlink:before {
 	content: "\f0c1";
 	font-family: "Font Awesome 5 Free";
 	font-size: .9em;
+}
+
+
+#article-container .headerlink:after {
+	display: none;
 }
 
 #article-container :hover .headerlink {
@@ -168,11 +173,15 @@ a {
 	text-decoration: none !important;
 }
 
+a.ghcard:after {
+  display: none;
+}
+
 #article-container a {
 	position: relative;
 }
 
-#article-container a:after {
+#post #article-container a:after {
 	position: absolute;
 	bottom: -1px;
 	left: 0;
@@ -187,12 +196,16 @@ a {
 	transition: all .2s ease-in-out;
 }
 
-#article-container a:hover:after {
+#post #article-container a:hover:after {
 	width: 100%;
 }
 
-#article-container a:hover {
+#post #article-container a:hover {
 	color: var(--main);
+}
+
+#page #article-container a:hover {
+	color: #f47466;
 }
 
 /* 侧边栏 */
@@ -319,7 +332,7 @@ a {
 }
 
 .article-sort-item-title:hover {
-	color: #f47466;
+	color: #f47466 !important;
 }
 
 .article-sort-item-time {
@@ -369,7 +382,7 @@ a {
 	}
 }
 
-#page .category-lists .category-list .category-list-item::before {
+#page .category-lists .category-list .category-list-item:before {
 	display: none;
 }
 
@@ -405,13 +418,13 @@ a {
 	font-size: 1.3rem;
 }
 
-#page .category-lists .category-list .category-list-item .category-list-count::before {
+#page .category-lists .category-list .category-list-item .category-list-count:before {
 	content: '\f02d';
 	padding-right: 15px;
 	font-family: 'Font Awesome 5 Free';
 }
 
-#page .category-lists .category-list .category-list-item .category-list-count::after {
+#page .category-lists .category-list .category-list-item .category-list-count:after {
 	display: none;
 }
 
@@ -837,7 +850,7 @@ html {
 	background: transparent !important;
 }
 
-[data-theme="dark"] #footer::before {
+[data-theme="dark"] #footer:before {
 	background: transparent !important;
 }
 
@@ -1027,7 +1040,7 @@ div.card-widget,
 	transform: translateY(-60px);
 }
 
-#nav #page-name-text:hover::before {
+#nav #page-name-text:hover:before {
 	transform: scaleX(1);
 	transform-origin: bottom left;
 }
@@ -1082,7 +1095,7 @@ div.card-widget,
 	overflow: hidden;
 }
 
-#page-header.post-bg::before {
+#page-header.post-bg:before {
 	transition: 0s;
 	height: 20rem;
 	background-color: var(--cover-bg);
@@ -1109,7 +1122,7 @@ div.card-widget,
 	opacity: .7;
 }
 
-#post-cover-img::after {
+#post-cover-img:after {
 	position: absolute;
 	content: '';
 	width: 100%;
