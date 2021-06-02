@@ -177,7 +177,7 @@ a.ghcard:after {
   display: none;
 }
 
-#article-container a {
+#post #article-container a {
 	position: relative;
 }
 
