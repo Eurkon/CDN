@@ -39,7 +39,7 @@ fetch(history_get_data()[0]).then(data => data.json()).then(data => {
       item.year + '</span>' + '<span class="history_slide_link">' + item.title + '</span></div>'
   }
   let history_container_wrapper = document.getElementById('history_container_wrapper')
-  append(history_container_wrapper, html_item + '<style>.history_slide{text-align:left;font-size:14px;display:flex;flex-direction:column;align-items:flex-start;}#history-baidu > .blog-slider__pagination{display:none}.history_slide_time{color:#858585;Font-style:italic;font-weight:lighter;}</style');
+  append(history_container_wrapper, html_item + '<style>.history_slide{text-align:left;display:flex;flex-direction:column;align-items:flex-start;}#history-baidu > .blog-slider__pagination{display:none}.history_slide_time{color:#858585;Font-style:italic;font-weight:lighter;}</style>');
   let swiper_history = new Swiper('.history_swiper-container', {
     passiveListeners: true,
     spaceBetween: 30,

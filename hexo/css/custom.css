@@ -296,10 +296,6 @@ a.ghcard:after {
 	font-weight: 500;
 }
 
-.history_slide {
-	font-size: 95% !important;
-}
-
 /* 归档 */
 .article-sort-item {
 	background-color: var(--global-bg);
