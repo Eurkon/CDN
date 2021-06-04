@@ -6,22 +6,37 @@ if (GLOBAL_CONFIG_SITE.title.replace('Eurkon', '') === '') {
 if (!document.getElementById('post-comment')) document.getElementById('comment-button').style.display = 'none'
 
 if (document.getElementById('post-cover-img')) {
+  let list = []
+  for (let i = 0; i <= 5; i++) {
+    for (let j = 0; j <= 5; j++) {
+      for (let k = 0; k <= 5; k++) {
+        list.push(`rgb(${i},${j},${k})`)
+        list.push(`rgb(${255 - i},${255 - j},${255 - k})`)
+      }
+    }
+  }
   RGBaster.colors(document.getElementById('post-cover-img').getAttribute('src'), {
     paletteSize: 30,
-    exclude: ['rgb(255,255,255)', 'rgb(0,0,0)'],
+    exclude: list,
     success: function (payload) {
       const c = payload.dominant.match(/\d+/g);
       const grayLevel = c[0] * 0.299 + c[1] * 0.587 + c[2] * 0.114;
-      document.styleSheets[0].addRule(':root', '--main: ' + (grayLevel >= 192 ? '#49B1F5' : payload.dominant) + '!important')
-      document.styleSheets[0].addRule(':root', '--main-shadow: 0 8px 12px -3px ' + (grayLevel >= 192 ? 'rgba(73, 177, 245, .2)' : `rgba(${c[0]},${c[1]},${c[2]}, .2)`) + '!important')
-      document.styleSheets[0].addRule(':root', '--cover-text: ' + (grayLevel >= 192 ? '#4c4948' : '#eee') + '!important')
-      document.styleSheets[0].addRule(':root', `--cover-bg: rgba(${c[0]},${c[1]},${c[2]}, 0.8) !important`)
+      document.styleSheets[0].addRule(':root', '--main: ' + payload.dominant)
+      document.styleSheets[0].addRule(':root', '--second: ' + (grayLevel >= 192 ? '#000' : '#fff'))
+      document.styleSheets[0].addRule(':root', `--main-shadow: 0 8px 12px -3px rgba(${c[0]}, ${c[1]}, ${c[2]}, .2)`)
+      document.styleSheets[0].addRule(':root', '--cover-text: ' + (grayLevel >= 192 ? '#4c4948' : '#eee'))
+      document.styleSheets[0].addRule(':root', `--cover-bg: rgba(${c[0]}, ${c[1]}, ${c[2]}, 0.8)`)
     }
   })
 } else {
-  document.styleSheets[0].addRule(':root', '--main: #49B1F5 !important')
-  document.styleSheets[0].addRule(':root', '--main-shadow: 0 8px 12px -3px rgba(73, 177, 245, .2) !important')
+  document.styleSheets[0].addRule(':root', '--main: #49B1F5')
+  document.styleSheets[0].addRule(':root', '--second: #fff')
+  document.styleSheets[0].addRule(':root', '--main-shadow: 0 8px 12px -3px rgba(73, 177, 245, .2)')
 }
+
+document.styleSheets[0].addRule('[data-theme="dark"]', '--main: #383838 !important')
+document.styleSheets[0].addRule('[data-theme="dark"]', '--second: #eee !important')
+document.styleSheets[0].addRule('[data-theme="dark"]', `--main-shadow: 0 8px 12px -3px rgba(56, 56, 56, .2) !important`)
 
 function copyContentFn (ctx) {
   if (document.queryCommandSupported && document.queryCommandSupported('copy')) {
