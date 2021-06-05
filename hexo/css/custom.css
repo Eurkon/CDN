@@ -1,9 +1,9 @@
 html {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/default.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/default.cur), auto !important;
 }
 
 #recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .post-meta-date {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/default.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/default.cur), auto !important;
 }
 
 a,
@@ -12,39 +12,39 @@ button,
 svg,
 canvas,
 select {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/pointer.cur), auto !important;
 }
 
 i.scroll-down-effects {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/pointer.cur), auto !important;
 }
 
 /* 打赏按钮 */
 .reward-button {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/pointer.cur), auto !important;
 }
 
 /* 翻页 */
 #pagination span {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/default.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/default.cur), auto !important;
 }
 
 #pagination a {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/pointer.cur), auto !important;
 }
 
 /* 图片预览 */
 .fancybox,
 .fancybox-button,
 .fancybox-content {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/pointer.cur), auto !important;
 }
 
 /* 代码块 */
 #article-container figure.highlight .highlight-tools .expand ~ .copy-button,
 #article-container figure.highlight .highlight-tools .expand,
 #article-container .code-expand-btn {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/pointer.cur), auto !important;
 }
 
 /* 评论与回复 */
@@ -55,7 +55,7 @@ i.scroll-down-effects {
 .vat,
 .vemojis *,
 .vcontent.expand {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/pointer.cur), auto !important;
 }
 
 /* twikoo */
@@ -66,17 +66,17 @@ i.scroll-down-effects {
 .OwO .OwO-body,
 .OwO .OwO-body .OwO-items .OwO-item,
 .OwO .OwO-body .OwO-bar .OwO-packages li {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/pointer.cur), auto !important;
 }
 
 /* 网站收藏卡片 */
 .card-star {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/pointer.cur), auto !important;
 }
 
 /* 文章轮播 */
 .swiper-pagination-clickable .swiper-pagination-bullet {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/pointer.cur), auto !important;
 }
 
 .layout {
@@ -133,7 +133,6 @@ table tr:nth-child(even) {
 	font-size: .9em;
 }
 
-
 #article-container .headerlink:after {
 	display: none;
 }
@@ -180,11 +179,11 @@ a.hexo-douban-tab:after,
 a.hexo-douban-button:after,
 .flink-list-card a:after,
 .article-sort-item-title:after {
-  display: none;
+	display: none;
 }
 
 .flink-list-card a {
-  position: unset !important
+	position: unset !important
 }
 
 #article-container a {
@@ -362,7 +361,7 @@ a.hexo-douban-button:after,
 .article-sort-item-tags a.article-meta__tags:hover {
 	color: var(--second);
 	background-color: var(--main);
-  box-shadow: var(--main-shadow);
+	box-shadow: var(--main-shadow);
 	border-radius: 8px;
 	-webkit-transform: scale(.95);
 	-moz-transform: scale(.95);
@@ -487,8 +486,8 @@ a.hexo-douban-button:after,
 /* 目录 */
 #aside-content #card-toc .toc-content .toc-link.active {
 	font-weight: 700;
-  border-radius: 8px;
-  color: var(--second);
+	border-radius: 8px;
+	color: var(--second);
 	border-left-color: var(--main);
 	background-color: var(--main);
 	box-shadow: var(--main-shadow);
@@ -560,7 +559,7 @@ a.hexo-douban-button:after,
 #recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap a:hover {
 	color: var(--second) !important;
 	background-color: var(--main);
-  box-shadow: var(--main-shadow);
+	box-shadow: var(--main-shadow);
 	border-radius: 6px;
 	-webkit-transform: scale(.95);
 	-moz-transform: scale(.95);
@@ -616,12 +615,12 @@ a.hexo-douban-button:after,
 #pagination a.extend:hover {
 	color: var(--second);
 	background-color: var(--main);
-  box-shadow: var(--main-shadow);
+	box-shadow: var(--main-shadow);
 }
 
 .pagination span.space {
 	font-weight: 700;
-  background-color: transparent !important;
+	background-color: transparent !important;
 }
 
 #pagination a.extend.prev {
@@ -787,19 +786,19 @@ strong {
 
 /* 豆瓣页面 */
 .hexo-douban-title a:hover {
-  color: #f47466 !important;
+	color: #f47466 !important;
 }
 
 .hexo-douban-meta,
 .hexo-douban-comments {
-  font-size: 90% !important;
+	font-size: 90% !important;
 }
 
 .hexo-douban-item {
 	background-color: var(--blockquote-bg);
 	border-radius: 8px;
 	margin: 8px 0;
-  min-height: 160px !important;
+	min-height: 160px !important;
 	border-bottom: none !important;
 }
 
@@ -811,22 +810,22 @@ strong {
 .hexo-douban-active {
 	color: var(--second) !important;
 	background-color: var(--main) !important;
-  box-shadow: var(--main-shadow);
-  border-radius: 8px;
+	box-shadow: var(--main-shadow);
+	border-radius: 8px;
 }
 
 .hexo-douban-tab:hover {
 	color: var(--second) !important;
 	background-color: var(--main) !important;
-  box-shadow: var(--main-shadow);
-  border-radius: 8px;
+	box-shadow: var(--main-shadow);
+	border-radius: 8px;
 }
 
 .hexo-douban-button:hover {
 	color: var(--second) !important;
 	background-color: var(--main) !important;
-  box-shadow: var(--main-shadow);
-  border-radius: 8px;
+	box-shadow: var(--main-shadow);
+	border-radius: 8px;
 }
 
 /* 音乐播放器 */
@@ -877,6 +876,10 @@ html {
 }
 
 /* 页脚 */
+#footer {
+	background-color: var(--card-bg);
+}
+
 #footer #footer-wrap {
 	padding: .5rem 1rem;
 	color: var(--font-color);
@@ -1199,9 +1202,9 @@ div.card-widget,
 
 #post .tag_share .post-meta__tags:hover {
 	background-color: var(--main);
-  border: 1px solid var(--main);
-  box-shadow: var(--main-shadow);
-  color: var(--second);
+	border: 1px solid var(--main);
+	box-shadow: var(--main-shadow);
+	color: var(--second);
 }
 
 /* 404页面 */
