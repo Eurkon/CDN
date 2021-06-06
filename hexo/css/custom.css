@@ -177,7 +177,7 @@ a.button--animated:after,
 a.hexo-douban-tab:after,
 .hexo-douban-title a:after,
 a.hexo-douban-button:after,
-.flink-list-card a:after,
+a.flink-list-card:after,
 .article-sort-item-title:after {
 	display: none;
 }
