@@ -17,24 +17,15 @@ function append (parent, text) {
 function history_get_data () {
   let myDate = new Date();
   let myMonth = myDate.getMonth() + 1;
-  if (myMonth < 10) {
-    getMonth = "0" + String(myMonth);
-  } else {
-    getMonth = String(myMonth);
-  }
-  let getDate = String(myDate.getDate());
-  if (getDate < 10) {
-    getDate = "0" + String(getDate);
-  } else {
-    getDate = String(getDate);
-  }
-  let getMonthDate = "S" + getMonth + getDate;
-  return ["https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/json/history/" + getMonth + ".json", getMonthDate]
+  getMonth = myMonth < 10 ? getMonth = ('0' + myMonth) : myMonth;
+  let getDate = myDate.getDate();
+  getDate = getDate < 10 ? ('0' + getDate) : getDate;
+  return ["https://baike.baidu.com/cms/home/eventsOnHistory/" + getMonth + ".json", String(getMonth), String(getMonth) + String(getDate)]
 }
 
 fetch(history_get_data()[0]).then(data => data.json()).then(data => {
   html_item = ''
-  for (let item of data[history_get_data()[1]]) {
+  for (let item of data[history_get_data()[1]][history_get_data()[2]]) {
     html_item += '<div class="swiper-slide history_slide"><span class="history_slide_time">A.D.' +
       item.year + '</span>' + '<span class="history_slide_link">' + item.title + '</span></div>'
   }
@@ -65,4 +56,6 @@ fetch(history_get_data()[0]).then(data => data.json()).then(data => {
   history_comtainer.onmouseleave = function () {
     swiper_history.autoplay.start();
   }
-})
+}).catch(function (error) {
+  console.log(error);
+});
