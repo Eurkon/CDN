@@ -4,7 +4,7 @@ function electric_clock_init () {
     res_list = res_text.split('\\');
     var clock_box = document.getElementById('electric_clock');
     style = `<style>@font-face{font-family:'UnidreamLED';src:url('https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/fonts/UnidreamLED.ttf');}#electric_clock{padding:20px}.card-clock{padding:0!important;}.card-background{height:150px;margin:15px;border-radius:8px;box-shadow:inset 3px 3px 18px 0 rgb(50 50 50 / 40%);z-index:2;}.clock-row{font-family:UnidreamLED;font-weight:400;display:flex;justify-content:space-between;flex-wrap:nowrap;white-space:nowrap;}.card-clock-clockdate,.card-clock-ip{text-align:left;flex-basis:calc(40% - 5px);}.card-clock-weather,.card-clock-location{text-align:center;flex-basis:calc(30% - 5px);}.card-clock-humidity,.card-clock-dackorlight{text-align:right;flex-basis:calc(30% - 5px);}.card-clock-time{flex:1;font-family:UnidreamLED;font-size:38px;text-align:center;line-height:1.5;}</style>`;
-    
+
     clock_box_html = `
         <div class="clock-row">
           <span id="card-clock-clockdate" class="card-clock-clockdate"></span>
@@ -56,7 +56,9 @@ function electric_clock_init () {
     var timerID = setInterval(updateTime, 1000);
     updateTime();
   }
-  )
+  ).catch(function (error) {
+    console.log(error);
+  });
 }
 
 electric_clock_init();
