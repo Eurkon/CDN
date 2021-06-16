@@ -172,45 +172,23 @@ a {
 	text-decoration: none !important;
 }
 
-a.ghcard:after,
-a.button--animated:after,
-a.hexo-douban-tab:after,
-.hexo-douban-title a:after,
-a.hexo-douban-button:after,
-a.flink-list-card:after,
-.article-sort-item-title:after {
-	display: none;
-}
-
-.flink-list-card a {
-	position: unset !important
+a.ghcard,
+a.button--animated,
+a.hexo-douban-tab,
+.hexo-douban-title a,
+a.hexo-douban-button,
+a.flink-list-card,
+.article-sort-item-title {
+	border-bottom: none !important;
 }
 
 #article-container a {
-	position: relative;
+  font-weight: 500;
 }
 
 #article-container a:hover {
 	color: var(--text-highlight-color);
-}
-
-#article-container a:after {
-	position: absolute;
-	bottom: -1px;
-	left: 0;
-	width: 0;
-	height: 2px;
-	background-color: var(--text-highlight-color);
-	content: '';
-	-webkit-transition: all .2s ease-in-out;
-	-moz-transition: all .2s ease-in-out;
-	-o-transition: all .2s ease-in-out;
-	-ms-transition: all .2s ease-in-out;
-	transition: all .2s ease-in-out;
-}
-
-#article-container a:hover:after {
-	width: 100%;
+  border-bottom: solid 2px;
 }
 
 /* 侧边栏 */
