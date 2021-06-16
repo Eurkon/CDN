@@ -330,5 +330,5 @@ var loading_visit = (color) => {
   var visit_color = visit_purple;
   append_div_visitcalendar(visit_container, loading_visit(visit_color[4]));
   // 统计访问次数 PV 填写 'pv_count'，统计访客数 UV 填写 'visitor_count'，二选一
-  visit_calendar('16265874', '121.777f81bf1db4cc8da3aee9337969b587.YQiJGmUJsP4SLUC4R956Igis_O0hzsiCsfT91Yp.wA6FeA', 'pv_count', visit_color)
+  visit_calendar('16265874', '121.e3bf066a67ece1190b778c1cfa68775c.Y_6ViXNW31c8Kcm-mKQngkgMRzlJepkHzrNgfBp.VSdWEA', 'pv_count', visit_color)
 })()
