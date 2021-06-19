@@ -25,7 +25,7 @@ if (document.getElementById('post-cover-img')) {
       document.styleSheets[0].addRule(':root', '--second: ' + (grayLevel >= 192 ? '#000' : '#fff'))
       document.styleSheets[0].addRule(':root', `--main-shadow: 0 8px 12px -3px rgba(${c[0]}, ${c[1]}, ${c[2]}, .2)`)
       document.styleSheets[0].addRule(':root', '--cover-text: ' + (grayLevel >= 192 ? '#4c4948' : '#eee'))
-      document.styleSheets[0].addRule(':root', `--cover-bg: rgba(${c[0]}, ${c[1]}, ${c[2]}, 0.8)`)
+      document.styleSheets[0].addRule(':root', `--cover-bg: rgba(${c[0]}, ${c[1]}, ${c[2]})`)
     }
   })
 } else {
