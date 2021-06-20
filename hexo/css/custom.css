@@ -941,15 +941,23 @@ div.card-widget,
 #page-header #nav a:hover,
 #page-header #nav #site-name:hover,
 #page-header #nav #toggle-menu:hover {
+	color: var(--main) !important;
+	background-color: var(--second);
+	box-shadow: var(--main-shadow);
+}
+
+#page-header.nav-fixed #nav a:hover,
+#page-header.not-top-img #nav a:hover,
+#page-header.nav-fixed #nav #site-name:hover,
+#page-header.not-top-img #nav #site-name:hover,
+#page-header.nav-fixed #nav #toggle-menu:hover,
+#page-header.not-top-img #nav #toggle-menu:hover {
 	color: var(--second) !important;
 	background-color: var(--main);
 	box-shadow: var(--main-shadow);
 }
 
 #page-header #nav .menus_item:hover .menus_item_child .site-page.child:hover {
-	color: var(--second) !important;
-	background-color: var(--main);
-	box-shadow: var(--main-shadow);
 	-webkit-transition: all 0s;
 	-moz-transition: all 0s;
 	-o-transition: all 0s;
@@ -1009,6 +1017,7 @@ div.card-widget,
 
 #nav .menus_items .menus_item .menus_item_child li:hover {
 	border-radius: 8px;
+	background: none;
 }
 
 #nav .menus_items .menus_item .menus_item_child li:hover a {
