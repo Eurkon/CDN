@@ -121,10 +121,10 @@ table tr:nth-child(even) {
 /* 文章段落标题 */
 #article-container .headerlink {
 	float: right;
-	opacity: .2;
-	border-bottom-style: none;
-	border-bottom: none;
+	opacity: .3;
+	border-bottom: none !important;
 	position: relative;
+	font-weight: unset;
 }
 
 #article-container .headerlink:before {
@@ -183,12 +183,12 @@ a.flink-list-card,
 }
 
 #article-container a {
-  font-weight: 500;
+	font-weight: 500;
 }
 
 #article-container a:hover {
 	color: var(--text-highlight-color);
-  border-bottom: solid 2px;
+	border-bottom: solid 2px;
 }
 
 /* 侧边栏 */
