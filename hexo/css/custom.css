@@ -178,7 +178,7 @@ a.hexo-douban-tab,
 .hexo-douban-title a,
 a.hexo-douban-button,
 a.flink-list-card,
-.article-sort-item-title {
+.article-sort-item a {
 	border-bottom: none !important;
 }
 
