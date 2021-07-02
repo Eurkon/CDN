@@ -6,6 +6,16 @@ html {
 	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/default.cur), auto !important;
 }
 
+ul:before,
+li:before {
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/default.cur), auto !important;
+}
+
+/* 翻页 */
+#pagination span {
+	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/default.cur), auto !important;
+}
+
 a,
 img,
 button,
@@ -22,11 +32,6 @@ i.scroll-down-effects {
 /* 打赏按钮 */
 .reward-button {
 	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/pointer.cur), auto !important;
-}
-
-/* 翻页 */
-#pagination span {
-	cursor: url(https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/default.cur), auto !important;
 }
 
 #pagination a {
