@@ -1200,7 +1200,7 @@ div.card-widget,
 }
 
 /* 404页面 */
-#body-wrap.error .aside-list {
+#body-wrap.error404 .aside-list {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -1209,29 +1209,29 @@ div.card-widget,
 	margin-top: 3rem;
 }
 
-#body-wrap.error .aside-list .aside-list-item {
+#body-wrap.error404 .aside-list .aside-list-item {
 	width: 16.66%;
 	margin: .5rem 0;
 }
 
 @media (max-width: 1400px) and (min-width: 769px) {
-	#body-wrap.error .aside-list {
+	#body-wrap.error404 .aside-list {
 		width: 80%;
 		transform: translateX(10%);
 	}
 
-	#body-wrap.error .aside-list .aside-list-item {
+	#body-wrap.error404 .aside-list .aside-list-item {
 		width: 33.33%;
 	}
 }
 
 @media screen and (max-width: 768px) {
-	#body-wrap.error .aside-list .aside-list-item {
+	#body-wrap.error404 .aside-list .aside-list-item {
 		display: none;
 	}
 }
 
-#body-wrap.error .aside-list .aside-list-item:hover .thumbnail > img {
+#body-wrap.error404 .aside-list .aside-list-item:hover .thumbnail > img {
 	border-radius: 8px 8px 0 0;
 	-webkit-transform: scale(1.1);
 	-moz-transform: scale(1.1);
@@ -1241,12 +1241,12 @@ div.card-widget,
 	transition: all .2s;
 }
 
-#body-wrap.error .aside-list .aside-list-item img {
+#body-wrap.error404 .aside-list .aside-list-item img {
 	width: 100%;
 	object-fit: cover;
 }
 
-#body-wrap.error .aside-list .aside-list-item .thumbnail {
+#body-wrap.error404 .aside-list .aside-list-item .thumbnail {
 	overflow: hidden;
 	display: flex;
 	height: 4rem;
@@ -1255,7 +1255,7 @@ div.card-widget,
 	border-radius: 8px 8px 0 0;
 }
 
-#body-wrap.error .aside-list .aside-list-item .content .title {
+#body-wrap.error404 .aside-list .aside-list-item .content .title {
 	line-height: 1.5;
 	-webkit-line-clamp: 2;
 	overflow: hidden;
@@ -1273,11 +1273,11 @@ div.card-widget,
 	border-radius: 0 0 8px 8px;
 }
 
-#body-wrap.error .aside-list .aside-list-item:hover .content .title {
+#body-wrap.error404 .aside-list .aside-list-item:hover .content .title {
 	color: var(--second);
 	background-color: var(--main);
 }
 
-#body-wrap.error .aside-list .aside-list-item .content time {
+#body-wrap.error404 .aside-list .aside-list-item .content time {
 	display: none;
 }
