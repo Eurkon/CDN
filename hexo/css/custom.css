@@ -752,7 +752,7 @@ strong {
 	font-size: 1.1em !important;
 }
 
-.tk-content {
+.tk-comment .tk-content {
 	background-color: var(--global-bg);
 	padding: 0 1rem;
 	border-radius: 8px;
