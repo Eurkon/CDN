@@ -1018,8 +1018,8 @@ div.card-widget,
 #nav .menus_items {
 	position: absolute;
 	text-align: center;
-	width: 650px;
-	left: 0;
+	width: 600px;
+	left: -3em;
 	right: 0;
 	margin: auto;
 }
@@ -1188,6 +1188,7 @@ div.card-widget,
 /* 文章标题 */
 #page-header #post-info {
 	text-align: left;
+	bottom: 25%;
 }
 
 #page-header #post-info .post-title, 
@@ -1197,6 +1198,12 @@ div.card-widget,
 
 #page-header #post-info .post-title {
 	font-size: 3.5em;
+}
+
+@media screen and (max-width: 768px) {
+	#page-header #post-info .post-title {
+		font-size: 2.5em;
+	}
 }
 
 #page-header #post-info #post-meta {
