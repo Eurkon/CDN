@@ -860,13 +860,55 @@ html {
 
 /* 页脚 */
 #footer {
-	background-color: var(--card-bg);
+	background: var(--card-bg);
+}
+
+#footer:before {
+	display: none;
 }
 
 #footer #footer-wrap {
-	padding: .5rem 1rem;
+	padding: 0;
 	color: var(--font-color);
-	background-color: var(--card-bg);
+}
+
+#footer #footer-wrap #footer-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+	margin: .5rem auto;
+	max-width: 1200px;
+}
+
+#footer #footer-wrap #footer-container .footer-group {
+	margin: 0 auto;
+	min-width: 120px;
+}
+
+#footer #footer-wrap #footer-container .footer-group .footer-group-title {
+	display: block;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+#footer #footer-wrap #footer-container .footer-group .footer-group-item {
+	color: var(--font-color);
+	display: block;
+}
+
+#footer #footer-wrap #footer-container .footer-group .footer-group-item:hover {
+	color: #49B1F5;
+}
+
+@media (max-width:600px) {
+	#footer #footer-wrap #footer-container {
+		display: none;
+	}
+}
+
+#footer-banner {
+	margin-top: .5rem;
 }
 
 /* 卡片背景 */
