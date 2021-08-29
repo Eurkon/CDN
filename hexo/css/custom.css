@@ -126,10 +126,11 @@ table tr:nth-child(even) {
 /* 文章段落标题 */
 #article-container .headerlink {
 	float: right;
-	opacity: .3;
+	opacity: .2;
 	border-bottom: none !important;
 	position: relative;
 	font-weight: unset;
+	color: var(--main);
 }
 
 #article-container .headerlink:before {
@@ -572,6 +573,7 @@ a.flink-list-card,
 #recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap a,
 #recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .post-meta-date time {
 	padding: .2rem .2rem;
+	white-space: nowrap;
 }
 
 #recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap a:hover {
@@ -994,7 +996,7 @@ div.card-widget,
 }
 
 .pace .pace-progress {
-	background: linear-gradient(215deg,#49b1f5 30%,#00c4b6 70%);
+	background: linear-gradient(215deg,#49b1f5 20%,#00c4b6 80%);
 	position: fixed;
 	z-index: 2000;
 	top: 0;
@@ -1068,7 +1070,7 @@ div.card-widget,
 #nav #menus {
 	position: absolute;
 	top: 8px;
-  /* display: flex; */
+	/* display: flex; */
 	justify-content: center;
 	width: 100%;
 }
@@ -1076,8 +1078,8 @@ div.card-widget,
 #nav .menus_items {
 	position: absolute;
 	text-align: center;
-	width: 650px;
-	left: 0;
+	width: 600px;
+	left: -3em;
 	right: 0;
 	margin: auto;
 }
