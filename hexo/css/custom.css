@@ -466,6 +466,41 @@ a.flink-list-card,
 	background: linear-gradient(to right,#f12711,#f5af19);
 }
 
+.page #category .category-list {
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.page #category .category-list .category-list-item {
+	list-style: none;
+	margin: 0 auto;
+}
+
+.page #category .category-list .category-list-item .category-list-count {
+	display: none;
+}
+
+.page #category .category-list .category-list-item .category-list-link {
+	font-size: 1.1em;
+	font-weight: bold;
+	color: var(--font-color);
+}
+
+.page #category .category-list .category-list-item :hover {
+	color: var(--second);
+	background-color: var(--main);
+	border-radius: 8px;
+	padding: .5em .8em;
+}
+
+@media (max-width:600px) {
+	.page #category .category-list .category-list-item {
+		width: 33%;
+		text-align: center;
+	}
+}
+
 /* 目录 */
 #aside-content #card-toc .toc-content .toc-link.active {
 	font-weight: 700;
