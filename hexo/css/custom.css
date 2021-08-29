@@ -752,7 +752,7 @@ strong {
 	font-size: 1.1em !important;
 }
 
-.tk-content {
+.tk-comment .tk-content {
 	background-color: var(--global-bg);
 	padding: 0 1rem;
 	border-radius: 8px;
@@ -765,6 +765,23 @@ strong {
 
 .tk-avatar-img {
 	border-radius: 8px;
+}
+
+.comment-head {
+	position: relative;
+}
+
+.comment-protocol {
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: inline-block;
+	font-weight: 700;
+	font-size: 1.43em;
+}
+
+.tk-comments-container {
+	min-height: 0 !important;
 }
 
 /* 豆瓣页面 */
