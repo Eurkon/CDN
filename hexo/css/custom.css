@@ -979,6 +979,13 @@ div.card-widget,
 /* 提示框 */
 .snackbar-container {
 	border-radius: 8px !important;
+	background: var(--main) !important;
+}
+
+.snackbar-container p {
+	color: var(--second) !important;
+	font-weight: 700 !important;
+	font-size: larger !important;
 }
 
 /* pace进度条 */
