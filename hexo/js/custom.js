@@ -3,7 +3,7 @@ if (GLOBAL_CONFIG_SITE.title.replace('Eurkon', '') === '') {
 } else {
   document.getElementById('page-name-text').innerHTML = GLOBAL_CONFIG_SITE.title.replace('Eurkon', '')
 }
-if (!document.getElementById('post-comment')) document.getElementById('comment-button').style.display = 'none'
+if (!document.getElementById('post-comment') && document.getElementById('comment-button')) document.getElementById('comment-button').style.display = 'none'
 
 if (document.getElementById('post-cover-img')) {
   let list = []
