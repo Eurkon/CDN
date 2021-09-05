@@ -1013,7 +1013,7 @@ div.card-widget,
 }
 
 /* nav */
-#page-header #nav {
+#nav {
 	top: 0 !important;
 }
 
@@ -1032,52 +1032,69 @@ div.card-widget,
 	z-index: 91;
 }
 
-#page-header #nav a,
-#page-header #nav #site-name {
+#nav a {
 	border-radius: 8px;
-	padding: 8px;
+	padding: 10px !important;
 }
 
-#page-header #nav .menus_item_child a.site-page.child {
-	padding: 6px 8px;
+#nav #blog_name #site-name {
+	position: relative;
 }
 
-#page-header #nav #toggle-menu {
-	border-radius: 8px;
+#nav #blog_name #site-name span {
+	transition: .3s;
 }
 
-#page-header #nav a:hover,
-#page-header #nav #site-name:hover,
-#page-header #nav #toggle-menu:hover {
+#nav #blog_name #site-name:hover span {
+	opacity: 0;
+}
+
+#nav #blog_name #site-name i {
+	transition: .1s;
+	position: absolute;
+	left: 33px;
+	top: 15px;
+	opacity: 0;
+}
+
+#nav #blog_name #site-name:hover i {
+	opacity: 1;
+}
+
+#nav .menus_item_child a.site-page.child {
+	padding: 6px 8px !important;
+}
+
+#nav #site-name:hover,
+#nav #page-name-text:hover,
+#nav .site-page:hover {
 	color: var(--main) !important;
 	background-color: var(--second);
-	box-shadow: var(--main-shadow);
 }
 
-#page-header.nav-fixed #nav a:hover,
-#page-header.not-top-img #nav a:hover,
 #page-header.nav-fixed #nav #site-name:hover,
+#page-header.nav-fixed #nav #page-name-text:hover,
+#page-header.nav-fixed #nav .site-page:hover,
 #page-header.not-top-img #nav #site-name:hover,
-#page-header.nav-fixed #nav #toggle-menu:hover,
-#page-header.not-top-img #nav #toggle-menu:hover {
+#page-header.not-top-img #nav #page-name-text:hover,
+#page-header.not-top-img #nav .site-page:hover,
+#nav .site-page.child:hover {
 	color: var(--second) !important;
 	background-color: var(--main);
 	box-shadow: var(--main-shadow);
 }
 
-#page-header #nav .menus_item:hover .menus_item_child .site-page.child:hover {
-	-webkit-transition: all 0s;
-	-moz-transition: all 0s;
-	-o-transition: all 0s;
-	-ms-transition: all 0s;
-	transition: all 0s;
+#nav .menus_item:hover .menus_item_child .site-page.child:hover {
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-o-transition: all .3s;
+	-ms-transition: all .3s;
+	transition: all .3s;
 }
 
-/* 菜单栏 */
 #nav #menus {
 	position: absolute;
 	top: 8px;
-	/* display: flex; */
 	justify-content: center;
 	width: 100%;
 }
@@ -1106,33 +1123,39 @@ div.card-widget,
 }
 
 #nav .menus_items .menus_item {
-	padding: 0px;
+	padding: 0 0 12px;
 }
 
 #nav .menus_items .menus_item .menus_item_child {
+	margin-top: 12px;
 	padding: 6px 8px;
 	border-radius: 8px;
-	background-color: rgba(255,255,255,.8);
-}
-
-[data-theme=dark] #nav .menus_items .menus_item .menus_item_child {
-	background-color: rgba(18,18,18,.8)
 }
 
 #nav .menus_items .menus_item:hover .menus_item_child {
-	/* display: flex; */
+	display: flex;
 }
 
 #nav .menus_items .menus_item .menus_item_child li:hover {
-	border-radius: 8px;
 	background: none;
 }
 
-#nav .menus_items .menus_item .menus_item_child li:hover a {
-	color: var(--second) !important;
+div.menus_items>div:nth-child(1)>ul {
+	right: -168px !important;
 }
 
-/* 页面名称 */
+div.menus_items>div:nth-child(2)>ul {
+	right: -58px !important;
+}
+
+div.menus_items>div:nth-child(3)>ul {
+	right: -118px !important;
+}
+
+div.menus_items>div:nth-child(4)>ul {
+	right: -168px !important;
+}
+
 #nav #page_name {
 	position: absolute;
 	justify-content: center;
@@ -1182,7 +1205,7 @@ div.card-widget,
 #nav #hotkey {
 	position: absolute;
 	top: 10px;
-	right: 36px;
+	right: 20px;
 }
 
 #nav #hotkey #search-button i,
@@ -1202,6 +1225,10 @@ div.card-widget,
 
 #nav #hotkey #toggle-menu {
 	padding: 0;
+}
+
+#nav #hotkey #toggle-menu a {
+	padding: 6px 10px 8px 10px !important;
 }
 
 #nav #hotkey #top-button i {
