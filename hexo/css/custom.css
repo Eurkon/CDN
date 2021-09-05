@@ -592,10 +592,6 @@ a.flink-list-card,
 	display: none
 }
 
-.blog-slider__img:after {
-	border-radius: 8px !important;
-}
-
 /* 上下一篇文章 */
 #pagination .prev_info,
 #pagination .next_info {
@@ -1238,12 +1234,12 @@ div.menus_items>div:nth-child(4)>ul {
 /* 文章头图 */
 #page-header.post-bg {
 	background-color: var(--cover-bg);
-	transition: 0s;
+	transition: .3s;
 	overflow: hidden;
 }
 
 #page-header.post-bg:before {
-	transition: 0s;
+	transition: .3s;
 	height: 20rem;
 	background-color: var(--cover-bg);
 }
