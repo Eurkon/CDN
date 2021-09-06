@@ -1416,22 +1416,21 @@ div.menus_items>div:nth-child(4)>ul {
 }
 
 /* 公告轮播 */
-.notice-container {
+#notice-container {
 	display: flex;
 	flex: 1;
 	margin: 0 10px;
-	overflow: hidden
+	overflow: hidden;
 }
 
-#notice-wrapper {
-	height: 25px;
+#notice-container .swiper-wrapper{
+  height: 25px;
 	line-height: 25px;
 	text-align: center;
 }
 
 .notice-title {
 	font-weight: 700;
-	display: inline;
 }
 
 .notice-item {
@@ -1441,14 +1440,14 @@ div.menus_items>div:nth-child(4)>ul {
 }
 
 .notice-title a,
-.notice-msg a,
+.notice-item-msg a,
 .notice-goto a {
 	color: var(--font-color);
 	transition: .3s;
 }
 
 .notice-title a:hover,
-.notice-msg a:hover ,
+.notice-item-msg a:hover ,
 .notice-goto a:hover {
 	color: var(--main) !important;
 }
