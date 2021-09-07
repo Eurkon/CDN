@@ -1423,8 +1423,8 @@ div.menus_items>div:nth-child(4)>ul {
 	overflow: hidden;
 }
 
-#notice-container .swiper-wrapper{
-  height: 25px;
+#notice-container .swiper-wrapper {
+	height: 25px;
 	line-height: 25px;
 	text-align: center;
 }
@@ -1596,7 +1596,7 @@ div.menus_items>div:nth-child(4)>ul {
 	border-radius: 8px;
 	background: var(--blockquote-color);
 	transition: all .3s;
-  margin: 8px 0 !important;
+	margin: 8px 0 !important;
 }
 
 @media screen and (max-width:768px) {
