@@ -1000,6 +1000,10 @@ div.card-widget,
 	top: 0 !important;
 }
 
+#nav .site-page {
+	text-shadow: none;
+}
+
 #nav .site-page:not(.child):after {
 	display: none;
 }
@@ -1299,7 +1303,6 @@ div.menus_items>div:nth-child(4)>ul {
 	color: var(--cover-text);
 }
 
-#nav a,
 #post-info .post-title,
 #post-info #post-meta,
 #post-info #post-meta a {
