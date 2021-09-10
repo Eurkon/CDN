@@ -183,9 +183,12 @@ a.button--animated,
 a.hexo-douban-tab,
 .hexo-douban-title a,
 a.hexo-douban-button,
-a.flink-list-card,
 .article-sort-item a {
 	border-bottom: none !important;
+}
+
+a.flink-list-card {
+	border: 1px solid rgba(100, 100, 100, .2) !important;
 }
 
 #article-container a {
@@ -667,11 +670,12 @@ a.flink-list-card,
 	color: var(--font-color);
 	background-color: var(--card-bg);
 	border-radius: 8px;
-	height: 1.6rem;
+	height: 1.8rem;
 	text-align: center;
-	line-height: 1.6rem;
+	line-height: 1.8rem;
 	display: inline-block;
-	min-width: 1.6rem;
+	min-width: 1.8rem;
+	border: 1px solid rgba(100, 100, 100, .2);
 }
 
 #pagination a.page-number:hover,
@@ -682,6 +686,7 @@ a.flink-list-card,
 }
 
 .pagination span.space {
+	border: none !important;
 	font-weight: 700;
 	background-color: transparent !important;
 }
@@ -945,6 +950,7 @@ html {
 /* 页脚 */
 #footer {
 	background: var(--card-bg);
+	border-top: 1px solid rgba(100, 100, 100, .2);
 }
 
 #footer:before {
@@ -1004,6 +1010,7 @@ div#category,
 div.card-widget,
 #recent-posts > .recent-post-item {
 	box-shadow: none !important;
+	border: 1px solid rgba(100, 100, 100, .2);
 }
 
 /* 提示框 */
@@ -1064,6 +1071,7 @@ div.card-widget,
 	transform: translate3d(0,0,0) !important;
 	position: fixed;
 	z-index: 91;
+	border-bottom: 1px solid rgba(100, 100, 100, .2);
 }
 
 #nav a {
@@ -1164,6 +1172,7 @@ div.card-widget,
 	margin-top: 12px;
 	padding: 6px 8px;
 	border-radius: 8px;
+	border: 1px solid rgba(100, 100, 100, .2);
 }
 
 #nav .menus_items .menus_item:hover .menus_item_child {
