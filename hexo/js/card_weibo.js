@@ -7,6 +7,7 @@ fetch('https://weibo-top-api.vercel.app/api').then(data => data.json()).then(dat
     '沸': 'weibo-boil',
     '新': 'weibo-new',
     '荐': 'weibo-recommend',
+    '音': 'weibo-jyzy',
     '影': 'weibo-jyzy',
     '剧': 'weibo-jyzy',
     '综': 'weibo-jyzy'
