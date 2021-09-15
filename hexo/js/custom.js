@@ -38,6 +38,28 @@ document.styleSheets[0].addRule('[data-theme="dark"]', '--main: #383838 !importa
 document.styleSheets[0].addRule('[data-theme="dark"]', '--second: #eee !important')
 document.styleSheets[0].addRule('[data-theme="dark"]', `--main-shadow: 0 8px 12px -3px rgba(56, 56, 56, .2) !important`)
 
+function catalogActive (type) {
+  let path = window.location.pathname;
+  path = decodeURIComponent(path)
+  let pattern = type == 'tags' ? /\/tags\/.*?\// : /\/categories\/.*?\//;
+  if (pattern.test(path)) {
+    if (document.querySelector('#catalog-list')) {
+      document.getElementById(path.split("/")[2]).classList.add("selected")
+      // 鼠标滚轮滚动
+      let xscroll = document.getElementById("catalog-list")
+      xscroll.addEventListener("mousewheel", function (e) {
+        //计算鼠标滚轮滚动的距离
+        let v = -e.wheelDelta / 2;
+        xscroll.scrollLeft += v;
+        //阻止浏览器默认方法
+        e.preventDefault();
+      }, false);
+    }
+  }
+}
+catalogActive('categories')
+catalogActive('tags')
+
 function copyContentFn (ctx) {
   if (document.queryCommandSupported && document.queryCommandSupported('copy')) {
     if (GLOBAL_CONFIG.Snackbar !== undefined) {
