@@ -428,8 +428,23 @@ a.flink-list-card {
 	line-height: 4rem;
 	top: 1rem;
 	right: 1rem;
-	opacity: 0.8;
+	opacity: 0.7;
 	box-shadow: 0 3px 8px 6px rgb(85 85 85 / 6%);
+	transform: rotate(-15deg);
+	-ms-transform: rotate(-15deg);
+	-moz-transform: rotate(-15deg);
+	-webkit-transform: rotate(-15deg);
+	-o-transform: rotate(-15deg);
+	transition: .5s;
+}
+
+#page .category-lists .category-list li.category-list-item a.category-list-link:hover:before {
+	opacity: 0.9;
+	transform: rotate(0deg);
+	-ms-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+	-webkit-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
 }
 
 #page .category-lists .category-list li.category-list-item:nth-child(1) {
