@@ -220,6 +220,7 @@ a.flink-list-card {
 	-o-transition: all .3s ease-in-out;
 	-ms-transition: all .3s ease-in-out;
 	transition: all .3s ease-in-out;
+	box-shadow: rgb(0 0 0 / 7%) 0 2px 2px 0, rgb(0 0 0 / 10%) 0 1px 5px 0;
 }
 
 #aside-content .card-info .card-info-data > .card-info-data-item:hover {
@@ -880,11 +881,13 @@ strong {
 	background-color: var(--global-bg);
 	padding: 0 1rem;
 	border-radius: 8px;
+	box-shadow: rgb(0 0 0 / 7%) 0 2px 2px 0, rgb(0 0 0 / 10%) 0 1px 5px 0;
 }
 
 .tk-expand:hover {
 	background-color: var(--global-bg) !important;
 	border-radius: 8px;
+	box-shadow: rgb(0 0 0 / 7%) 0 2px 2px 0, rgb(0 0 0 / 10%) 0 1px 5px 0;
 }
 
 .tk-avatar-img {
