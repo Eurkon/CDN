@@ -207,11 +207,11 @@ a.flink-list-card {
 	border-radius: 8px;
 	margin: 0 2%;
 	width: 29%;
-	-webkit-transition: all .2s ease-in-out;
-	-moz-transition: all .2s ease-in-out;
-	-o-transition: all .2s ease-in-out;
-	-ms-transition: all .2s ease-in-out;
-	transition: all .2s ease-in-out;
+	-webkit-transition: all .3s ease-in-out;
+	-moz-transition: all .3s ease-in-out;
+	-o-transition: all .3s ease-in-out;
+	-ms-transition: all .3s ease-in-out;
+	transition: all .3s ease-in-out;
 }
 
 #aside-content .card-info .card-info-data > .card-info-data-item:hover {
@@ -233,7 +233,7 @@ a.flink-list-card {
 	background: var(--main);
 	box-shadow: var(--main-shadow);
 	border-radius: 8px;
-	transition: all .2s;
+	transition: all .3s;
 }
 
 #aside-content .aside-list > .aside-list-item:hover .thumbnail > img {
@@ -246,7 +246,7 @@ a.flink-list-card {
 
 #aside-content .aside-list > .aside-list-item:hover a,#aside-content .aside-list > .aside-list-item:hover span,#aside-content .aside-list > .aside-list-item:hover time {
 	color: var(--second) !important;
-	transition: all .2s;
+	transition: all .3s;
 }
 
 #aside-content .aside-list > .aside-list-item:not(:last-child) {
@@ -307,11 +307,11 @@ a.flink-list-card {
 	-ms-flex-align: center;
 	-webkit-align-items: center;
 	align-items: center;
-	-webkit-transition: all .2s ease-in-out;
-	-moz-transition: all .2s ease-in-out;
-	-o-transition: all .2s ease-in-out;
-	-ms-transition: all .2s ease-in-out;
-	transition: all .2s ease-in-out;
+	-webkit-transition: all .3s ease-in-out;
+	-moz-transition: all .3s ease-in-out;
+	-o-transition: all .3s ease-in-out;
+	-ms-transition: all .3s ease-in-out;
+	transition: all .3s ease-in-out;
 	box-shadow: rgb(0 0 0 / 7%) 0 2px 2px 0, rgb(0 0 0 / 10%) 0 1px 5px 0;
 }
 
@@ -400,11 +400,11 @@ a.flink-list-card {
 #page .category-lists .category-list .category-list-item .category-list-link:hover:after {
 	width: 60%;
 	left: 1%;
-	-webkit-transition: all .5s;
-	-moz-transition: all .5s;
-	-o-transition: all .5s;
-	-ms-transition: all .5s;
-	transition: all .5s;
+	-webkit-transition: all .6s;
+	-moz-transition: all .6s;
+	-o-transition: all .6s;
+	-ms-transition: all .6s;
+	transition: all .6s;
 }
 
 #page .category-lists .category-list .category-list-item .category-list-count {
@@ -435,7 +435,7 @@ a.flink-list-card {
 	-moz-transform: rotate(-15deg);
 	-webkit-transform: rotate(-15deg);
 	-o-transform: rotate(-15deg);
-	transition: .5s;
+	transition: .6s;
 }
 
 #page .category-lists .category-list li.category-list-item a.category-list-link:hover:before {
@@ -1455,7 +1455,7 @@ div.menus_items>div:nth-child(4)>ul {
 	-o-transform: scale(1.1);
 	-ms-transform: scale(1.1);
 	transform: scale(1.1);
-	transition: all .2s;
+	transition: all .3s;
 }
 
 #body-wrap.error404 .aside-list .aside-list-item img {
