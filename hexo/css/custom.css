@@ -130,7 +130,8 @@ table tr:nth-child(even) {
 	border-bottom: none !important;
 	position: relative;
 	font-weight: unset;
-	color: var(--main);
+	color: var(--main) !important;
+	box-shadow: none !important;
 }
 
 #article-container .headerlink:before {
@@ -178,26 +179,33 @@ a {
 	text-decoration: none !important;
 }
 
+#article-container a {
+	font-weight: 500;
+	border-bottom: solid 2px var(--main);
+	color: var(--font-color);
+	padding: 0 .2rem;
+}
+
+#article-container a:hover {
+	color: var(--second);
+	background: var(--main);
+	border-radius: 4px;
+	box-shadow: var(--main-shadow);
+}
+
 a.ghcard,
-a.button--animated,
-a.hexo-douban-tab,
-.hexo-douban-title a,
-a.hexo-douban-button,
-.article-sort-item a {
+a.fancybox,
+#article-container .star-list>.star-list-item a,
+a.article-sort-item-img,
+.article-sort-item-title {
+	background: none !important;
 	border-bottom: none !important;
+	box-shadow: none !important;
+	padding: 0 !important;
 }
 
 a.flink-list-card {
 	border: 1px solid rgba(100, 100, 100, .2) !important;
-}
-
-#article-container a {
-	font-weight: 500;
-}
-
-#article-container a:hover {
-	color: var(--text-highlight-color);
-	border-bottom: solid 2px;
 }
 
 /* 侧边栏 */
@@ -320,7 +328,7 @@ a.flink-list-card {
 }
 
 .article-sort-item-title {
-	color: #49b1f5;
+	color: #49b1f5 !important;
 	font-weight: 500;
 }
 
@@ -804,7 +812,7 @@ strong {
 
 /* 赞赏 */
 .post-reward {
-	margin-top: 2rem;
+	margin-top: 1rem;
 }
 
 /* 文章链接复制 */
@@ -1537,7 +1545,7 @@ div.menus_items>div:nth-child(4)>ul {
 .notice-title a:hover,
 .notice-item-msg a:hover ,
 .notice-goto a:hover {
-	color: var(--main) !important;
+	color: #49b1f5 !important;
 }
 
 /* 文章轮播 */
