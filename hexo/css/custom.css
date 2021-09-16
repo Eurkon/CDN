@@ -900,50 +900,6 @@ strong {
 	min-height: 0 !important;
 }
 
-/* 豆瓣页面 */
-.hexo-douban-title a:hover {
-	color: #f47466 !important;
-}
-
-.hexo-douban-meta,
-.hexo-douban-comments {
-	font-size: 90% !important;
-}
-
-.hexo-douban-item {
-	background-color: var(--blockquote-bg);
-	border-radius: 8px;
-	margin: 8px 0;
-	min-height: 160px !important;
-	border-bottom: none !important;
-}
-
-.hexo-douban-item .hexo-douban-picture img {
-	margin: 0 !important;
-	margin-left: .5rem !important
-}
-
-.hexo-douban-active {
-	color: var(--second) !important;
-	background-color: var(--main) !important;
-	box-shadow: var(--main-shadow);
-	border-radius: 8px;
-}
-
-.hexo-douban-tab:hover {
-	color: var(--second) !important;
-	background-color: var(--main) !important;
-	box-shadow: var(--main-shadow);
-	border-radius: 8px;
-}
-
-.hexo-douban-button:hover {
-	color: var(--second) !important;
-	background-color: var(--main) !important;
-	box-shadow: var(--main-shadow);
-	border-radius: 8px;
-}
-
 /* 音乐播放器 */
 #article-container .aplayer {
 	border-radius: 8px !important;
@@ -1089,19 +1045,23 @@ div.card-widget,
 	text-shadow: none;
 }
 
-#nav .site-page:not(.child):after {
+#nav .site-page:after {
 	display: none;
 }
 
 #aside-content > .sticky_layout {
 	top: 70px;
-	transition: top .5s
+	transition: top .6s
 }
 
 #nav.show {
 	transform: translate3d(0,0,0) !important;
 	position: fixed;
 	z-index: 91;
+	border-bottom: 1px solid rgba(100, 100, 100, 0);
+}
+
+#page-header.nav-fixed #nav.show {
 	border-bottom: 1px solid rgba(100, 100, 100, .2);
 }
 
@@ -1134,35 +1094,8 @@ div.card-widget,
 	opacity: 1;
 }
 
-#nav .menus_item_child a.site-page.child {
+#nav .menus_item_child .site-page.child {
 	padding: 6px 8px !important;
-}
-
-#nav #site-name:hover,
-#nav #page-name-text:hover,
-#nav .site-page:hover {
-	color: var(--main) !important;
-	background-color: var(--second);
-}
-
-#page-header.nav-fixed #nav #site-name:hover,
-#page-header.nav-fixed #nav #page-name-text:hover,
-#page-header.nav-fixed #nav .site-page:hover,
-#page-header.not-top-img #nav #site-name:hover,
-#page-header.not-top-img #nav #page-name-text:hover,
-#page-header.not-top-img #nav .site-page:hover,
-#nav .site-page.child:hover {
-	color: var(--second) !important;
-	background-color: var(--main);
-	box-shadow: var(--main-shadow);
-}
-
-#nav .menus_item:hover .menus_item_child .site-page.child:hover {
-	-webkit-transition: all .3s;
-	-moz-transition: all .3s;
-	-o-transition: all .3s;
-	-ms-transition: all .3s;
-	transition: all .3s;
 }
 
 #nav #menus {
@@ -1230,6 +1163,80 @@ div.menus_items>div:nth-child(4)>ul {
 	right: -168px !important;
 }
 
+/* post nav hover */
+#nav a.site-page.child:hover {
+	color: var(--second) !important;
+	background-color: var(--main);
+	box-shadow: var(--main-shadow);
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-o-transition: all .3s;
+	-ms-transition: all .3s;
+	transition: all .3s;
+}
+
+#page-header.post-bg #nav #site-name:hover,
+#page-header.post-bg #nav .menus_item>.site-page:hover,
+#page-header.post-bg #nav #hotkey .site-page:hover {
+	color: var(--main) !important;
+	background-color: var(--second);
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-o-transition: all .3s;
+	-ms-transition: all .3s;
+	transition: all .3s;
+}
+
+[data-theme="dark"] #page-header.post-bg #nav #site-name:hover,
+[data-theme="dark"] #page-header.post-bg #nav .menus_item>.site-page:hover,
+[data-theme="dark"] #page-header.post-bg #nav #hotkey .site-page:hover {
+	color: var(--second) !important;
+	background-color: var(--main);
+}
+
+#page-header.post-bg #nav #site-name,
+#page-header.post-bg #nav .menus_item>.site-page,
+#page-header.post-bg #nav #hotkey .site-page {
+	color: var(--cover-text);
+}
+
+#page-header.post-bg.nav-fixed #nav #site-name,
+#page-header.post-bg.nav-fixed #nav #page-name-text,
+#page-header.post-bg.nav-fixed #nav .menus_item>.site-page,
+#page-header.post-bg.nav-fixed #nav #hotkey .site-page {
+	color: var(--font-color);
+}
+
+#page-header.post-bg.nav-fixed #nav #site-name:hover,
+#page-header.post-bg.nav-fixed #nav #page-name-text:hover,
+#page-header.post-bg.nav-fixed #nav .menus_item>.site-page:hover,
+#page-header.post-bg.nav-fixed #nav #hotkey .site-page:hover {
+	color: var(--second) !important;
+	background-color: var(--main);
+	box-shadow: var(--main-shadow);
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-o-transition: all .3s;
+	-ms-transition: all .3s;
+	transition: all .3s;
+}
+
+/* page nav hover */
+#page-header.not-top-img #nav #site-name:hover,
+#page-header.not-top-img #nav #page-name-text:hover,
+#page-header.not-top-img #nav .menus_item>.site-page:hover,
+#page-header.not-top-img #nav #hotkey .site-page:hover {
+	color: var(--second) !important;
+	background-color: var(--main);
+	box-shadow: var(--main-shadow);
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-o-transition: all .3s;
+	-ms-transition: all .3s;
+	transition: all .3s;
+}
+
+/* page_name */
 #nav #page_name {
 	position: absolute;
 	justify-content: center;
