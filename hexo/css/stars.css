@@ -7,8 +7,8 @@
 	position: relative;
 	float: left;
 	overflow: hidden;
-	margin: 6px 2px;
-	width: calc(100% / 4 - 4px);
+	margin: 6px 4px;
+	width: calc(100% / 4 - 8px);
 	height: 90px;
 	border-radius: 8px;
 	line-height: 1rem;
@@ -18,6 +18,7 @@
 	-o-transition: .3s ease-in-out;
 	-ms-transition: .3s ease-in-out;
 	transition: .3s ease-in-out;
+	box-shadow: rgb(0 0 0 / 7%) 0 2px 2px 0, rgb(0 0 0 / 10%) 0 1px 5px 0;
 }
 
 #article-container .star-list>.star-list-item:hover {
