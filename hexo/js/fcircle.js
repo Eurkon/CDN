@@ -47,7 +47,7 @@ var data_handle = (nofollow, data, maxnumber) => {
   var listlenth = data[1].length;
   var user_lenth = data[0].length;
   var datalist_slice = slice_month(datalist);
-  var last_update_time = timezoon(datalist_slice);
+  var last_update_time = timezoon(datalist_slice).slice(-8);
   var link_list = [];
   for (var item of data[1]) {
     if (item[1] === today) {
@@ -67,7 +67,7 @@ var data_handle = (nofollow, data, maxnumber) => {
   html_item += '<div id="info_user_pool" class="article-sort-item">';
   html_item += '<div class="friend-chart"><span class="friend-post-info-title">当前友链数：</span><span class="friend-post-info-number">' + user_lenth + ' 个</span><br><span class="friend-post-info-title">失败数：</span><span class="friend-post-info-number">' + error + ' 个</span><br></div>';
   html_item += '<div class="friend-chart"><span class="friend-post-info-title">活跃友链数：</span><span class="friend-post-info-number">' + unique_live_link + ' 个</span><br><span class="friend-post-info-title">当前库存：</span><span class="friend-post-info-number">' + listlenth + ' 篇</span><br></div>';
-  html_item += '<div class="friend-chart"><span class="friend-post-info-title">今日更新：</span><span class="friend-post-info-number">' + today_post + ' 篇</span><br><span class="friend-post-info-title">最近更新：</span><span class="friend-post-info-number">' + last_update_time + '</span><br></div>';
+  html_item += '<div class="friend-chart"><span class="friend-post-info-title">今日更新：</span><span class="friend-post-info-number">' + today_post + ' 篇</span><br><span class="friend-post-info-title">更新时间：</span><span class="friend-post-info-number">' + last_update_time + '</span><br></div>';
   html_item += '</div></div>';
 
   for (var month_item of datalist_slice) {
@@ -98,7 +98,7 @@ var data_handle = (nofollow, data, maxnumber) => {
   if (data[1].length - maxnumber > 0) {
     html_item += '<a class="button--animated" style="display:block;margin-top:0.7rem;background-color:var(--btn-bg);color:var(--btn-color);text-align:center;line-height:2.4;" onclick="load_more_post()">加载更多</a></div>'
   }
-  html_item += '<style>.friend-post-info-title{font-weight:700}.friend-post-info-number{float:right}.friend-chart{align-items:flex-start;flex:1;width:100px;height:60px;margin:10px}@media screen and (max-width:500px){#info_user_pool{flex-direction:column;max-height:200px}.friend-chart{flex:0;width:100%;height:160px;margin:0}}</style>'
+  html_item += '<style>.friend-post-info-title{font-weight:700}.friend-post-info-number{float:right}.friend-chart{align-items:flex-start;flex:1;width:100px;height:60px;margin:10px}@media screen and (max-width:600px){#info_user_pool{flex-direction:column;}.friend-chart{flex:0;width:100%;height:160px;margin:0}}</style>'
 
   var article_container = document.getElementById('article-container');
   append_div(article_container, html_item)
