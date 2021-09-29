@@ -179,25 +179,21 @@ a {
 	text-decoration: none !important;
 }
 
-#article-container a {
+#article-container a:not(.button--animated):not(.headerlink):not(.ghcard):not(.fancybox):not(.article-sort-item-img):not(.article-sort-item-title) {
 	font-weight: 500;
 	border-bottom: solid 2px var(--main);
 	color: var(--font-color);
 	padding: 0 .2rem;
 }
 
-#article-container a:hover {
+#article-container a:not(.button--animated):not(.headerlink):not(.ghcard):not(.fancybox):not(.article-sort-item-img):not(.article-sort-item-title):hover {
 	color: var(--second);
 	background: var(--main);
 	border-radius: 4px;
 	box-shadow: var(--main-shadow);
 }
 
-a.ghcard,
-a.fancybox,
-#article-container .star-list>.star-list-item a,
-a.article-sort-item-img,
-.article-sort-item-title {
+#article-container .star-list>.star-list-item a {
 	background: none !important;
 	border-bottom: none !important;
 	box-shadow: none !important;
@@ -205,6 +201,7 @@ a.article-sort-item-img,
 }
 
 a.flink-list-card {
+	padding: 0 !important;
 	border: 1px solid rgba(100, 100, 100, .2) !important;
 }
 
