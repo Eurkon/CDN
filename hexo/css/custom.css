@@ -1389,6 +1389,12 @@ div.menus_items>div:nth-child(4)>ul {
 	}
 }
 
+@media screen and (max-width: 500px) {
+	#page-header #post-info {
+		bottom: 10%;
+	}
+}
+
 #page-header #post-info #post-meta {
 	font-size: 1em;
 }
