@@ -1171,6 +1171,23 @@ div.menus_items>div:nth-child(4)>ul {
 	right: -168px !important;
 }
 
+/* 小屏导航栏 */
+#sidebar #sidebar-menus .menus_items .site-page:hover {
+	border-radius: 8px;
+	color: var(--second);
+	background-color: var(--main);
+}
+
+#sidebar #sidebar-menus .site-data .data-item .data-item-link:hover {
+	border-radius: 8px;
+	background-color: var(--main);
+}
+
+#sidebar #sidebar-menus .site-data .data-item .data-item-link a:hover .headline,
+#sidebar #sidebar-menus .site-data .data-item .data-item-link a:hover .length-num {
+	color: var(--second);
+}
+
 /* post nav hover */
 #nav a.site-page.child:hover {
 	color: var(--second) !important;
