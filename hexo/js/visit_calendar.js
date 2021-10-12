@@ -1,9 +1,9 @@
 var visit_calendar = (site_id, access_token, metrics, visit_color) => {
   var date = new Date();
-  var end_date = date.getFullYear() + (date.getMonth() > 8 ? (date.getMonth() + 1) : ("0" + (date.getMonth() + 1))) + (date.getDate() > 9 ? date.getDate() : ("0" + date.getDate()));
+  var end_date = '' + date.getFullYear() + (date.getMonth() > 8 ? (date.getMonth() + 1) : ("0" + (date.getMonth() + 1))) + (date.getDate() > 9 ? date.getDate() : ("0" + date.getDate()));
   date.setFullYear(date.getFullYear() - 1);
   date.setTime(date.getTime() - 24 * 3600 * 1000 * date.getDay());
-  var start_date = date.getFullYear() + (date.getMonth() > 8 ? (date.getMonth() + 1) : ("0" + (date.getMonth() + 1))) + (date.getDate() > 9 ? date.getDate() : ("0" + date.getDate()));
+  var start_date = '' + date.getFullYear() + (date.getMonth() > 8 ? (date.getMonth() + 1) : ("0" + (date.getMonth() + 1))) + (date.getDate() > 9 ? date.getDate() : ("0" + date.getDate()));
   var metrics_name = (metrics === 'pv_count' ? '次' : (metrics === 'visitor_count' ? '人' : ''));
   var visit_apiurl = 'https://baidu-tongji-api.vercel.app/api?site_id=' + site_id + '&access_token=' + access_token + '&method=overview/getTimeTrendRpt' + '&metrics=' + metrics + '&start_date=' + start_date + '&end_date=' + end_date;
   var visit_fixed = 'fixed';
@@ -330,5 +330,5 @@ var loading_visit = (color) => {
   var visit_color = visit_purple;
   append_div_visitcalendar(visit_container, loading_visit(visit_color[4]));
   // 统计访问次数 PV 填写 'pv_count'，统计访客数 UV 填写 'visitor_count'，二选一
-  visit_calendar('16265874', '121.2ffa24268b2bb68917aa6b9fb914a228.Y7XacnhPcx9vfMwcbRBT2wwG8BU3mulQ7JY7MwY.xA5eHA', 'pv_count', visit_color)
+  visit_calendar('16265874', '121.72cd1da64672d4e57db10d126bf47ead.YgKgaey1x616UzhRW4ZHuD3fiuUCJekiguUj_vx.QTrsaQ', 'pv_count', visit_color)
 })()

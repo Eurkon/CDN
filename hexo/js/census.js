@@ -1,6 +1,6 @@
 var start_date = '20210101' // 开始日期
 var date = new Date();
-var end_date = date.getFullYear() + (date.getMonth() > 8 ? (date.getMonth() + 1) : ("0" + (date.getMonth() + 1))) + (date.getDate() > 9 ? date.getDate() : ("0" + date.getDate())); // 结束日期
+var end_date = '' + date.getFullYear() + (date.getMonth() > 8 ? (date.getMonth() + 1) : ("0" + (date.getMonth() + 1))) + (date.getDate() > 9 ? date.getDate() : ("0" + date.getDate())); // 结束日期
 var access_token = '121.72cd1da64672d4e57db10d126bf47ead.YgKgaey1x616UzhRW4ZHuD3fiuUCJekiguUj_vx.QTrsaQ' // accessToken
 var site_id = '16265874' // 网址id
 var dataUrl = 'https://baidu-tongji-api.vercel.app/api?access_token=' + access_token + '&site_id=' + site_id
