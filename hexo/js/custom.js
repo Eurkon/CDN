@@ -20,9 +20,10 @@ if (document.getElementById('post-cover-img')) {
     exclude: list,
     success: function (payload) {
       const c = payload.dominant.match(/\d+/g);
-      const grayLevel = c[0] * 0.299 + c[1] * 0.587 + c[2] * 0.114;
+      const grayLevel = c[0] * 0.299 + c[1] * 0.487 + c[2] * 0.114;
       document.styleSheets[0].addRule(':root', '--main: ' + payload.dominant)
       document.styleSheets[0].addRule(':root', '--second: ' + (grayLevel >= 192 ? '#000' : '#fff'))
+      document.styleSheets[0].addRule(':root', `--main-light: rgba(${c[0]}, ${c[1]}, ${c[2]}, .4)`)
       document.styleSheets[0].addRule(':root', `--main-shadow: 0 8px 12px -3px rgba(${c[0]}, ${c[1]}, ${c[2]}, .2)`)
       document.styleSheets[0].addRule(':root', '--cover-text: ' + (grayLevel >= 192 ? '#4c4948' : '#eee'))
       document.styleSheets[0].addRule(':root', `--cover-bg: rgba(${c[0]}, ${c[1]}, ${c[2]})`)
@@ -31,11 +32,13 @@ if (document.getElementById('post-cover-img')) {
 } else {
   document.styleSheets[0].addRule(':root', '--main: #49B1F5')
   document.styleSheets[0].addRule(':root', '--second: #fff')
+  document.styleSheets[0].addRule(':root', `--main-light: rgba(73, 177, 245, .4)`)
   document.styleSheets[0].addRule(':root', '--main-shadow: 0 8px 12px -3px rgba(73, 177, 245, .2)')
 }
 
 document.styleSheets[0].addRule('[data-theme="dark"]', '--main: #383838 !important')
 document.styleSheets[0].addRule('[data-theme="dark"]', '--second: #eee !important')
+document.styleSheets[0].addRule('[data-theme="dark"]', `--main-light: rgba(56, 56, 56, .4) !important`)
 document.styleSheets[0].addRule('[data-theme="dark"]', `--main-shadow: 0 8px 12px -3px rgba(56, 56, 56, .2) !important`)
 
 function catalogActive (type) {
