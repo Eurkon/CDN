@@ -590,12 +590,18 @@ a.flink-list-card {
 }
 
 /* 目录 */
+#aside-content #card-toc .toc-content a.toc-link:hover {
+	color: var(--second);
+	border-radius: 8px;
+	background-color: var(--main-light);
+}
+
 #aside-content #card-toc .toc-content .toc-link.active {
 	font-weight: 700;
 	border-radius: 8px;
 	color: var(--second);
 	border-left-color: var(--main);
-	background-color: var(--main);
+	background-color: var(--main) !important;
 	box-shadow: var(--main-shadow);
 }
 
