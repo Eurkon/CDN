@@ -124,33 +124,24 @@ table tr:nth-child(even) {
 }
 
 /* 文章段落标题 */
-#article-container .headerlink {
+#article-container.post-content .headerlink {
 	float: right;
-	opacity: .2;
-	border-bottom: none !important;
-	position: relative;
-	font-weight: unset;
-	color: var(--main) !important;
-	box-shadow: none !important;
+	font-size: 90%;
+	opacity: .5;
+	color: var(--main);
 }
 
-#article-container .headerlink:before {
-	content: "\f0c1";
+#article-container.post-content .headerlink:before {
+	content: '\f0c1';
 	font-family: "Font Awesome 5 Free";
-	font-size: .9em;
 }
 
-#article-container .headerlink:after {
-	display: none;
-}
-
-#article-container :hover .headerlink {
-	opacity: 1;
-	text-decoration: none
-}
-
-#article-container .headerlink:hover {
-	background: 0 0;
+#article-container.post-content h1:hover .headerlink,
+#article-container.post-content h2:hover .headerlink,
+#article-container.post-content h3:hover .headerlink,
+#article-container.post-content h4:hover .headerlink,
+#article-container.post-content h5:hover .headerlink,
+#article-container.post-content h6:hover .headerlink {
 	opacity: 1;
 }
 
