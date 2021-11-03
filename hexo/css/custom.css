@@ -1433,15 +1433,10 @@ div.menus_items>div:nth-child(4)>ul {
 }
 
 /* 文章结尾标签 */
-#post .tag_share .post-meta__tags {
-	background-color: var(--global-bg)
-}
-
 #post .tag_share .post-meta__tags:hover {
-	background-color: var(--main);
+	color: var(--second);
 	border: 1px solid var(--main);
 	box-shadow: var(--main-shadow);
-	color: var(--second);
 }
 
 /* 404页面 */
