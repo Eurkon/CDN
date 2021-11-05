@@ -45,7 +45,7 @@ fetch(history_get_data()[0]).then(data => data.json()).then(data => {
       disableOnInteraction: true,
       delay: 5000
     },
-    mousewheel: false,
+    mousewheel: true,
     // autoHeight: true,
   });
 
