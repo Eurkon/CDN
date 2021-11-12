@@ -36,7 +36,7 @@ if (document.getElementById('post-cover-img')) {
   document.styleSheets[0].addRule(':root', '--main-shadow: 0 8px 12px -3px rgba(73, 177, 245, .2)')
 }
 
-document.styleSheets[0].addRule('[data-theme="dark"]', '--main: #383838 !important')
+document.styleSheets[0].addRule('[data-theme="dark"]', '--main: #5c5c5c !important')
 document.styleSheets[0].addRule('[data-theme="dark"]', '--second: #eee !important')
 document.styleSheets[0].addRule('[data-theme="dark"]', `--main-light: rgba(56, 56, 56, .4) !important`)
 document.styleSheets[0].addRule('[data-theme="dark"]', `--main-shadow: 0 8px 12px -3px rgba(56, 56, 56, .2) !important`)
