@@ -38,8 +38,8 @@ if (document.getElementById('post-cover-img')) {
 
 document.styleSheets[0].addRule('[data-theme="dark"]', '--main: #5c5c5c !important')
 document.styleSheets[0].addRule('[data-theme="dark"]', '--second: #eee !important')
-document.styleSheets[0].addRule('[data-theme="dark"]', `--main-light: rgba(56, 56, 56, .4) !important`)
-document.styleSheets[0].addRule('[data-theme="dark"]', `--main-shadow: 0 8px 12px -3px rgba(56, 56, 56, .2) !important`)
+document.styleSheets[0].addRule('[data-theme="dark"]', `--main-light: rgba(92, 92, 92, .4) !important`)
+document.styleSheets[0].addRule('[data-theme="dark"]', `--main-shadow: 0 8px 12px -3px rgba(92, 92, 92, .2) !important`)
 
 function catalogActive (type) {
   let path = window.location.pathname;
