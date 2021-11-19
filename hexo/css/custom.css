@@ -727,12 +727,16 @@ a.flink-list-card {
 
 #pagination a.extend.prev {
 	float: left;
-	padding: 0 10px 0 6px;
+	padding: 0 12px 0 6px;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
 }
 
 #pagination a.extend.next {
 	float: right;
-	padding: 0 6px 0 10px;
+	padding: 0 6px 0 12px;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
 }
 
 /* 推荐文章 */
