@@ -1,7 +1,7 @@
 var start_date = '20210101' // 开始日期
 var date = new Date();
 var end_date = '' + date.getFullYear() + (date.getMonth() > 8 ? (date.getMonth() + 1) : ("0" + (date.getMonth() + 1))) + (date.getDate() > 9 ? date.getDate() : ("0" + date.getDate())); // 结束日期
-var access_token = '121.52023e70b2e6f63c1f336f7de04eb851.YC3rxhubzhfv7zT0kH73SrywzNFSaPHGRJT56Zx._QNDaQ' // accessToken
+var access_token = '121.59f3f880128ba49ef7bd9fdeb84a8e63.Y_2Jbogv9zJShbK-_l8ZqUoEDW8I2QcqsHViYdx.g2o9gw' // accessToken
 var site_id = '16265874' // 网址id
 var dataUrl = 'https://baidu-tongji-api.vercel.app/api?access_token=' + access_token + '&site_id=' + site_id
 var metrics = 'pv_count' // 统计访问次数 PV 填写 'pv_count'，统计访客数 UV 填写 'visitor_count'，二选一
