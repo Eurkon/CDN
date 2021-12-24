@@ -1048,6 +1048,16 @@ div.card-widget,
 /* nav */
 #nav {
 	top: 0 !important;
+  transition: .2s;
+  display: flex;
+  justify-content: center;
+}
+
+#nav #nav-group {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  position: relative;
 }
 
 #nav .site-page {
@@ -1083,10 +1093,6 @@ div.card-widget,
 	position: relative;
 }
 
-#nav #blog_name #site-name span {
-	transition: .3s;
-}
-
 #nav #blog_name #site-name:hover span {
 	opacity: 0;
 }
@@ -1109,8 +1115,6 @@ div.card-widget,
 
 #nav #menus {
 	position: absolute;
-	top: 8px;
-	justify-content: center;
 	width: 100%;
 }
 
@@ -1266,15 +1270,15 @@ div.menus_items>div:nth-child(4)>ul {
 #nav #page_name {
 	position: absolute;
 	justify-content: center;
-	left: 20%;
+	left: 10%;
 	right: 20%;
-	width: 60%;
+	width: 70%;
 	display: flex;
 }
 
 @media screen and (max-width:899px) {
 	#nav #page_name {
-		display: none!important;
+		display: none !important;
 	}
 }
 
@@ -1286,7 +1290,7 @@ div.menus_items>div:nth-child(4)>ul {
 	white-space: nowrap;
 	position: relative;
 	text-align: center;
-	line-height: 1.5;
+	line-height: 1.2;
 	transform: translateY(-60px);
 }
 
@@ -1297,7 +1301,6 @@ div.menus_items>div:nth-child(4)>ul {
 
 #page-header.nav-fixed #nav #page-name-text {
 	opacity: 1;
-	top: 0;
 	transition: .3s;
 	transform: translateY(0);
 }
@@ -1309,12 +1312,6 @@ div.menus_items>div:nth-child(4)>ul {
 }
 
 /* nav hotkey */
-#nav #hotkey {
-	position: absolute;
-	top: 10px;
-	right: 20px;
-}
-
 #nav #hotkey #search-button i,
 #nav #hotkey #mode-button i,
 #nav #hotkey #comment-button i,
@@ -1388,8 +1385,14 @@ div.menus_items>div:nth-child(4)>ul {
 
 /* 文章标题 */
 #page-header #post-info {
-	text-align: left;
-	bottom: 25%;
+  text-align: left;
+  bottom: 25%;
+  left: 0;
+  right: 0;
+  max-width: 1200px;
+  position: absolute;
+  padding: 0 3rem;
+  margin: 0 auto;
 }
 
 #page-header #post-info .post-title, 
