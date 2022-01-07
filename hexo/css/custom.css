@@ -1048,16 +1048,16 @@ div.card-widget,
 /* nav */
 #nav {
 	top: 0 !important;
-  transition: .2s;
-  display: flex;
-  justify-content: center;
+	transition: .3s;
+	display: flex;
+	justify-content: center;
 }
 
 #nav #nav-group {
-  max-width: 1200px;
-  width: 100%;
-  display: flex;
-  position: relative;
+	max-width: 1200px;
+	width: 100%;
+	display: flex;
+	position: relative;
 }
 
 #nav .site-page {
@@ -1385,14 +1385,14 @@ div.menus_items>div:nth-child(4)>ul {
 
 /* 文章标题 */
 #page-header #post-info {
-  text-align: left;
-  bottom: 25%;
-  left: 0;
-  right: 0;
-  max-width: 1200px;
-  position: absolute;
-  padding: 0 3rem;
-  margin: 0 auto;
+	text-align: left;
+	bottom: 25%;
+	left: 0;
+	right: 0;
+	max-width: 1200px;
+	position: absolute;
+	padding: 0 3rem;
+	margin: 0 auto;
 }
 
 #page-header #post-info .post-title, 
