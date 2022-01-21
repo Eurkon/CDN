@@ -59,8 +59,8 @@ function mapChart () {
           },
           itemStyle: {
             normal: {
-              areaColor: 'rgba(255, 255, 255, 0.1)',
-              borderColor: '#121212'
+              areaColor: 'rgba(255, 255, 255, 0.9)',
+              borderColor: 'rgba(0, 0, 0, 0.5)'
             },
             emphasis: {
               areaColor: 'gold'
