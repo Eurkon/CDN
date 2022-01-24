@@ -67,8 +67,8 @@ function mapChart () {
             }
           },
           data: ${mapArrJson}
-          }]
-        };
+        }]
+      };
       mapChart.setOption(mapOption);
       window.addEventListener("resize", () => { 
         mapChart.resize();
@@ -119,8 +119,16 @@ function trendsChart () {
           xAxis: {
             name: '日期',
             type: 'category',
+            boundaryGap: false,
+            nameTextStyle: {
+              color: '${color}'
+            },
             axisTick: {
               show: false
+            },
+            axisLabel: {
+              show: true,
+              color: '${color}'
             },
             axisLine: {
               show: true,
@@ -133,11 +141,18 @@ function trendsChart () {
           yAxis: {
             name: '${metricsName}',
             type: 'value',
+            nameTextStyle: {
+              color: '${color}'
+            },
             splitLine: {
               show: false
             },
             axisTick: {
               show: false
+            },
+            axisLabel: {
+              show: true,
+              color: '${color}'
             },
             axisLine: {
               show: true,
@@ -179,7 +194,10 @@ function trendsChart () {
             markLine: {
               data: [{
                 name: '平均值',
-                type: 'average'
+                type: 'average',
+                label: {
+                  color: '${color}'
+                }
               }]
             }
           }]
@@ -212,9 +230,6 @@ function sourcesChart () {
       script.innerHTML = `
         var sourcesChart = echarts.init(document.getElementById('sources-chart'), 'light');
         var sourcesOption = {
-          textStyle: {
-            color: '${color}'
-          },
           title: {
             text: '博客访问来源统计图',
             x: 'center',
@@ -239,6 +254,7 @@ function sourcesChart () {
             center: ['50%', '50%'],
             roseType: 'area',
             label: {
+              color: '${color}',
               formatter: "{b} : {c} ({d}%)"
             },
             data: ${sourcesArrJson},
@@ -261,41 +277,6 @@ function sourcesChart () {
     });
 }
 
-function switchVisitChart () {
-  // 这里为了统一颜色选取的是“明暗模式”下的两种字体颜色，也可以自己定义
-  let color = document.documentElement.getAttribute('data-theme') === 'light' ? '#4c4948' : 'rgba(255,255,255,0.7)'
-  try {
-    let mapOptionNew = mapOption
-    mapOptionNew.title.textStyle.color = color
-    mapOptionNew.visualMap.textStyle.color = color
-    mapChart.setOption(mapOptionNew)
-  } catch (error) {
-    console.log(error)
-  }
-  try {
-    let trendsOptionNew = trendsOption
-    trendsOptionNew.title.textStyle.color = color
-    trendsOptionNew.xAxis.axisLine.lineStyle.color = color
-    trendsOptionNew.yAxis.axisLine.lineStyle.color = color
-    trendsOptionNew.textStyle.color = color
-    trendsChart.setOption(trendsOptionNew)
-  } catch (error) {
-    console.log(error)
-  }
-  try {
-    let sourcesOptionNew = sourcesOption
-    sourcesOptionNew.title.textStyle.color = color
-    sourcesOptionNew.legend.textStyle.color = color
-    sourcesOptionNew.textStyle.color = color
-    sourcesChart.setOption(sourcesOptionNew)
-  } catch (error) {
-    console.log(error)
-  }
-}
-
 if (document.getElementById('map-chart')) mapChart()
 if (document.getElementById('trends-chart')) trendsChart()
 if (document.getElementById('sources-chart')) sourcesChart()
-
-document.getElementById("mode-button").addEventListener("click", function () { setTimeout(switchVisitChart, 100) })
-document.getElementById("darkmode").addEventListener("click", function () { setTimeout(switchVisitChart, 100) })

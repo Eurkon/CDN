@@ -190,36 +190,44 @@ function switchPostChart () {
   if (document.getElementById('posts-chart') && postsOption) {
     try {
       let postsOptionNew = postsOption
-      postsOptionNew.textStyle.color = color
       postsOptionNew.title.textStyle.color = color
+      postsOptionNew.xAxis.nameTextStyle.color = color
+      postsOptionNew.yAxis.nameTextStyle.color = color
+      postsOptionNew.xAxis.axisLabel.color = color
+      postsOptionNew.yAxis.axisLabel.color = color
       postsOptionNew.xAxis.axisLine.lineStyle.color = color
       postsOptionNew.yAxis.axisLine.lineStyle.color = color
+      postsOptionNew.series[0].markLine.data[0].label.color = color
       postsChart.setOption(postsOptionNew)
-    } catch (e) {
-      console.log(e)
+    } catch (error) {
+      console.log(error)
     }
   }
   if (document.getElementById('tags-chart') && tagsOption) {
     try {
       let tagsOptionNew = tagsOption
-      tagsOptionNew.textStyle.color = color
       tagsOptionNew.title.textStyle.color = color
+      tagsOptionNew.xAxis.nameTextStyle.color = color
+      tagsOptionNew.yAxis.nameTextStyle.color = color
+      tagsOptionNew.xAxis.axisLabel.color = color
+      tagsOptionNew.yAxis.axisLabel.color = color
       tagsOptionNew.xAxis.axisLine.lineStyle.color = color
       tagsOptionNew.yAxis.axisLine.lineStyle.color = color
+      tagsOptionNew.series[0].markLine.data[0].label.color = color
       tagsChart.setOption(tagsOptionNew)
-    } catch (e) {
-      console.log(e)
+    } catch (error) {
+      console.log(error)
     }
   }
   if (document.getElementById('categories-chart') && categoriesOption) {
     try {
       let categoriesOptionNew = categoriesOption
-      categoriesOptionNew.textStyle.color = color
       categoriesOptionNew.title.textStyle.color = color
       categoriesOptionNew.legend.textStyle.color = color
+      categoriesOptionNew.series[0].label.color = color
       categoriesChart.setOption(categoriesOptionNew)
-    } catch (e) {
-      console.log(e)
+    } catch (error) {
+      console.log(error)
     }
   }
 }
@@ -233,20 +241,24 @@ function switchVisitChart () {
       mapOptionNew.title.textStyle.color = color
       mapOptionNew.visualMap.textStyle.color = color
       mapChart.setOption(mapOptionNew)
-    } catch (e) {
-      console.log(e)
+    } catch (error) {
+      console.log(error)
     }
   }
   if (document.getElementById('trends-chart')) {
     try {
       let trendsOptionNew = trendsOption
       trendsOptionNew.title.textStyle.color = color
+      trendsOptionNew.xAxis.nameTextStyle.color = color
+      trendsOptionNew.yAxis.nameTextStyle.color = color
+      trendsOptionNew.xAxis.axisLabel.color = color
+      trendsOptionNew.yAxis.axisLabel.color = color
       trendsOptionNew.xAxis.axisLine.lineStyle.color = color
       trendsOptionNew.yAxis.axisLine.lineStyle.color = color
-      trendsOptionNew.textStyle.color = color
+      trendsOptionNew.series[0].markLine.data[0].label.color = color
       trendsChart.setOption(trendsOptionNew)
-    } catch (e) {
-      console.log(e)
+    } catch (error) {
+      console.log(error)
     }
   }
   if (document.getElementById('sources-chart')) {
@@ -254,10 +266,10 @@ function switchVisitChart () {
       let sourcesOptionNew = sourcesOption
       sourcesOptionNew.title.textStyle.color = color
       sourcesOptionNew.legend.textStyle.color = color
-      sourcesOptionNew.textStyle.color = color
+      sourcesOptionNew.series[0].label.color = color
       sourcesChart.setOption(sourcesOptionNew)
-    } catch (e) {
-      console.log(e)
+    } catch (error) {
+      console.log(error)
     }
   }
 }
