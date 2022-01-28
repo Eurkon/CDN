@@ -90,22 +90,15 @@ function trendsChart () {
       let monthValueArr = []
       let monthName = data.result.items[0]
       let monthValue = data.result.items[1]
-      for (let i = Math.min(monthName.length, 12) - 1; i >= 0; i--) {
+      for (let i = monthName.length - 1; i >= 0; i--) {
         monthArr.push(monthName[i][0].substring(0, 7).replace('/', '-'))
-        if (monthValue[i][0] !== '--') {
-          monthValueArr.push(monthValue[i][0])
-        } else {
-          monthValueArr.push(null)
-        }
+        monthValueArr.push(monthValue[i][0] !== '--' ? monthValue[i][0] : null)
       }
       let monthArrJson = JSON.stringify(monthArr)
       let monthValueArrJson = JSON.stringify(monthValueArr)
       script.innerHTML = `
         var trendsChart = echarts.init(document.getElementById('trends-chart'), 'light');
         var trendsOption = {
-          textStyle: {
-            color: '${color}'
-          },
           title: {
             text: '博客访问统计图',
             x: 'center',
