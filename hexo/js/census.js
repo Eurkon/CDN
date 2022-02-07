@@ -41,7 +41,7 @@ function mapChart () {
           left: 'left',
           top: 'bottom',
           text: ['高','低'],
-          color: ['#1E90FF', '#AAFAFA'],
+          color: ['#49b1f5', '#92d0f9'],
           textStyle: {
             color: '${color}'
           },
@@ -57,10 +57,20 @@ function mapChart () {
               show: false
             }
           },
+          label: {
+            normal: {
+              show: false
+            },
+            emphasis: {
+              show: true,
+              color: '#617282'
+            }
+          },
           itemStyle: {
             normal: {
-              areaColor: 'rgba(255, 255, 255, 0.9)',
-              borderColor: 'rgba(0, 0, 0, 0.5)'
+              areaColor: 'rgb(230, 232, 234)',
+              borderColor: 'rgb(255, 255, 255)',
+              borderWidth: 1
             },
             emphasis: {
               areaColor: 'gold'
@@ -92,7 +102,7 @@ function trendsChart () {
       let monthValue = data.result.items[1]
       for (let i = monthName.length - 1; i >= 0; i--) {
         monthArr.push(monthName[i][0].substring(0, 7).replace('/', '-'))
-        monthValueArr.push(monthValue[i][0] !== '--' ? monthValue[i][0] : null)
+        monthValueArr.push(monthValue[i][0] !== '--' ? monthValue[i][0] : 0)
       }
       let monthArrJson = JSON.stringify(monthArr)
       let monthValueArrJson = JSON.stringify(monthValueArr)
@@ -237,8 +247,7 @@ function sourcesChart () {
             }
           },
           tooltip: {
-            trigger: 'item',
-            formatter: "{a} <br/>{b} : {c} ({d}%)"
+            trigger: 'item'
           },
           series: [{
             name: '${metricsName}',
