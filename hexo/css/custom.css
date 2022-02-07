@@ -88,6 +88,12 @@ i.scroll-down-effects {
 	padding: 1rem;
 }
 
+/* 高亮 */
+::selection {
+	background: var(--font-color);
+	color: var(--card-bg);
+}
+
 /* 表格 */
 table th {
 	background-color: var(--hr-border);
