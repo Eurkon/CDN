@@ -96,7 +96,7 @@ var data_handle = (nofollow, data, maxnumber) => {
     html_item += '</div>'
   }
   if (data[1].length - maxnumber > 0) {
-    html_item += '<a class="button--animated" style="display:block;margin-top:0.7rem;background-color:var(--btn-bg);color:var(--btn-color);text-align:center;line-height:2.4;" onclick="load_more_post()">加载更多</a></div>'
+    html_item += '<div style="text-align: center; margin-top: 1rem;"><a style="padding: 0.5rem 1rem;border-radius: 8px;border: none;"onclick="load_more_post()">加载更多...</a></div></div>'
   }
   html_item += '<style>.friend-post-info-title{font-weight:700}.friend-post-info-number{float:right}.friend-chart{align-items:flex-start;flex:1;width:100%;height:65px;margin:5px}@media screen and (max-width:600px){#info_user_pool{flex-direction:column;}}</style>'
 
