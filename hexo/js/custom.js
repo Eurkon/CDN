@@ -22,22 +22,24 @@ if (document.getElementById('post-cover-img')) {
       const c = payload.dominant.match(/\d+/g);
       const grayLevel = c[0] * 0.299 + c[1] * 0.587 + c[2] * 0.114;
       document.styleSheets[0].addRule(':root', '--main: ' + payload.dominant)
-      document.styleSheets[0].addRule(':root', '--second: ' + (grayLevel >= 192 ? '#000' : '#fff'))
+      document.styleSheets[0].addRule(':root', '--second: ' + (grayLevel >= 192 ? '#000' : '#FFF'))
       document.styleSheets[0].addRule(':root', `--main-light: rgba(${c[0]}, ${c[1]}, ${c[2]}, .4)`)
       document.styleSheets[0].addRule(':root', `--main-shadow: 0 8px 12px -3px rgba(${c[0]}, ${c[1]}, ${c[2]}, .2)`)
-      document.styleSheets[0].addRule(':root', '--cover-text: ' + (grayLevel >= 192 ? '#4c4948' : '#eee'))
+      document.styleSheets[0].addRule(':root', '--cover-text: ' + (grayLevel >= 192 ? '#4C4948' : '#EEE'))
       document.styleSheets[0].addRule(':root', `--cover-bg: rgba(${c[0]}, ${c[1]}, ${c[2]})`)
     }
   })
 } else {
   document.styleSheets[0].addRule(':root', '--main: #49B1F5')
-  document.styleSheets[0].addRule(':root', '--second: #fff')
+  document.styleSheets[0].addRule(':root', '--second: #FFF')
   document.styleSheets[0].addRule(':root', `--main-light: rgba(73, 177, 245, .4)`)
   document.styleSheets[0].addRule(':root', '--main-shadow: 0 8px 12px -3px rgba(73, 177, 245, .2)')
+  document.styleSheets[0].addRule(':root', '--cover-text: #EEE')
+  document.styleSheets[0].addRule(':root', '--cover-bg: #49B1F5')
 }
 
-document.styleSheets[0].addRule('[data-theme="dark"]', '--main: #5c5c5c !important')
-document.styleSheets[0].addRule('[data-theme="dark"]', '--second: #eee !important')
+document.styleSheets[0].addRule('[data-theme="dark"]', '--main: #5C5C5C !important')
+document.styleSheets[0].addRule('[data-theme="dark"]', '--second: #EEE !important')
 document.styleSheets[0].addRule('[data-theme="dark"]', `--main-light: rgba(92, 92, 92, .4) !important`)
 document.styleSheets[0].addRule('[data-theme="dark"]', `--main-shadow: 0 8px 12px -3px rgba(92, 92, 92, .2) !important`)
 
@@ -186,7 +188,7 @@ function adjustFontSize (plus) {
 
 function switchPostChart () {
   // 这里为了统一颜色选取的是“明暗模式”下的两种字体颜色，也可以自己定义
-  let color = document.documentElement.getAttribute('data-theme') === 'light' ? '#4c4948' : 'rgba(255,255,255,0.7)'
+  let color = document.documentElement.getAttribute('data-theme') === 'light' ? '#4C4948' : 'rgba(255,255,255,0.7)'
   if (document.getElementById('posts-chart') && postsOption) {
     try {
       let postsOptionNew = postsOption
@@ -234,7 +236,7 @@ function switchPostChart () {
 
 function switchVisitChart () {
   // 这里为了统一颜色选取的是“明暗模式”下的两种字体颜色，也可以自己定义
-  let color = document.documentElement.getAttribute('data-theme') === 'light' ? '#4c4948' : 'rgba(255,255,255,0.7)'
+  let color = document.documentElement.getAttribute('data-theme') === 'light' ? '#4C4948' : 'rgba(255,255,255,0.7)'
   if (document.getElementById('map-chart')) {
     try {
       let mapOptionNew = mapOption
