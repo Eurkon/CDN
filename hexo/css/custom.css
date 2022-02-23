@@ -1367,7 +1367,6 @@ div.card-widget,
 
 #nav #blog_name #site-name i {
 	opacity: 0;
-	color: var(--main);
 	position: absolute;
 	left: 33px;
 	top: 15px;
@@ -1376,10 +1375,6 @@ div.card-widget,
 	-o-transition: all .1s;
 	-ms-transition: all .1s;
 	transition: all .1s;
-}
-
-#page-header.post-bg.nav-fixed #nav #blog_name #site-name i {
-	color: var(--second);
 }
 
 #nav #blog_name #site-name:hover i {
