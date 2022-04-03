@@ -1,216 +1,401 @@
-var requests_url = 'https://hexo-circle-of-friends.vercel.app/api'; //api地址
-var orign_data = []; //api请求所得到的源数据
-var maxnumber = 20; //页面展示文章数量
-var addnumber = 10; //每次加载增加的篇数
-var opentype = '_blank';  //'_blank'打开新标签,'_self'本窗口打开
-var nofollow = true; //禁止搜索引擎抓取
-// 自定义loading图 例如: var loadingCutom = '<i class="fa fa-spinner fa-spin"></i>'
-// 自定义loading图 例如: var loadingCutom = '<img src="你的图片地址" alt="加载中...">'
-var loadingCutom = ''
-
-//处理数据
-
-if (document.getElementById('article-container')) {
-  //添加加载动画
-  var loading_pic = document.getElementById('article-container');
-
-  // 判断loadingCutom值是否为空
-  if (typeof loadingCutom == "undefined" || loadingCutom == null || loadingCutom === "") {
-    loading_pic.innerHTML = '<span id="article_loading"><center><i class="fa fa-spinner fa-spin" style="font-size: 100px"></i></center></span>';
-  } else {
-    loading_pic.innerHTML = '<span id="article_loading">' + loadingCutom + '</span>';
-  }
-
-  fetch(requests_url).then(
-    data => data.json()
-  ).then(
-    data => {
-      orign_data = data;
-      data_handle(nofollow, orign_data, maxnumber)
+//默认数据
+var fdata = {
+  jsonurl: '',
+  apiurl: 'https://hexo-circle-of-friends-eurkon.vercel.app/',
+  apipubliburl: 'https://circle-of-friends-simple.vercel.app/', //默认公共库
+  initnumber: 20,  //首次加载文章数
+  stepnumber: 10,  //更多加载文章数
+  article_sort: 'created', //文章排序 updated or created
+  error_img: 'https://sdn.geekzu.org/avatar/57d8260dfb55501c37dde588e7c3852c'
+}
+//可通过 var fdataUser 替换默认值
+if (typeof (fdataUser) !== "undefined") {
+  for (var key in fdataUser) {
+    if (fdataUser[key]) {
+      fdata[key] = fdataUser[key];
     }
-  )
+  }
+}
+var article_num = '', sortNow = '', UrlNow = '', friends_num = ''
+var container = document.getElementById('fc-container') || document.getElementById('article-container');
+// 获取本地 排序值、加载apiUrl，实现记忆效果
+var localSortNow = localStorage.getItem("sortNow")
+var localUrlNow = localStorage.getItem("urlNow")
+if (localSortNow && localUrlNow) {
+  sortNow = localSortNow
+  UrlNow = localUrlNow
+} else {
+  sortNow = fdata.article_sort
+  if (fdata.jsonurl) {
+    UrlNow = fdata.apipubliburl + 'postjson?jsonlink=' + fdata.jsonurl + "&"
+  } else if (fdata.apiurl) {
+    UrlNow = fdata.apiurl + 'all?'
+  } else {
+    UrlNow = fdata.apipubliburl + 'all?'
+  }
+  console.log("当前模式：" + UrlNow)
+  localStorage.setItem("urlNow", UrlNow)
+  localStorage.setItem("sortNow", sortNow)
+}
+// 打印基本信息
+function loadStatistical (sdata) {
+  article_num = sdata.article_num
+  friends_num = sdata.friends_num
+  var messageBoard = `
+    <div id="fc-state" class="article-sort-item">
+      <div class="fc-state-data">
+        <div class="fc-data-friends" onclick="openToShow()">
+          <span class="fc-label">订阅</span>
+          <span class="fc-message">${sdata.friends_num}</span>
+        </div>
+        <div class="fc-data-active" onclick="changeEgg()">
+          <span class="fc-label">活跃</span>
+          <span class="fc-message">${sdata.active_num}</span>
+        </div>
+        <div class="fc-data-article" onclick="clearLocal()">
+          <span class="fc-label">日志</span>
+          <span class="fc-message">${sdata.article_num}</span>
+        </div>
+      </div>
+      <div id="fc-change">
+          <span id="fc-change-created" data-sort="created" onclick="changeSort(event)" class="${sortNow == 'created' ? 'fc-change-now' : ''}">Created</span> | <span id="fc-change-updated" data-sort="updated" onclick="changeSort(event)" class="${sortNow == 'updated' ? 'fc-change-now' : ''}" >Updated</span>
+      </div>
+    </div>
+  `;
+  var loadMoreBtn = `
+      <div id="fc-more" class="article-sort-item" onclick="loadNextArticle()"><i class="fas fa-angle-double-down"></i></div>
+      <div id="fc-footer" class="fc-new-add">
+        <span id="fc-version-up"></span>
+        <span class="fc-data-lastupdated" onclick="checkVersion()"> 更新于：${sdata.last_updated_time}</span>
+      </div>
+      <div id="fc-overlay" onclick="closeShow()"></div>
+      <div id="fc-overshow"></div>
+  `;
+  if (container) {
+    container.insertAdjacentHTML('beforebegin', messageBoard);
+    container.insertAdjacentHTML('afterend', loadMoreBtn);
+  }
+}
+// 打印文章内容 fc-article
+function loadArticleItem (datalist, start, end) {
+  var articleItem = '';
+  var articleNum = article_num;
+  var endFor = end
+  if (end > articleNum) { endFor = articleNum }
+  if (start < articleNum) {
+    for (var i = start; i < endFor; i++) {
+      var item = datalist[i];
+      articleItem += `
+      <div class="article-sort-item">
+        <a class="article-sort-item-img" onclick="openMeShow(event)" title="${item.author}" data-link="${item.link}" target="_blank" rel="noopener nofollow" href="javascript:;"> 
+          <img src="${item.avatar}" alt="${item.title}" onerror="this.onerror=null;this.src='${fdata.error_img}';">
+        </a>
+        <div class="article-sort-item-info no-lightbox flink-item-icon">
+          <a class="article-sort-item-title" href="${item.link}" target="_blank" rel="noopener nofollow" title="${item.title}">${item.title}</a>
+          <div class="article-meta-wrap">
+            <i class="far fa-user"></i>
+            <span class="fc-article-author">${item.author}</span>
+            <div class="article-sort-item-time">
+              <span class="fc-time-created" style="${sortNow == 'created' ? '' : 'display:none'}"><i class="far fa-calendar-alt"></i> 发表于 ${item.created} </span>
+              <span class="fc-time-updated" style="${sortNow == 'updated' ? '' : 'display:none'}"><i class="fas fa-history"></i> 更新于 ${item.updated} </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      `;
+    }
+    container.insertAdjacentHTML('beforeend', articleItem);
+    // 预载下一页文章
+    fetchNextArticle()
+  } else {
+    // 文章加载到底
+    document.getElementById('fc-more').outerHTML = `<div id="fc-more" class="article-sort-item" onclick="loadNoArticle()"><span>一切皆有尽头！</span></div>`
+  }
+}
+// 打印个人卡片 fc-overshow
+function loadFcircleShow (userinfo, articledata) {
+  var showHtml = `
+      <div class="fc-overshow">
+        <div class="fc-overshow-head avatar-img">
+          <a class="" target="_blank" rel="noopener nofollow" href="${userinfo.link}"><img src="${userinfo.avatar}" alt="avatar" onerror="this.src='${fdata.error_img}'; this.onerror = null;"></a>
+        </div>
+        <div>
+          <i class="far fa-user"></i>
+          <span class="fc-article-author">${userinfo.author}</span>
+        </div>
+        <div class="fc-overshow-content">
+  `
+  for (var i = 0; i < userinfo.article_num; i++) {
+    var item = articledata[i];
+    showHtml += `
+      <p><a class="article-sort-item-title" href="${item.link}" target="_blank" rel="noopener nofollow" title="${item.title}">${item.title}</a><span>${item.created}</span></p>
+    `
+  }
+  showHtml += '</div></div>'
+  document.getElementById('fc-overshow').insertAdjacentHTML('beforeend', showHtml);
+  document.getElementById('fc-overshow').className = 'fc-show-now';
 }
 
-var data_handle = (nofollow, data, maxnumber) => {
-  var today = todaypost();
-  var Datetody = new Date(today);
-  for (var item = 0; item < data[1].length; item++) {
-    var Datedate = new Date(data[1][item][1]);
-    if (Datedate > Datetody) {
-      data[1].splice(item--, 1);
-    }
+// 预载下一页文章，存为本地数据 nextArticle
+function fetchNextArticle () {
+  var start = document.getElementById('article-container').getElementsByClassName('article-sort-item').length
+  var end = start + fdata.stepnumber
+  var articleNum = article_num;
+  if (end > articleNum) {
+    end = articleNum
   }
-  var today_post = 0;
-  var error = 0;
-  var unique_live_link;
-  var datalist = data[1].slice(0, maxnumber);
-  var listlenth = data[1].length;
-  var user_lenth = data[0].length;
-  var datalist_slice = slice_month(datalist);
-  var last_update_time = timezoon(datalist_slice).slice(0, 10);
-  var link_list = [];
-  for (var item of data[1]) {
-    if (item[1] === today) {
-      today_post += 1;
-    }
-    link_list.push(item[3]);
+  if (start < articleNum) {
+    UrlNow = localStorage.getItem("urlNow")
+    var fetchUrl = UrlNow + "rule=" + sortNow + "&start=" + start + "&end=" + end
+    //console.log(fetchUrl)
+    fetch(fetchUrl)
+      .then(res => res.json())
+      .then(json => {
+        var nextArticle = eval(json.article_data);
+        console.log("已预载" + "?rule=" + sortNow + "&start=" + start + "&end=" + end)
+        localStorage.setItem("nextArticle", JSON.stringify(nextArticle))
+      })
+  } else if (start = articleNum) {
+    document.getElementById('fc-more').outerHTML = `<div id="fc-more" class="article-sort-item" onclick="loadNoArticle()"><small>一切皆有尽头！</small></div>`
   }
-  var arr = unique(link_list);
-  unique_live_link = arr.length;
-  for (var item of data[0]) {
-    if (item[3] === 'true') {
-      error += 1;
-    }
+}
+// 显示下一页文章，从本地缓存 nextArticle 中获取
+function loadNextArticle () {
+  var nextArticle = JSON.parse(localStorage.getItem("nextArticle"));
+  var articleItem = ""
+  for (var i = 0; i < nextArticle.length; i++) {
+    var item = nextArticle[i];
+    articleItem += `
+    <div class="article-sort-item">
+      <a class="article-sort-item-img" onclick="openMeShow(event)" title="${item.author}" data-link="${item.link}" target="_blank" rel="noopener nofollow" href="javascript:;"> 
+        <img src="${item.avatar}" alt="${item.title}" onerror="this.onerror=null;this.src='${fdata.error_img}';">
+      </a>
+      <div class="article-sort-item-info no-lightbox flink-item-icon">
+        <a class="article-sort-item-title" href="${item.link}" target="_blank" rel="noopener nofollow" title="${item.title}">${item.title}</a>
+        <div class="article-meta-wrap">
+          <i class="far fa-user"></i>
+          <span class="fc-article-author">${item.author}</span>
+          <div class="article-sort-item-time">
+            <span class="fc-time-created" style="${sortNow == 'created' ? '' : 'display:none'}"><i class="far fa-calendar-alt"></i> 发表于 ${item.created} </span>
+            <span class="fc-time-updated" style="${sortNow == 'updated' ? '' : 'display:none'}"><i class="fas fa-history"></i> 更新于 ${item.updated} </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    `;
   }
-  var html_item = '<div class="article-sort-title">统计信息</div>';
-  html_item += '<div class="article-sort">'
-  html_item += '<div id="info_user_pool" class="article-sort-item">';
-  html_item += '<div class="friend-chart"><span class="friend-post-info-title">订阅友链：</span><span class="friend-post-info-number">' + user_lenth + ' 个</span><br><span class="friend-post-info-title">失败友链：</span><span class="friend-post-info-number">' + error + ' 个</span><br></div>';
-  html_item += '<div class="friend-chart"><span class="friend-post-info-title">活跃友链：</span><span class="friend-post-info-number">' + unique_live_link + ' 个</span><br><span class="friend-post-info-title">订阅文章：</span><span class="friend-post-info-number">' + listlenth + ' 篇</span><br></div>';
-  html_item += '<div class="friend-chart"><span class="friend-post-info-title">今日更新：</span><span class="friend-post-info-number">' + today_post + ' 篇</span><br><span class="friend-post-info-title">更新时间：</span><span class="friend-post-info-number">' + last_update_time + '</span><br></div>';
-  html_item += '</div></div>';
-
-  for (var month_item of datalist_slice) {
-    html_item += '<div class="article-sort-title">' + month_item[0] + '</div> <div class="article-sort">';
-    for (var post_item of month_item[1]) {
-      var rel = '';
-      if (nofollow && opentype == '_blank') {
-        rel = 'noopener nofollow';
-      } else if (nofollow) {
-        rel = 'nofollow';
-      } else if (opentype == '_blank') {
-        rel = 'noopener';
+  container.insertAdjacentHTML('beforeend', articleItem);
+  // 同时预载下一页文章
+  fetchNextArticle()
+}
+// 没有更多文章
+function loadNoArticle () {
+  var articleSortData = sortNow + "ArticleData"
+  localStorage.removeItem(articleSortData)
+  localStorage.removeItem("statisticalData")
+  //localStorage.removeItem("sortNow")
+  document.getElementById('fc-more').remove()
+  window.scrollTo(0, document.getElementsByClassName('fc-state').offsetTop)
+}
+// 清空本地数据
+function clearLocal () {
+  localStorage.removeItem("updatedArticleData")
+  localStorage.removeItem("createdArticleData")
+  localStorage.removeItem("nextArticle")
+  localStorage.removeItem("statisticalData")
+  localStorage.removeItem("sortNow")
+  localStorage.removeItem("urlNow")
+  location.reload();
+}
+//
+function checkVersion () {
+  var url = fdata.apiurl + "version"
+  fetch(url)
+    .then(res => res.json())
+    .then(json => {
+      var nowStatus = json.status, nowVersion = json.current_version, newVersion = json.latest_version
+      var versionID = document.getElementById('fc-version-up')
+      if (nowStatus == 0) {
+        versionID.innerHTML = "当前版本：v" + nowVersion
+      } else if (nowStatus == 1) {
+        versionID.innerHTML = "发现新版本：v" + nowVersion + " ↦ " + newVersion
       } else {
-        rel = '';
+        versionID.innerHTML = "网络错误，检测失败！"
       }
-      html_item += '<div class="article-sort-item">';
-      html_item += '<a target="' + opentype + '" class="article-sort-item-img" href="' + post_item[2] + '" title="' + post_item[0] + '"rel="' + rel + '">';
-      html_item += '<img onerror="this.onerror=null,this.src="/img/404.png" src="' + post_item[4] + '"></a>';
-      html_item += '<div class="article-sort-item-info">';
-      html_item += `<a target="${opentype}" class="article-sort-item-title" href="${post_item[2]}" title="${post_item[0]}"rel="${rel}">${post_item[0]}</a>`;
-      html_item += '<div class="article-meta-wrap">'
-      html_item += '<i class="far fa-user"></i><span style="padding:0 .2rem;">' + post_item[3] + '</span>';
-      html_item += '<div class="article-sort-item-time"><i class="far fa-calendar-alt"></i>' + '<time datetime="' + post_item[1] + '" title="' + post_item[1] + '">' + post_item[1] + '</time></div>';
-      html_item += '</div></div></div>';
+    })
+}
+// 切换为公共全库
+function changeEgg () {
+  //有自定义json或api执行切换
+  if (fdata.jsonurl || fdata.apiurl) {
+    document.querySelectorAll('.article-sort-item').forEach(el => el.remove());
+    localStorage.removeItem("updatedArticleData")
+    localStorage.removeItem("createdArticleData")
+    localStorage.removeItem("nextArticle")
+    localStorage.removeItem("statisticalData")
+    container.innerHTML = ""
+    document.getElementById('fc-footer').remove()
+    document.getElementById('fc-overlay').remove()
+    document.getElementById('fc-overshow').remove()
+    UrlNow = localStorage.getItem("urlNow")
+    //console.log("新"+UrlNow)
+    var UrlNowPublic = fdata.apipubliburl + 'all?'
+    if (UrlNow !== UrlNowPublic) { //非完整默认公开库
+      changeUrl = fdata.apipubliburl + 'all?'
+    } else {
+      if (fdata.jsonurl) {
+        changeUrl = fdata.apipubliburl + 'postjson?jsonlink=' + fdata.jsonurl + "&"
+      } else if (fdata.apiurl) {
+        changeUrl = fdata.apiurl + 'all?'
+      }
     }
-    html_item += '</div>'
-  }
-  if (data[1].length - maxnumber > 0) {
-    html_item += '<div style="text-align: center; margin-top: 1rem;"><a style="padding: 0.5rem 1rem;border-radius: 8px;border: none;"onclick="load_more_post()">加载更多...</a></div></div>'
-  }
-  html_item += '<style>.friend-post-info-title{font-weight:700}.friend-post-info-number{float:right}.friend-chart{align-items:flex-start;flex:1;width:100%;height:65px;margin:5px}@media screen and (max-width:600px){#info_user_pool{flex-direction:column;}}</style>'
-
-  var article_container = document.getElementById('article-container');
-  append_div(article_container, html_item)
-};
-
-var load_more_post = () => {
-  if (document.getElementById('article-container')) {
-    maxnumber = maxnumber + addnumber;
-    document.getElementById('article-container').innerHTML = "";
-    data_handle(nofollow, orign_data, maxnumber)
-  }
-};
-
-//加载更多文章
-//将html放入指定id的div容器
-var append_div = (parent, text) => {
-  if (document.getElementById('article-container')) {
-    loading_pic.innerHTML = ``;
-  };
-  if (typeof text === 'string') {
-    var temp = document.createElement('div');
-    temp.innerHTML = text;
-    // 防止元素太多 进行提速
-    var frag = document.createDocumentFragment();
-    while (temp.firstChild) {
-      frag.appendChild(temp.firstChild);
-    }
-    parent.appendChild(frag);
+    localStorage.setItem("urlNow", changeUrl)
+    FetchFriendCircle(sortNow, changeUrl)
   } else {
-    parent.appendChild(text);
+    clearLocal()
   }
-};
-
-//去重
-var unique = (arr) => {
-  return Array.from(new Set(arr))
-};
-
-//时区优化
-var formatDate = (strDate) => {
-  try {
-    var date = new Date(Date.parse(strDate.replace(/-/g, "/")));
-    var gettimeoffset;
-    if (new Date().getTimezoneOffset()) {
-      gettimeoffset = new Date().getTimezoneOffset();
-    } else {
-      gettimeoffset = 8;
-    }
-    var timeoffset = gettimeoffset * 60 * 1000;
-    var len = date.getTime();
-    var date2 = new Date(len - timeoffset);
-    var sec = date2.getSeconds().toString();
-    var min = date2.getMinutes().toString();
-    if (sec.length === 1) {
-      sec = "0" + sec;
-    }
-    if (min.length === 1) {
-      min = "0" + min;
-    }
-    return date2.getFullYear().toString() + "/" + (date2.getMonth() + 1).toString() + "/" + date2.getDate().toString() + " " + date2.getHours().toString() + ":" + min + ":" + sec
-  } catch (e) {
-    return ""
+}
+// 首次加载文章
+function FetchFriendCircle (sortNow, changeUrl) {
+  var end = fdata.initnumber
+  var fetchUrl = UrlNow + "rule=" + sortNow + "&start=0&end=" + end
+  if (changeUrl) {
+    fetchUrl = changeUrl + "rule=" + sortNow + "&start=0&end=" + end
   }
-};
-
-var timezoon = (datalist_slice) => {
-  var time = datalist_slice[0][1][0][5];
-  return formatDate(time)
-};
-
-//今日时间
-var todaypost = () => {
-  var date = new Date();
-  var year = date.getFullYear();
-  var month = (date.getMonth() + 1).toString();
-  var day = (date.getDate()).toString();
-  if (month.length === 1) {
-    month = "0" + month;
+  //console.log(fetchUrl)
+  fetch(fetchUrl)
+    .then(res => res.json())
+    .then(json => {
+      var statisticalData = json.statistical_data;
+      var articleData = eval(json.article_data);
+      var articleSortData = sortNow + "ArticleData";
+      loadStatistical(statisticalData);
+      loadArticleItem(articleData, 0, end)
+      localStorage.setItem("statisticalData", JSON.stringify(statisticalData))
+      localStorage.setItem(articleSortData, JSON.stringify(articleData))
+    })
+}
+// 点击切换排序
+function changeSort (event) {
+  sortNow = event.currentTarget.dataset.sort
+  localStorage.setItem("sortNow", sortNow)
+  document.querySelectorAll('.article-sort-item').forEach(el => el.remove());
+  container.innerHTML = "";
+  document.getElementById('fc-footer').remove()
+  document.getElementById('fc-overlay').remove()
+  document.getElementById('fc-overshow').remove()
+  changeUrl = localStorage.getItem("urlNow")
+  initFriendCircle(sortNow, changeUrl)
+}
+//查询个人文章列表
+function openMeShow (event) {
+  event.preventDefault()
+  var parse_url = /^(?:([A-Za-z]+):)?(\/{0,3})([0-9.\-A-Za-z]+)(?::(\d+))?(?:\/([^?#]*))?(?:\?([^#]*))?(?:#(.*))?$/;
+  var meLink = event.currentTarget.dataset.link.replace(parse_url, '$1:$2$3')
+  var UrlNow = localStorage.getItem("urlNow")
+  var UrlNowPublic = fdata.apipubliburl + 'all?'
+  var fetchUrl = ''
+  // if (fdata.apiurl) {
+  //   fetchUrl = fdata.apiurl + "post?link=" + meLink
+  // } else {
+  //   fetchUrl = fdata.apipubliburl + "post?link=" + meLink
+  // }
+  if (UrlNow === UrlNowPublic) { //非完整默认公开库
+    fetchUrl = fdata.apipubliburl + "post?link=" + meLink
+  } else {
+    fetchUrl = fdata.apiurl + "post?link=" + meLink
   }
-  if (day.length === 1) {
-    day = "0" + day;
+  if (noClick == 'ok') {
+    noClick = 'no'
+    fetchShow(fetchUrl)
   }
-  return year + "-" + month + "-" + day
-};
-
-//月份切片
-var slice_month = (data) => {
-  var monthlist = [];
-  var datalist = [];
-  var data_slice = data;
-  for (var item in data_slice) {
-    data_slice[item].push(item);
-    if (data_slice[item][1].lenth !== 10) {
-      var list = data_slice[item][1].split('-');
-      if (list[1].length < 2) {
-        list[1] = "0" + list[1]
-      }
-      if (list[2].length < 2) {
-        list[2] = "0" + list[2]
-      }
-      data_slice[item][1] = list.join('-')
-    }
-    var month = data_slice[item][1].slice(0, 7);
-    if (monthlist.indexOf(month) !== -1) {
-      datalist[monthlist.length - 1][1].push(data_slice[item])
-    } else {
-      monthlist.push(month);
-      datalist.push([month, [data_slice[item]]])
-    }
+}
+// 关闭 show
+function closeShow () {
+  document.getElementById('fc-overlay').className -= 'fc-show-now';
+  document.getElementById('fc-overshow').className -= 'fc-show-now';
+  document.getElementById('fc-overshow').innerHTML = ''
+}
+// 点击开往
+var noClick = 'ok';
+function openToShow () {
+  var UrlNow = localStorage.getItem("urlNow")
+  var UrlNowPublic = fdata.apipubliburl + 'all?'
+  var fetchUrl = ''
+  // if (fdata.apiurl) {
+  //   fetchUrl = fdata.apiurl + "post"
+  // } else {
+  //   fetchUrl = fdata.apipubliburl + "post"
+  // }
+  if (UrlNow === UrlNowPublic) { //非完整默认公开库
+    fetchUrl = fdata.apipubliburl + "post"
+  } else {
+    fetchUrl = fdata.apiurl + "post"
   }
-  for (var mounthgroup of datalist) {
-    mounthgroup.push(mounthgroup[1][0][6]);
+  
+  if (noClick == 'ok') {
+    noClick = 'no'
+    fetchShow(fetchUrl)
   }
-  return datalist
-};
+}
+// 展示个人文章列表
+function fetchShow (url) {
+  var closeHtml = `
+    <div class="fc-overshow-close" onclick="closeShow()"></div>
+  `
+  document.getElementById('fc-overlay').className = 'fc-show-now';
+  document.getElementById('fc-overshow').insertAdjacentHTML('afterbegin', closeHtml);
+  fetch(url)
+    .then(res => res.json())
+    .then(json => {
+      //console.log(json)
+      noClick = 'ok'
+      var statisticalData = json.statistical_data;
+      var articleData = eval(json.article_data);
+      loadFcircleShow(statisticalData, articleData)
+    })
+}
+// 初始化方法，如有本地数据首先调用
+function initFriendCircle (sortNow, changeUrl) {
+  var articleSortData = sortNow + "ArticleData";
+  var localStatisticalData = JSON.parse(localStorage.getItem("statisticalData"));
+  var localArticleData = JSON.parse(localStorage.getItem(articleSortData));
+  container.innerHTML = "";
+  if (localStatisticalData && localArticleData) {
+    loadStatistical(localStatisticalData);
+    loadArticleItem(localArticleData, 0, fdata.initnumber)
+    console.log("本地数据加载成功")
+    var fetchUrl = UrlNow + "rule=" + sortNow + "&start=0&end=" + fdata.initnumber
+    fetch(fetchUrl)
+      .then(res => res.json())
+      .then(json => {
+        var statisticalData = json.statistical_data;
+        var articleData = eval(json.article_data);
+        //获取文章总数与第一篇文章标题
+        var localSnum = localStatisticalData.article_num
+        var newSnum = statisticalData.article_num
+        var localAtile = localArticleData[0].title
+        var newAtile = articleData[0].title
+        //判断文章总数或文章标题是否一致，否则热更新
+        if (localSnum !== newSnum || localAtile !== newAtile) {
+          document.getElementById('fc-state').remove()
+          document.getElementById('fc-more').remove()
+          document.getElementById('fc-footer').remove()
+          container.innerHTML = "";
+          var articleSortData = sortNow + "ArticleData";
+          loadStatistical(statisticalData);
+          loadArticleItem(articleData, 0, fdata.initnumber)
+          localStorage.setItem("statisticalData", JSON.stringify(statisticalData))
+          localStorage.setItem(articleSortData, JSON.stringify(articleData))
+          console.log("热更新完成")
+        } else {
+          console.log("API数据未更新")
+        }
+      })
+  } else {
+    FetchFriendCircle(sortNow, changeUrl)
+    console.log("第一次加载完成")
+  }
+}
+// 执行初始化
+initFriendCircle(sortNow)
