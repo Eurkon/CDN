@@ -1,7 +1,7 @@
 if (GLOBAL_CONFIG_SITE.title.replace('Eurkon', '') === '') {
   document.getElementById('page-name-text').style.display = 'none'
 } else {
-  document.getElementById('page-name-text').getElementsByTagName('span')[0].innerHTML = GLOBAL_CONFIG_SITE.title.replace('Eurkon', '')
+  document.querySelector('#page-name-text>span').innerHTML = GLOBAL_CONFIG_SITE.title.replace('Eurkon', '')
 }
 if (!document.getElementById('post-comment') && document.getElementById('comment-button')) document.getElementById('comment-button').style.display = 'none'
 
@@ -19,46 +19,53 @@ if (document.getElementById('post-cover-img')) {
     paletteSize: 30,
     exclude: list,
     success: function (payload) {
-      const c = payload.dominant.match(/\d+/g);
-      const grayLevel = c[0] * 0.299 + c[1] * 0.587 + c[2] * 0.114;
-      document.styleSheets[0].addRule(':root', '--main: ' + payload.dominant)
-      document.styleSheets[0].addRule(':root', '--second: ' + (grayLevel >= 192 ? '#000' : '#FFF'))
-      document.styleSheets[0].addRule(':root', `--main-light: rgba(${c[0]}, ${c[1]}, ${c[2]}, .4)`)
-      document.styleSheets[0].addRule(':root', `--main-shadow: 0 8px 12px -3px rgba(${c[0]}, ${c[1]}, ${c[2]}, .2)`)
-      document.styleSheets[0].addRule(':root', '--cover-text: ' + (grayLevel >= 192 ? '#4C4948' : '#EEE'))
-      document.styleSheets[0].addRule(':root', `--cover-bg: rgba(${c[0]}, ${c[1]}, ${c[2]})`)
+      const c = payload.dominant.match(/\d+/g)
+      const grayLevel = c[0] * 0.299 + c[1] * 0.587 + c[2] * 0.114
+      document.styleSheets[0].addRule(':root', `
+        --main: ${payload.dominant};
+        --second: ${grayLevel >= 192 ? '#000' : '#FFF'};
+        --main-light: rgba(${c[0]}, ${c[1]}, ${c[2]}, .4);
+        --main-shadow: 0 8px 12px -3px rgba(${c[0]}, ${c[1]}, ${c[2]}, .2);
+        --cover-text: ${grayLevel >= 192 ? '#4C4948' : '#EEE'};
+        --cover-bg: rgba(${c[0]}, ${c[1]}, ${c[2]});
+      `)
     }
   })
 } else {
-  document.styleSheets[0].addRule(':root', '--main: #49B1F5')
-  document.styleSheets[0].addRule(':root', '--second: #FFF')
-  document.styleSheets[0].addRule(':root', `--main-light: rgba(73, 177, 245, .4)`)
-  document.styleSheets[0].addRule(':root', '--main-shadow: 0 8px 12px -3px rgba(73, 177, 245, .2)')
-  document.styleSheets[0].addRule(':root', '--cover-text: #EEE')
-  document.styleSheets[0].addRule(':root', '--cover-bg: #49B1F5')
+  document.styleSheets[0].addRule(':root', `
+    --main: #49B1F5;
+    --second: #FFF;
+    --main-light: rgba(73, 177, 245, .4);
+    --main-shadow: 0 8px 12px -3px rgba(73, 177, 245, .2);
+    --cover-text: #EEE;
+    --cover-bg: #49B1F5;
+  `)
 }
 
-document.styleSheets[0].addRule('[data-theme="dark"]', '--main: #5C5C5C !important')
-document.styleSheets[0].addRule('[data-theme="dark"]', '--second: #EEE !important')
-document.styleSheets[0].addRule('[data-theme="dark"]', `--main-light: rgba(92, 92, 92, .4) !important`)
-document.styleSheets[0].addRule('[data-theme="dark"]', `--main-shadow: 0 8px 12px -3px rgba(92, 92, 92, .2) !important`)
+document.styleSheets[0].addRule('[data-theme="dark"]', `
+  --main: #5C5C5C !important;
+  --second: #EEE !important;
+  --main-light: rgba(92, 92, 92, .4) !important;
+  --main-shadow: 0 8px 12px -3px rgba(92, 92, 92, .2) !important;
+`)
 
 function catalogActive (type) {
-  let path = window.location.pathname;
-  path = decodeURIComponent(path)
-  let pattern = type == 'tags' ? /\/tags\/.*?\// : /\/categories\/.*?\//;
-  if (pattern.test(path)) {
-    if (document.querySelector('#catalog-list')) {
-      document.getElementById(path.split("/")[2]).classList.add("selected")
-      // 鼠标滚轮滚动
-      let xscroll = document.getElementById("catalog-list")
-      xscroll.addEventListener("mousewheel", function (e) {
-        //计算鼠标滚轮滚动的距离
-        let v = -e.wheelDelta / 2;
-        xscroll.scrollLeft += v;
-        //阻止浏览器默认方法
-        e.preventDefault();
-      }, false);
+  let xscroll = document.getElementById('catalog-list')
+  if (xscroll) {
+    // 鼠标滚轮滚动
+    xscroll.addEventListener('mousewheel', function (e) {
+      //计算鼠标滚轮滚动的距离
+      xscroll.scrollLeft -= e.wheelDelta / 2
+      //阻止浏览器默认方法
+      e.preventDefault()
+    }, false)
+
+    // 高亮当前页面对应的分类或标签
+    let path = window.location.pathname
+    path = decodeURIComponent(path)
+    let pattern = type == 'tags' ? /\/tags\/.*?\// : /\/categories\/.*?\//
+    if (pattern.test(path)) {
+      document.getElementById(type + path.split('/')[2]).classList.add('selected')
     }
   }
 }
@@ -118,20 +125,71 @@ function postUrlCopyFn (ele) {
   $buttonParent.classList.remove('copy-true')
 }
 
+var rightMenuContext = {
+  text: '',
+  href: '',
+  src: '',
+}
+
+function copyFn (text) {
+  $('body').after('<input id="copyText"></input>')
+  const copyText = document.getElementById('copyText')
+  copyText.value = text
+  copyText.select()
+  document.execCommand('copy')
+  copyText.remove()
+  copyContentFn(this)
+}
+
+function commentSelect (text) {
+  window.location.href = window.location.href.split('#')[0] + '#post-comment'
+  let $comment = document.querySelector('#twikoo>.tk-comments>.tk-submit textarea.el-textarea__inner')
+  $comment.focus()
+  let event = document.createEvent('HTMLEvents')
+  event.initEvent('input', false, false)
+  $comment.value = '> ' + text + '\n\n'
+  $comment.dispatchEvent(event)
+}
+
+function downloadImage (src, name) {
+  setTimeout(function () {
+    let image = new Image
+    image.src = src
+    image.setAttribute("crossOrigin", "anonymous")
+    image.onload = function () {
+      let canvas = document.createElement("canvas")
+      canvas.width = image.width
+      canvas.height = image.height
+      canvas.getContext("2d").drawImage(image, 0, 0, image.width, image.height)
+      let ele = document.createElement("a")
+      ele.download = name || "image"
+      ele.href = canvas.toDataURL("image/png")
+      ele.dispatchEvent(new MouseEvent("click"))
+    }
+  }, 500)
+}
+
 function switchReadMode () { // read-mode
   const $body = document.body
-  $body.classList.add('read-mode')
-  const newEle = document.createElement('button')
-  newEle.type = 'button'
-  newEle.className = 'fas fa-sign-out-alt exit-readmode'
-  $body.appendChild(newEle)
-
-  function clickFn () {
+  if ($body.classList.contains('read-mode')) {
     $body.classList.remove('read-mode')
-    newEle.remove()
-    newEle.removeEventListener('click', clickFn)
+    document.querySelector('#menu-readmode>span').innerHTML = '阅读模式'
+    return
   }
-  newEle.addEventListener('click', clickFn)
+  $body.classList.add('read-mode')
+  document.querySelector('#menu-readmode>span').innerHTML = '退出阅读'
+
+  // const newEle = document.createElement('button')
+  // newEle.type = 'button'
+  // newEle.className = 'fas fa-sign-out-alt exit-readmode'
+  // $body.appendChild(newEle)
+
+  // function clickFn () {
+  //   $body.classList.remove('read-mode')
+  //   newEle.remove()
+  //   newEle.removeEventListener('click', clickFn)
+  // }
+  // newEle.addEventListener('click', clickFn)
 }
 
 function switchDarkMode () { // Switch Between Light And Dark Mode
@@ -156,14 +214,31 @@ function showOrHideBtn () { // rightside 點擊設置 按鈕 展開
 }
 
 function scrollToTop () { // Back to top
+  let rocket = document.createElement('div');
+  rocket.id = 'top-rocket'
+  document.body.append(rocket)
   btf.scrollToDest(0, 500)
+  $rocket = document.getElementById('top-rocket')
+  let i = 0;
+  interval = setInterval(function () {
+    i++
+    $rocket.style.bottom = i + '%'
+    if (i > 100) {
+      clearInterval(interval);
+      $rocket.remove()
+    }
+  }, 5)
 }
 
 function hideAsideBtn () { // Hide aside
   const $htmlDom = document.documentElement.classList
-  $htmlDom.contains('hide-aside')
-    ? saveToLocal.set('aside-status', 'show', 2)
-    : saveToLocal.set('aside-status', 'hide', 2)
+  if ($htmlDom.contains('hide-aside')) {
+    saveToLocal.set('aside-status', 'show', 2)
+    document.querySelector('#menu-hideside>span').innerHTML = '隐藏侧栏'
+  } else {
+    saveToLocal.set('aside-status', 'hide', 2)
+    document.querySelector('#menu-hideside>span').innerHTML = '显示侧栏'
+  }
   $htmlDom.toggle('hide-aside')
 }
 
@@ -276,13 +351,98 @@ function switchVisitChart () {
   }
 }
 
-document.getElementById('mode-button').addEventListener('click', function () { setTimeout(switchPostChart, 100) })
-document.getElementById('darkmode').addEventListener('click', function () { setTimeout(switchPostChart, 100) })
-document.getElementById('mode-button').addEventListener('click', function () { setTimeout(switchVisitChart, 100) })
-document.getElementById('darkmode').addEventListener('click', function () { setTimeout(switchVisitChart, 100) })
+function showRightMenu (isTrue) {
+  document.getElementById('rightmenu-mask').style.display = (isTrue ? 'block' : 'none')
+  document.getElementById('rightmenu').style.display = (isTrue ? 'block' : 'none')
+}
+
+var browser = {
+  versions: function () {
+    var u = navigator.userAgent
+    var app = navigator.appVersion
+    return {
+      trident: u.indexOf('Trident') > -1, //IE内核
+      presto: u.indexOf('Presto') > -1, //opera内核
+      webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+      gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+      mobile: !!u.match(/Mobile/i), //是否为移动终端
+      ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+      android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或uc浏览器
+      iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器
+      iPad: u.indexOf('iPad') > -1, //是否iPad
+      webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+    }
+  }(),
+  language: (navigator.browserLanguage || navigator.language).toLowerCase()
+}
+
+if (!browser.versions.mobile) {
+  window.oncontextmenu = function (event) {
+    showRightMenu(true)
+    rightMenuContext.text = event.target.href ? event.target.innerText : (document.selection ? document.selection.createRange().text : window.getSelection().toString())
+    rightMenuContext.href = event.target.href
+    rightMenuContext.src = event.target.currentSrc
+
+    document.getElementById('menu-copy').style.display = (rightMenuContext.text || rightMenuContext.href) ? 'flex' : 'none'
+    document.getElementById('menu-comment').style.display = (document.getElementById('post-comment') && rightMenuContext.text) ? 'flex' : 'none'
+    document.getElementById('menu-link').style.display = (rightMenuContext.href || rightMenuContext.src) ? 'flex' : 'none'
+    document.getElementById('menu-image').style.display = rightMenuContext.src ? 'flex' : 'none'
+    document.getElementById('menu-window').style.display = (rightMenuContext.href || rightMenuContext.src) ? 'flex' : 'none'
+    document.getElementById('menu-search').style.display = (rightMenuContext.text || rightMenuContext.href) ? 'flex' : 'none'
+    document.getElementById('menu-baidu').style.display = (rightMenuContext.text || rightMenuContext.href) ? 'flex' : 'none'
+    document.getElementById('menu-share').style.display = (rightMenuContext.text || rightMenuContext.href || rightMenuContext.src) ? 'none' : 'flex'
+
+    document.getElementById('rightmenu-mode').style.display = (rightMenuContext.text || rightMenuContext.href || rightMenuContext.src) ? 'none' : 'block'
+    document.getElementById('rightmenu-post').style.display = (rightMenuContext.text || rightMenuContext.href || rightMenuContext.src) ? 'none' : 'block'
+
+    $rightMenu = document.getElementById('rightmenu')
+    let rmWidth = $rightMenu.clientWidth
+    let rmHeight = $rightMenu.clientHeight
+    let pageX = event.clientX + 10	//加10是为了防止显示时鼠标遮在菜单上
+    let pageY = event.clientY
+    // 菜单默认显示在鼠标右下方，当鼠标靠右或靠下时，将菜单显示在鼠标左方\上方
+    if (pageX + rmWidth > window.innerWidth) { pageX -= rmWidth + 10 }
+    if (pageY + rmHeight > window.innerHeight) { pageY -= pageY + rmHeight - window.innerHeight }
+    $rightMenu.style.left = pageX + 'px'
+    $rightMenu.style.top = pageY + 'px'
+    return false
+  }
+}
 
 document.addEventListener('copy', function () { copyContentFn(this) })
-document.getElementById('mode-button').addEventListener('click', function () { switchDarkMode() })
-document.getElementById('top-button').addEventListener('click', function () { scrollToTop() })
-document.getElementById('page-name-text').addEventListener('click', function () { scrollToTop() })
-if (document.getElementById('post-url-copy')) document.getElementById('post-url-copy').addEventListener('click', function () { postUrlCopyFn(this) })
+// 右键菜单按钮
+window.addEventListener('click', function () { showRightMenu(false) })	//隐藏菜单
+
+// document.getElementById('menu-home').onclick = function () { window.location.href = window.location.origin }
+document.getElementById('menu-backward').onclick = function () { window.history.back() }
+document.getElementById('menu-forward').onclick = function () { window.history.forward() }
+document.getElementById('menu-refresh').onclick = function () { window.location.reload() }
+document.getElementById('menu-top').onclick = scrollToTop
+
+document.getElementById('menu-copy').onclick = function () { copyFn(rightMenuContext.text) }
+document.getElementById('menu-comment').onclick = function () { commentSelect(rightMenuContext.text) }
+document.getElementById('menu-baidu').onclick = function () { window.open('https://www.baidu.com/s?wd=' + rightMenuContext.text) }
+document.getElementById('menu-share').onclick = function () { copyFn(window.location.href.split('#')[0]) }
+document.getElementById('menu-link').onclick = function () { copyFn(rightMenuContext.href || rightMenuContext.src) }
+document.getElementById('menu-window').onclick = function () { window.open(rightMenuContext.href || rightMenuContext.src) }
+document.getElementById('menu-image').onclick = function () { downloadImage(rightMenuContext.src, rightMenuContext.src.split('/').pop()) }
+
+// document.getElementById('menu-darkmode').addEventListener('click', switchDarkMode )
+document.getElementById('menu-hideside').onclick = hideAsideBtn
+document.getElementById('menu-readmode').onclick = switchReadMode
+
+// 明暗模式切换统计图
+// document.getElementById('menu-darkmode').addEventListener('click', function () { setTimeout(switchVisitChart, 100) })
+// document.getElementById('menu-darkmode').addEventListener('click', function () { setTimeout(switchPostChart, 100) })
+document.getElementById('mode-button').addEventListener('click', function () { setTimeout(switchVisitChart, 100) })
+document.getElementById('mode-button').addEventListener('click', function () { setTimeout(switchPostChart, 100) })
+document.getElementById('darkmode').addEventListener('click', function () { setTimeout(switchVisitChart, 100) })
+document.getElementById('darkmode').addEventListener('click', function () { setTimeout(switchPostChart, 100) })
+
+// 顶部菜单按钮
+document.getElementById('mode-button').addEventListener('click', switchDarkMode)
+document.getElementById('top-button').onclick = scrollToTop
+document.getElementById('page-name-text').onclick = scrollToTop
+if (document.getElementById('post-url-copy')) document.getElementById('post-url-copy').onclick = function () { postUrlCopyFn(this) }
+document.querySelector('#menu-readmode>span').innerHTML = document.body.classList.contains('read-mode') ? '退出阅读' : '阅读模式'
+document.querySelector('#menu-hideside>span').innerHTML = document.documentElement.classList.contains('hide-aside') ? '显示侧栏' : '隐藏侧栏'
