@@ -5,7 +5,8 @@ var visit_calendar = (site_id, access_token, metrics, visit_color) => {
   date.setTime(date.getTime() - 24 * 3600 * 1000 * date.getDay());
   var start_date = '' + date.getFullYear() + (date.getMonth() > 8 ? (date.getMonth() + 1) : ("0" + (date.getMonth() + 1))) + (date.getDate() > 9 ? date.getDate() : ("0" + date.getDate()));
   var metrics_name = (metrics === 'pv_count' ? '次' : (metrics === 'visitor_count' ? '人' : ''));
-  var visit_apiurl = 'https://baidu-tongji-api.vercel.app/api?site_id=' + site_id + '&access_token=' + access_token + '&method=overview/getTimeTrendRpt' + '&metrics=' + metrics + '&start_date=' + start_date + '&end_date=' + end_date;
+  // var visit_apiurl = 'https://baidu-tongji-api.vercel.app/api?site_id=' + site_id + '&access_token=' + access_token + '&method=overview/getTimeTrendRpt' + '&metrics=' + metrics + '&start_date=' + start_date + '&end_date=' + end_date;
+  var visit_apiurl = 'https://baidu-tongji-api.vercel.app/api?site_id=' + site_id + '&method=overview/getTimeTrendRpt' + '&metrics=' + metrics + '&start_date=' + start_date + '&end_date=' + end_date;
   var visit_fixed = 'fixed';
   var visit_px = 'px';
   var visit_month = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
@@ -330,5 +331,5 @@ var loading_visit = (color) => {
   var visit_color = visit_purple;
   append_div_visitcalendar(visit_container, loading_visit(visit_color[4]));
   // 统计访问次数 PV 填写 'pv_count'，统计访客数 UV 填写 'visitor_count'，二选一
-  visit_calendar('16265874', '121.e7c3c9456cd0876a0d585869bfdfb174.YgQZrhZlqxDAW06VGQqduYS7ylGnNubAf2MYfM-.Pvyrig', 'pv_count', visit_color)
+  visit_calendar('16265874', '', 'pv_count', visit_color)
 })()

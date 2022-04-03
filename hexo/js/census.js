@@ -1,9 +1,10 @@
 var start_date = '20210101' // 开始日期
 var date = new Date();
 var end_date = '' + date.getFullYear() + (date.getMonth() > 8 ? (date.getMonth() + 1) : ("0" + (date.getMonth() + 1))) + (date.getDate() > 9 ? date.getDate() : ("0" + date.getDate())); // 结束日期
-var access_token = '121.e7c3c9456cd0876a0d585869bfdfb174.YgQZrhZlqxDAW06VGQqduYS7ylGnNubAf2MYfM-.Pvyrig' // accessToken
+// var access_token = '121.e7c3c9456cd0876a0d585869bfdfb174.YgQZrhZlqxDAW06VGQqduYS7ylGnNubAf2MYfM-.Pvyrig' // accessToken
 var site_id = '16265874' // 网址id
-var dataUrl = 'https://baidu-tongji-api.vercel.app/api?access_token=' + access_token + '&site_id=' + site_id
+// var dataUrl = 'https://baidu-tongji-api.vercel.app/api?access_token=' + access_token + '&site_id=' + site_id
+var dataUrl = 'https://baidu-tongji-api.vercel.app/api?' + 'site_id=' + site_id
 var metrics = 'pv_count' // 统计访问次数 PV 填写 'pv_count'，统计访客数 UV 填写 'visitor_count'，二选一
 var metricsName = (metrics === 'pv_count' ? '访问次数' : (metrics === 'visitor_count' ? '访客数' : ''))
 // 这里为了统一颜色选取的是“明暗模式”下的两种字体颜色，也可以自己定义
