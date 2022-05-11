@@ -25,7 +25,7 @@ if (document.getElementById('post-cover-img')) {
         --main: ${payload.dominant};
         --second: ${grayLevel >= 192 ? '#000' : '#FFF'};
         --main-light: rgba(${c[0]}, ${c[1]}, ${c[2]}, .4);
-        --main-shadow: 0 8px 12px -3px rgba(${c[0]}, ${c[1]}, ${c[2]}, .2);
+        --main-shadow: 0 2px 3px 1px rgba(${c[0]}, ${c[1]}, ${c[2]}, .2);
         --cover-text: ${grayLevel >= 192 ? '#4C4948' : '#EEE'};
         --cover-bg: rgba(${c[0]}, ${c[1]}, ${c[2]});
       `)
@@ -36,7 +36,7 @@ if (document.getElementById('post-cover-img')) {
     --main: #49B1F5;
     --second: #FFF;
     --main-light: rgba(73, 177, 245, .4);
-    --main-shadow: 0 8px 12px -3px rgba(73, 177, 245, .2);
+    --main-shadow: 0 2px 3px 1px rgba(73, 177, 245, .2);
     --cover-text: #EEE;
     --cover-bg: #49B1F5;
   `)
@@ -46,7 +46,7 @@ document.styleSheets[0].addRule('[data-theme="dark"]', `
   --main: #5C5C5C !important;
   --second: #EEE !important;
   --main-light: rgba(92, 92, 92, .4) !important;
-  --main-shadow: 0 8px 12px -3px rgba(92, 92, 92, .2) !important;
+  --main-shadow: 0 2px 3px 1px rgba(92, 92, 92, .2) !important;
 `)
 
 function catalogActive (type) {
