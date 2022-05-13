@@ -291,7 +291,6 @@ a.flink-list-card:hover {
 	-o-transition: all .3s ease-in-out;
 	-ms-transition: all .3s ease-in-out;
 	transition: all .3s ease-in-out;
-	/* box-shadow: rgb(0 0 0 / 7%) 0 2px 2px 0, rgb(0 0 0 / 10%) 0 1px 5px 0; */
 }
 
 #aside-content .card-info .card-info-data > .card-info-data-item:hover {
@@ -356,6 +355,7 @@ a.flink-list-card:hover {
 }
 
 #aside-content .card-tag-cloud a {
+	border-radius: 8px;
 	font-size: 1.1em !important;
 }
 
@@ -374,7 +374,6 @@ a.flink-list-card:hover {
 	color: var(--second) !important;
 	background: var(--main);
 	box-shadow: var(--main-shadow);
-	border-radius: 8px;
 }
 
 #aside-content .aside-list > .aside-list-item .thumbnail {
@@ -388,24 +387,14 @@ a.flink-list-card:hover {
 
 /* 归档 */
 .article-sort-item {
-	background: var(--global-bg);
 	padding: 8px;
 	margin: .5rem 0 .5rem !important;
+	border: var(--card-border);
 	border-radius: 8px;
-	position: relative;
-	display: flex;
-	-webkit-box-align: center;
-	-moz-box-align: center;
-	-o-box-align: center;
-	-ms-flex-align: center;
-	-webkit-align-items: center;
-	align-items: center;
-	-webkit-transition: all .3s ease-in-out;
-	-moz-transition: all .3s ease-in-out;
-	-o-transition: all .3s ease-in-out;
-	-ms-transition: all .3s ease-in-out;
-	transition: all .3s ease-in-out;
-	/* box-shadow: rgb(0 0 0 / 7%) 0 2px 2px 0, rgb(0 0 0 / 10%) 0 1px 5px 0; */
+}
+
+.article-sort-item:hover {
+	border-color: var(--main);
 }
 
 .article-sort-title::before,
@@ -449,6 +438,7 @@ a.flink-list-card:hover {
 .article-sort-item-tags a.article-meta__tags {
 	padding: .2rem;
 	color: var(--font-color);
+	border-radius: 8px;
 }
 
 .article-sort-item-categories a.article-meta__categories:hover,
@@ -456,7 +446,6 @@ a.flink-list-card:hover {
 	color: var(--second);
 	background: var(--main);
 	box-shadow: var(--main-shadow);
-	border-radius: 8px;
 	-webkit-transform: scale(.95);
 	-moz-transform: scale(.95);
 	-o-transform: scale(.95);
@@ -638,8 +627,12 @@ a.flink-list-card:hover {
 	white-space: nowrap;
 	overflow: hidden;
 	display: flex;
-	border: var(--card-border) !important;
+	border: var(--card-border);
 	margin-bottom: 1rem;
+}
+
+#catalog-bar:hover {
+	border-color: var(--main);
 }
 
 .catalog-tips {
@@ -993,7 +986,7 @@ a.flink-list-card:hover {
 }
 
 #pagination .page-number.current {
-  color: #fff;
+	color: #fff;
 	background: var(--light-text);
 }
 
@@ -1059,50 +1052,8 @@ a.flink-list-card:hover {
 	opacity: .7;
 }
 
-@media screen and (min-width: 769px) {
-	#post>div.relatedPosts>div.relatedPosts-list>div:nth-child(1) {
-		border-radius: 8px 0 0 0
-	}
-
-	#post>div.relatedPosts>div.relatedPosts-list>div:nth-child(3) {
-		border-radius: 0 8px 0 0
-	}
-
-	#post>div.relatedPosts>div.relatedPosts-list>div:nth-child(4) {
-		border-radius: 0 0 0 8px
-	}
-
-	#post>div.relatedPosts>div.relatedPosts-list>div:nth-child(6) {
-		border-radius: 0 0 8px 0
-	}
-}
-
-@media (max-width: 768px) and (min-width: 601px) {
-	#post>div.relatedPosts>div.relatedPosts-list>div:nth-child(1) {
-		border-radius: 8px 0 0 0
-	}
-
-	#post>div.relatedPosts>div.relatedPosts-list>div:nth-child(2) {
-		border-radius: 0 8px 0 0
-	}
-
-	#post>div.relatedPosts>div.relatedPosts-list>div:nth-child(5) {
-		border-radius: 0 0 0 8px
-	}
-
-	#post>div.relatedPosts>div.relatedPosts-list>div:nth-child(6) {
-		border-radius: 0 0 8px 0
-	}
-}
-
-@media (max-width: 600px) {
-	#post>div.relatedPosts>div.relatedPosts-list>div:nth-child(1) {
-		border-radius: 8px 8px 0 0
-	}
-
-	#post>div.relatedPosts>div.relatedPosts-list>div:nth-child(6) {
-		border-radius: 0 0 8px 8px
-	}
+#post>div.relatedPosts>div.relatedPosts-list>div {
+	border-radius: 8px;
 }
 
 /* 加粗字体颜色 */
@@ -1184,6 +1135,7 @@ strong {
 .tk-nick-link strong,
 .tk-action-count {
 	color: var(--cover-bg) !important;
+	font-size: 1rem;
 }
 
 .tk-action-icon svg {
@@ -1250,6 +1202,22 @@ strong {
 }
 
 /* 评论块气泡化修改 */
+.tk-comments-container>.tk-comment {
+	border: var(--card-border);
+	border-radius: 8px;
+	padding: 0 0.5rem 0.5rem 0.5rem;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-o-transition: all .3s;
+	-ms-transition: all .3s;
+	transition: all .3s;
+	margin: 1rem 0;
+}
+
+.tk-comments-container>.tk-comment:hover {
+	border-color: var(--main);
+}
+
 .tk-content {
 	color: var(--second);
 	background: var(--main);
@@ -1411,10 +1379,21 @@ div#page,
 div#archive,
 div#tag,
 div#category,
-div.card-widget,
+#aside-content .card-widget,
 #recent-posts > .recent-post-item {
 	box-shadow: none !important;
 	border: var(--card-border);
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-o-transition: all .3s;
+	-ms-transition: all .3s;
+	transition: all .3s;
+}
+
+#aside-content .card-widget:hover,
+#recent-posts > .recent-post-item:hover {
+	border-color: var(--main);
+	box-shadow: var(--main-shadow) !important;
 }
 
 /* 提示框 */
@@ -1506,6 +1485,7 @@ div.card-widget,
 
 #page-header.not-top-img #nav.show,
 #page-header.nav-fixed #nav.show {
+	background: var(--card-bg);
 	border-bottom: var(--card-border);
 }
 
@@ -1591,8 +1571,15 @@ div.card-widget,
 #nav .menus_items .menus_item .menus_item_child {
 	margin-top: 10px;
 	padding: 6px 8px;
+	background: var(--card-bg);
 	border-radius: 8px;
 	border: var(--card-border);
+	box-shadow: 0 2px 3px 1px rgba(150,150,150,.2);
+}
+
+#nav .menus_items .menus_item .menus_item_child:hover {
+	border-color: var(--main);
+	box-shadow: var(--main-shadow)
 }
 
 #nav .menus_items .menus_item:hover .menus_item_child {
@@ -1916,6 +1903,7 @@ div.menus_items>div:nth-child(4)>ul {
 /* 文章结尾标签 */
 #post .tag_share .post-meta__tags:hover {
 	color: var(--second);
+	background: var(--main);
 	border: 1px solid var(--main);
 	box-shadow: var(--main-shadow);
 }
@@ -2548,4 +2536,47 @@ body.read-mode .layout > div:first-child {
 	border-radius: 0 0 25% 25%;
 	filter: blur(2px);
 	opacity: .5;
+}
+
+blockquote {
+	border-radius: 8px;
+	border-width: 4px;
+}
+
+.focus-light {
+	align-items: center;
+	font-size: 200px;
+	line-height: 200px;
+}
+
+.focus-light::after {
+	content: 'Eurkon';
+	/* 颜色为透明 */
+	color: transparent;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: linear-gradient(to right,#ff69b3,#fe0000,#ffa401,#ffff01,#008102,#40e1d2,#410098,#9400d4);
+	/* 以文字的范围来裁剪背景图片 */
+	background-clip: text;
+	-webkit-background-clip: text;
+	/* 将元素裁剪为一个圆形（100px表示圆的直径，0% 50%表示圆心的位置） */
+	clip-path: circle(100px at 0% 50%);
+	/* 执行动画（动画 时长 infinite表示无限次播放） */
+	animation: light 5s infinite;
+}
+
+/* 定义动画 改变圆心的位置 */
+@keyframes light {
+	0% {
+		clip-path: circle(100px at 0% 50%);
+	}
+
+	50% {
+		clip-path: circle(100px at 100% 50%);
+	}
+
+	100% {
+		clip-path: circle(100px at 0% 50%);
+	}
 }
