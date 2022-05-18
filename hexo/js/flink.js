@@ -12,12 +12,12 @@ fetch('/json/link.json').then(data => data.json()).then(data => {
       <a class="flink-list-card" href="${item.link}" target="_blank" rel="external nofollow noreferrer" data-title="${item.descr}">
         <div class="wrapper cover">
           <a href="${(item.siteshot || ('https://image.thum.io/get/width/400/crop/800/allowJPG/wait/20/noanimate/' + item.link))}" class="fancybox" data-fancybox="group" data-caption>
-            <img class="cover fadeIn" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/loading.gif'" alt=""/>
+            <img class="cover fadeIn" onerror="this.onerror=null;this.src='https://fastly.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/loading.gif'" alt=""/>
           </a>
         </div>
         <div class="info">
           <a href="${item.avatar}" class="fancybox" data-fancybox="group" data-caption>
-            <img src="${item.avatar}" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/loading.gif'" alt=""/>
+            <img src="${item.avatar}" onerror="this.onerror=null;this.src='https://fastly.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/loading.gif'" alt=""/>
           </a>
           <span class="flink-sitename">${item.name}</span>
         </div>

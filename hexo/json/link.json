@@ -48,9 +48,9 @@
       {
         "name": "清 狂",
         "link": "https://zhangyazhuang.gitee.io/",
-        "avatar": "https://cdn.jsdelivr.net/gh/zhangyazhuang/cdn/img/top.jpg",
+        "avatar": "https://fastly.jsdelivr.net/gh/zhangyazhuang/cdn/img/top.jpg",
         "descr": "直道相思了无益，未妨惆怅是清狂！",
-        "siteshot": "https://cdn.jsdelivr.net/gh/zhangyazhuang/cdn/img/bei.jpg"
+        "siteshot": "https://fastly.jsdelivr.net/gh/zhangyazhuang/cdn/img/bei.jpg"
       },
       {
         "name": "FF",
@@ -61,15 +61,15 @@
       {
         "name": "realwds’s blog",
         "link": "https://blog.realwds.com",
-        "avatar": "https://cdn.jsdelivr.net/gh/realwds/cdn@master/img/20201216165755.jpg",
+        "avatar": "https://fastly.jsdelivr.net/gh/realwds/cdn@master/img/20201216165755.jpg",
         "descr": "数学系的挨踢者"
       },
       {
         "name": "Hassan’s Blog",
         "link": "https://hassanwong.top",
-        "avatar": "https://cdn.jsdelivr.net/gh/hassanblog/CDN@v20210404/img/avatar_blog.jpg",
+        "avatar": "https://fastly.jsdelivr.net/gh/hassanblog/CDN@v20210404/img/avatar_blog.jpg",
         "descr": "时不我待，只争朝夕",
-        "siteshot": "https://cdn.jsdelivr.net/gh/hassanblog/ScreenShot@gh-pages/hassanblog.github.io.jpg"
+        "siteshot": "https://fastly.jsdelivr.net/gh/hassanblog/ScreenShot@gh-pages/hassanblog.github.io.jpg"
       },
       {
         "name": "Tianli",

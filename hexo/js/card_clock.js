@@ -3,7 +3,7 @@ function electric_clock_init () {
     var res_text = data.replace(/not found/g, 'not found,not found').replace(/"/g, '').replace(/\+/g, '').replace(/,/g, '\\').replace(/ /g, '').replace(/°C/g, '');
     res_list = res_text.split('\\');
     var clock_box = document.getElementById('electric_clock');
-    style = `<style>@font-face{font-family:'UnidreamLED';src:url('https://cdn.jsdelivr.net/gh/Eurkon/CDN@master/hexo/fonts/UnidreamLED.ttf');}#electric_clock{padding:20px}.card-clock{padding:0!important;}.card-background{height:150px;margin:15px;border-radius:8px;box-shadow:inset 3px 3px 18px 0 rgb(50 50 50 / 40%);z-index:2;}.clock-row{font-family:UnidreamLED;font-weight:400;display:flex;justify-content:space-between;flex-wrap:nowrap;white-space:nowrap;}.card-clock-time{flex:1;font-size:2rem;text-align:center;line-height:1.5;}</style>`;
+    style = `<style>@font-face{font-family:'UnidreamLED';src:url('https://fastly.jsdelivr.net/gh/Eurkon/CDN@master/hexo/fonts/UnidreamLED.ttf');}#electric_clock{padding:20px}.card-clock{padding:0!important;}.card-background{height:150px;margin:15px;border-radius:8px;box-shadow:inset 3px 3px 18px 0 rgb(50 50 50 / 40%);z-index:2;}.clock-row{font-family:UnidreamLED;font-weight:400;display:flex;justify-content:space-between;flex-wrap:nowrap;white-space:nowrap;}.card-clock-time{flex:1;font-size:2rem;text-align:center;line-height:1.5;}</style>`;
 
     clock_box_html = `
         <div class="clock-row">
