@@ -13,14 +13,16 @@ var color = document.documentElement.getAttribute('data-theme') === 'light' ? '#
 // 访问地图
 function mapChart () {
   let script = document.createElement("script")
-  let paramUrl = '&start_date=' + start_date + '&end_date=' + end_date + '&metrics=' + metrics + '&method=visit/district/a';
+  // let paramUrl = '&start_date=' + start_date + '&end_date=' + end_date + '&metrics=' + metrics + '&method=visit/district/a'; // 更换请求地址
+  let paramUrl = '&start_date=' + start_date + '&end_date=' + end_date + '&metrics=' + metrics + '&method=overview/getDistrictRpt';
   fetch(dataUrl + paramUrl).then(data => data.json()).then(data => {
     let mapName = data.result.items[0]
     let mapValue = data.result.items[1]
     let mapArr = []
     let max = mapValue[0][0]
     for (let i = 0; i < mapName.length; i++) {
-      mapArr.push({ name: mapName[i][0].name, value: mapValue[i][0] })
+      // mapArr.push({ name: mapName[i][0].name, value: mapValue[i][0] })
+      mapArr.push({ name: mapName[i][0], value: mapValue[i][0] })
     }
     let mapArrJson = JSON.stringify(mapArr)
     script.innerHTML = `

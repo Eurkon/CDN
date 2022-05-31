@@ -65,7 +65,7 @@ function catalogActive (type) {
     path = decodeURIComponent(path)
     let pattern = type == 'tags' ? /\/tags\/.*?\// : /\/categories\/.*?\//
     if (pattern.test(path)) {
-      document.getElementById(type + path.split('/')[2]).classList.add('selected')
+      document.getElementById(type + '-' + path.split('/')[2]).classList.add('selected')
     }
   }
 }
