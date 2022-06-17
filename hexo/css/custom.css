@@ -1,23 +1,23 @@
 html {
-	cursor: url(https://fastly.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/default.cur), auto !important;
+	cursor: url(https://npm.elemecdn.com/eurkon-cdn/hexo/images/user/default.cur), auto !important;
 }
 
 body {
-	cursor: url(https://fastly.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/default.cur), auto !important;
+	cursor: url(https://npm.elemecdn.com/eurkon-cdn/hexo/images/user/default.cur), auto !important;
 }
 
 #recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .post-meta-date {
-	cursor: url(https://fastly.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/default.cur), auto !important;
+	cursor: url(https://npm.elemecdn.com/eurkon-cdn/hexo/images/user/default.cur), auto !important;
 }
 
 ul::before,
 li::before {
-	cursor: url(https://fastly.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/default.cur), auto !important;
+	cursor: url(https://npm.elemecdn.com/eurkon-cdn/hexo/images/user/default.cur), auto !important;
 }
 
 /* 翻页 */
 #pagination span {
-	cursor: url(https://fastly.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/default.cur), auto !important;
+	cursor: url(https://npm.elemecdn.com/eurkon-cdn/hexo/images/user/default.cur), auto !important;
 }
 
 a,
@@ -26,20 +26,20 @@ button,
 svg,
 canvas,
 select {
-	cursor: url(https://fastly.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://npm.elemecdn.com/eurkon-cdn/hexo/images/user/pointer.cur), auto !important;
 }
 
 i.scroll-down-effects {
-	cursor: url(https://fastly.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://npm.elemecdn.com/eurkon-cdn/hexo/images/user/pointer.cur), auto !important;
 }
 
 /* 打赏按钮 */
 .reward-button {
-	cursor: url(https://fastly.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://npm.elemecdn.com/eurkon-cdn/hexo/images/user/pointer.cur), auto !important;
 }
 
 #pagination a {
-	cursor: url(https://fastly.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://npm.elemecdn.com/eurkon-cdn/hexo/images/user/pointer.cur), auto !important;
 }
 
 /* 图片预览 */
@@ -51,14 +51,14 @@ i.scroll-down-effects {
 .fancybox__thumbs .carousel__slide,
 .fancybox__carousel.is-draggable .fancybox__slide,
 .fancybox__carousel.is-draggable .fancybox__slide .fancybox__content {
-	cursor: url(https://fastly.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://npm.elemecdn.com/eurkon-cdn/hexo/images/user/pointer.cur), auto !important;
 }
 
 /* 代码块 */
 #article-container figure.highlight .highlight-tools .expand ~ .copy-button,
 #article-container figure.highlight .highlight-tools .expand,
 #article-container .code-expand-btn {
-	cursor: url(https://fastly.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://npm.elemecdn.com/eurkon-cdn/hexo/images/user/pointer.cur), auto !important;
 }
 
 /* 评论与回复 */
@@ -69,7 +69,7 @@ i.scroll-down-effects {
 .vat,
 .vemojis *,
 .vcontent.expand {
-	cursor: url(https://fastly.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://npm.elemecdn.com/eurkon-cdn/hexo/images/user/pointer.cur), auto !important;
 }
 
 /* twikoo */
@@ -80,21 +80,21 @@ i.scroll-down-effects {
 .OwO .OwO-body,
 .OwO .OwO-body .OwO-items .OwO-item,
 .OwO .OwO-body .OwO-bar .OwO-packages li {
-	cursor: url(https://fastly.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://npm.elemecdn.com/eurkon-cdn/hexo/images/user/pointer.cur), auto !important;
 }
 
 /* 网站收藏卡片 */
 .card-star {
-	cursor: url(https://fastly.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://npm.elemecdn.com/eurkon-cdn/hexo/images/user/pointer.cur), auto !important;
 }
 
 /* 文章轮播 */
 .swiper-pagination-clickable .swiper-pagination-bullet {
-	cursor: url(https://fastly.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://npm.elemecdn.com/eurkon-cdn/hexo/images/user/pointer.cur), auto !important;
 }
 
 #rightmenu .rightmenu-group .rightmenu-item {
-	cursor: url(https://fastly.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://npm.elemecdn.com/eurkon-cdn/hexo/images/user/pointer.cur), auto !important;
 }
 
 .layout {
@@ -108,6 +108,8 @@ i.scroll-down-effects {
 }
 
 #article-container code {
+	color: var(--light-text);
+	background: var(--hl-bg);
 	padding: 3px 5px;
 	border-radius: 6px;
 }
@@ -139,12 +141,12 @@ table tr:nth-child(even) {
 
 .table-wrap {
 	overflow-x: auto;
-	border-radius: 8px;
+	border-radius: var(--border-radius);
 }
 
 /* 搜索框 */
 .search-dialog {
-	border-radius: 8px;
+	border-radius: var(--border-radius);
 }
 
 /* 文章段落标题 */
@@ -210,7 +212,7 @@ table tr:nth-child(even) {
 /* 文章图片 */
 #article-container img,
 .post-qr-code-img {
-	border-radius: 8px;
+	border-radius: var(--border-radius);
 	-webkit-transition: filter 375ms ease-in .2s, transform .6s ease 0s;
 	-moz-transition: filter 375ms ease-in .2s, transform .6s ease 0s;
 	-o-transition: filter 375ms ease-in .2s, transform .6s ease 0s;
@@ -224,7 +226,7 @@ table tr:nth-child(even) {
 
 /* button */
 .reward-button {
-	border-radius: 8px;
+	border-radius: var(--border-radius);
 	-webkit-transition: all .3s;
 	-moz-transition: all .3s;
 	-o-transition: all .3s;
@@ -283,7 +285,7 @@ a.flink-list-card:hover {
 #aside-content .card-info .card-info-data > a {
 	display: inline-block;
 	background: var(--global-bg);
-	border-radius: 8px;
+	border-radius: var(--border-radius);
 	margin: 0 2%;
 	width: 29%;
 	-webkit-transition: all .3s ease-in-out;
@@ -311,7 +313,7 @@ a.flink-list-card:hover {
 	color: var(--second) !important;
 	background: var(--main);
 	box-shadow: var(--main-shadow);
-	border-radius: 8px;
+	border-radius: var(--border-radius);
 	-webkit-transition: all .3s;
 	-moz-transition: all .3s;
 	-o-transition: all .3s;
@@ -344,24 +346,24 @@ a.flink-list-card:hover {
 	color: var(--second) !important;
 	background: var(--main);
 	box-shadow: var(--main-shadow);
-	border-radius: 8px;
+	border-radius: var(--border-radius);
 }
 
 #aside-content .card-categories ul.card-category-list>.card-category-list-item a:hover {
 	color: var(--second) !important;
 	background: var(--main);
 	box-shadow: var(--main-shadow);
-	border-radius: 8px;
+	border-radius: var(--border-radius);
 }
 
 #aside-content .card-tag-cloud a {
-	font-size: 1rem !important;
+	font-size: var(--global-font-size) !important;
 }
 
 .tag-cloud-list a,
 #aside-content .card-tag-cloud a {
 	margin: 2px 4px;
-	border-radius: 8px;
+	border-radius: var(--border-radius);
 	background: var(--global-bg);
 }
 
@@ -374,7 +376,7 @@ a.flink-list-card:hover {
 }
 
 #aside-content .aside-list > .aside-list-item .thumbnail {
-	border-radius: 8px;
+	border-radius: var(--border-radius);
 }
 
 #aside-content .aside-list > .aside-list-item .content > .title,
@@ -386,13 +388,14 @@ a.flink-list-card:hover {
 .article-sort-item {
 	padding: 8px;
 	margin: .5rem 0 .5rem !important;
-	border: var(--card-border);
-	border-radius: 8px;
+	/* border: var(--card-border); */
+	background: var(--global-bg);
+	border-radius: var(--border-radius);
 }
 
-.article-sort-item:hover {
+/* .article-sort-item:hover {
 	border-color: var(--main);
-}
+} */
 
 .article-sort-title::before,
 .article-sort-title::after,
@@ -409,7 +412,7 @@ a.flink-list-card:hover {
 }
 
 .article-sort-item-img {
-	border-radius: 8px;
+	border-radius: var(--border-radius);
 }
 
 .article-sort-item-title {
@@ -423,7 +426,7 @@ a.flink-list-card:hover {
 
 .article-sort-item-time {
 	float: right;
-	font-size: 1em
+	font-size: var(--global-font-size);
 }
 
 .article-sort-item-categories,
@@ -435,7 +438,7 @@ a.flink-list-card:hover {
 .article-sort-item-tags a.article-meta__tags {
 	padding: .2rem;
 	color: var(--font-color);
-	border-radius: 8px;
+	border-radius: var(--border-radius);
 }
 
 .article-sort-item-categories a.article-meta__categories:hover,
@@ -458,7 +461,7 @@ a.flink-list-card:hover {
 	width: 48%;
 	font-weight: 700;
 	margin: 0 .5% 2% .5%;
-	border-radius: 8px;
+	border-radius: var(--border-radius);
 	-webkit-box-shadow: rgb(50 50 50 / 30%) 50px 50px 50px 50px inset;
 	box-shadow: rgb(50 50 50 / 30%) 50px 50px 50px 50px inset;
 }
@@ -619,7 +622,7 @@ a.flink-list-card:hover {
 /* 分类目录条、标签目录条 */
 #catalog-bar {
 	padding: 0.4rem 0.8rem;
-	border-radius: 8px;
+	border-radius: var(--border-radius);
 	display: flex;
 	border: var(--card-border);
 	margin-bottom: 1rem;
@@ -650,7 +653,7 @@ a.flink-list-card:hover {
 .catalog-list-item a {
 	padding: .3rem;
 	font-weight: bold;
-	border-radius: 8px;
+	border-radius: var(--border-radius);
 	color: var(--font-color);
 	-webkit-transition: all .3s;
 	-moz-transition: all .3s;
@@ -667,7 +670,7 @@ a.flink-list-card:hover {
 .catalog-list-item.selected a {
 	background: var(--light-text);
 	color: var(--second);
-	border-radius: 8px;
+	border-radius: var(--border-radius);
 }
 
 a.catalog-more {
@@ -688,13 +691,13 @@ a.catalog-more:hover {
 
 #aside-content #card-toc .toc-content a.toc-link:hover {
 	color: var(--second);
-	border-radius: 8px;
+	border-radius: var(--border-radius);
 	background: var(--main-light);
 }
 
 #aside-content #card-toc .toc-content .toc-link.active {
 	font-weight: 700;
-	border-radius: 8px;
+	border-radius: var(--border-radius);
 	color: var(--second);
 	border-left-color: var(--main);
 	background: var(--main) !important;
@@ -770,7 +773,7 @@ a.catalog-more:hover {
 	left: 0;
 	width: 100%;
 	height: 100%;
-  /* background-image: linear-gradient(to bottom,transparent 0,rgba(0,0,0,.8) 100%); */
+	/* background-image: linear-gradient(to bottom,transparent 0,rgba(0,0,0,.8) 100%); */
 	background: rgba(0,0,0,.5);
 	-webkit-transition: all .6s;
 	-moz-transition: all .6s;
@@ -855,7 +858,7 @@ a.catalog-more:hover {
 
 /* 上下一篇文章 */
 #pagination.pagination-post {
-	border-radius: 8px;
+	border-radius: var(--border-radius);
 }
 
 #pagination .prev_info,
@@ -896,7 +899,7 @@ a.catalog-more:hover {
 #pagination .page-number,
 #pagination span {
 	color: var(--font-color);
-	border-radius: 8px;
+	border-radius: var(--border-radius);
 	height: 2rem;
 	width: 2rem;
 	text-align: center;
@@ -961,7 +964,7 @@ a.catalog-more:hover {
 }
 
 #post>div.relatedPosts>div.relatedPosts-list>div {
-	border-radius: 8px;
+	border-radius: var(--border-radius);
 }
 
 /* 加粗字体颜色 */
@@ -1015,7 +1018,25 @@ strong {
 }
 
 .OwO.OwO-open .OwO-body {
-	border-radius: 8px;
+	border-radius: var(--border-radius);
+}
+
+.OwO .OwO-body .OwO-bar .OwO-packages li {
+	min-width: 55px;
+	text-align: center;
+	line-height: 45px !important;
+	font-size: 20px !important;
+	border-bottom: solid 2px var(--main);
+}
+
+.OwO .OwO-body .OwO-bar .OwO-packages li span {
+	position: relative;
+}
+
+.OwO .OwO-body .OwO-bar .OwO-packages li span img {
+	position: relative;
+	top: 8px;
+	width: 30px;
 }
 
 .OwO .OwO-body .OwO-items .OwO-item:hover {
@@ -1035,7 +1056,7 @@ strong {
 
 .tk-content :not(pre) > code[class*="language-"],
 .tk-content pre[class*="language-"] {
-	border-radius: 8px;
+	border-radius: var(--border-radius);
 }
 
 .tk-nick,
@@ -1043,7 +1064,7 @@ strong {
 .tk-nick-link strong,
 .tk-action-count {
 	color: var(--cover-bg) !important;
-	font-size: 1rem;
+	font-size: var(--global-font-size);
 }
 
 .tk-action-icon svg {
@@ -1114,7 +1135,7 @@ strong {
 	border: var(--card-border);
 	border-width: 2px;
 	border-style: dashed;
-	border-radius: 8px;
+	border-radius: var(--border-radius);
 	padding: 0 0.5rem 0.5rem 0.5rem;
 	-webkit-transition: all .3s;
 	-moz-transition: all .3s;
@@ -1133,7 +1154,7 @@ strong {
 	background: var(--main);
 	padding: .5rem 1rem;
 	margin-top: 0 !important;
-	border-radius: 8px;
+	border-radius: var(--border-radius);
 	font-size: 95% !important;
 	width: fit-content;
 	max-width: 80%;
@@ -1203,7 +1224,7 @@ strong {
 	margin: .5rem auto 0;
 	padding: .5rem;
 	background: var(--global-bg) !important;
-	border-radius: 8px;
+	border-radius: var(--border-radius);
 }
 
 .tk-expand:hover {
@@ -1212,12 +1233,12 @@ strong {
 
 /* 音乐播放器 */
 #article-container .aplayer {
-	border-radius: 8px !important;
+	border-radius: var(--border-radius) !important;
 }
 
 /* 滚动条 */
 ::-webkit-scrollbar-thumb {
-	border-radius: 1em;
+	border-radius: var(--border-radius);
 	background: var(--main);
 	background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.4) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.4) 50%,rgba(255,255,255,.4) 75%,transparent 75%,transparent);
 }
@@ -1400,7 +1421,7 @@ div#category,
 }
 
 #nav a {
-	border-radius: 8px;
+	border-radius: var(--border-radius);
 	padding: 10px !important;
 }
 
@@ -1482,7 +1503,7 @@ div#category,
 	margin-top: 10px;
 	padding: 6px 8px;
 	background: var(--card-bg);
-	border-radius: 8px;
+	border-radius: var(--border-radius);
 	border: var(--card-border);
 	box-shadow: none;
 }
@@ -1519,7 +1540,7 @@ div.menus_items>div:nth-child(4)>ul {
 /* 小屏导航栏 */
 #sidebar #sidebar-menus .sidebar-site-data a:hover ,
 #sidebar #sidebar-menus .menus_items .site-page:hover {
-	border-radius: 8px;
+	border-radius: var(--border-radius);
 	background: var(--main);
 }
 
@@ -1784,7 +1805,7 @@ div.menus_items>div:nth-child(4)>ul {
 }
 
 #page-header #post-info #post-meta {
-	font-size: 1em;
+	font-size: var(--global-font-size);
 }
 
 #post > #post-info {
@@ -1815,6 +1836,10 @@ div.menus_items>div:nth-child(4)>ul {
 }
 
 /* 404页面 */
+.error404 #error-wrap {
+	padding: 0 20px;
+}
+
 .error404 #error-wrap .error-content {
 	border: var(--card-border);
 	box-shadow: none !important;
@@ -1833,7 +1858,7 @@ div.menus_items>div:nth-child(4)>ul {
 	margin: .5rem;
 	width: calc(100%/6 - 1rem);
 	border: var(--card-border);
-	border-radius: 8px;
+	border-radius: var(--border-radius);
 }
 
 @media (max-width: 1400px) and (min-width: 769px) {
@@ -1877,7 +1902,7 @@ div.menus_items>div:nth-child(4)>ul {
 	display: flex;
 	height: 4rem;
 	background: var(--card-bg);
-	border-radius: 8px 8px 0 0;
+	border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 
 #body-wrap.error404 .aside-list > .aside-list-item .content .title {
@@ -1893,7 +1918,7 @@ div.menus_items>div:nth-child(4)>ul {
 	font-weight: 600;
 	height: 3rem;
 	padding: 0 .5rem;
-	border-radius: 0 0 8px 8px;
+	border-radius: 0 0 var(--border-radius) var(--border-radius);
 }
 
 #body-wrap.error404 .aside-list > .aside-list-item:hover {
@@ -2027,7 +2052,7 @@ div.menus_items>div:nth-child(4)>ul {
 	object-fit: cover;
 	display: block;
 	opacity: 0;
-	border-radius: 8px;
+	border-radius: var(--border-radius);
 	-webkit-transition: all .3s;
 	-moz-transition: all .3s;
 	-o-transition: all .3s;
@@ -2122,7 +2147,7 @@ div.menus_items>div:nth-child(4)>ul {
 	width: 11px;
 	height: 11px;
 	display: block;
-	border-radius: 8px;
+	border-radius: var(--border-radius);
 	background: var(--blockquote-color);
 	margin: 8px 0 !important;
 	-webkit-transition: all .3s;
@@ -2256,7 +2281,7 @@ body.read-mode .layout > div:first-child {
 #fc-change-updated,
 #fc-more {
 	cursor: pointer;
-	cursor: url(https://fastly.jsdelivr.net/gh/Eurkon/CDN@master/hexo/images/user/pointer.cur), auto !important;
+	cursor: url(https://npm.elemecdn.com/eurkon-cdn/hexo/images/user/pointer.cur), auto !important;
 }
 
 #fc-state {
@@ -2445,7 +2470,7 @@ body.read-mode .layout > div:first-child {
 }
 
 blockquote {
-	border-radius: 8px;
+	border-radius: var(--border-radius);
 	border-width: 4px;
 }
 
@@ -2493,4 +2518,64 @@ blockquote {
 
 .tips-icon:hover {
 	color: var(--main)
+}
+
+details.folding-tag {
+	border-radius: var(--border-radius);
+}
+
+details.folding-tag[open] .content {
+	border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+details.folding-tag summary {
+	border-radius: var(--border-radius);
+	background: var(--tab-botton-bg) !important;
+	font-size: var(--global-font-size) !important;
+	color: var(--font-color);
+	filter: none !important;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-o-transition: all .3s;
+	-ms-transition: all .3s;
+	transition: all .3s;
+}
+
+details.folding-tag[open] summary,
+details.folding-tag summary:hover {
+	background: var(--main) !important;
+	box-shadow: var(--main-shadow);
+	color: #fff !important;
+}
+
+details[open] > div.content {
+	color: var(--font-color) !important;
+	background: var(--card-bg) !important;
+}
+
+details.folding-tag summary::marker {
+	color: var(--main);
+}
+
+details.folding-tag[open] summary::marker,
+details.folding-tag summary:hover::marker {
+	color: #fff;
+}
+
+.tabs ,
+.tabs > .nav-tabs {
+	border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.tabs > .nav-tabs > .tab:not(.active) button:hover {
+	background: var(--main) !important;
+	color: var(--second) !important;
+}
+
+.tabs > .nav-tabs > .tab.active button {
+	border-top-color: var(--cover-bg);
+}
+
+.tabs > .tab-contents .tab-item-content {
+	padding: 24px !important;
 }
