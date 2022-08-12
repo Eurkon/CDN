@@ -17,7 +17,9 @@ if (typeof (fdataUser) !== 'undefined') {
   }
 }
 var article_num = '', sortNow = '', UrlNow = '', friends_num = ''
-var container = document.getElementById('fc-container') || document.getElementById('article-container')
+var container = document.createElement('div')
+container.id = 'fc-container'
+document.getElementById('article-container').appendChild(container)
 container.classList.add('article-sort')
 container.classList.add('fc-article-sort')
 
@@ -100,8 +102,8 @@ function loadArticleItem (datalist, start, end) {
             <i class="far fa-user"></i>
             <span class="fc-article-author">${item.author}</span>
             <div class="article-sort-item-time">
-              <span class="fc-time-created" style="${sortNow == 'created' ? '' : 'display:none'}"><i class="far fa-calendar-alt"></i> 发表于 ${item.created} </span>
-              <span class="fc-time-updated" style="${sortNow == 'updated' ? '' : 'display:none'}"><i class="fas fa-history"></i> 更新于 ${item.updated} </span>
+              <span class="fc-time-created" style="${sortNow == 'created' ? '' : 'display:none'}"><i class="far fa-calendar-alt"></i> ${item.created} </span>
+              <span class="fc-time-updated" style="${sortNow == 'updated' ? '' : 'display:none'}"><i class="fas fa-history"></i> ${item.updated} </span>
             </div>
           </div>
         </div>

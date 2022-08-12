@@ -8,11 +8,16 @@ if (!document.getElementById('post-comment') && document.getElementById('comment
   document.getElementById('comment-button').style.display = 'none'
 }
 
+var theme_color = '#1677B3'
+var theme_r = parseInt('0x' + theme_color.slice(1, 3))
+var theme_g = parseInt('0x' + theme_color.slice(3, 5))
+var theme_b = parseInt('0x' + theme_color.slice(5, 7))
+
 if (document.getElementById('post-cover-img')) {
   let list = []
-  for (let i = 0; i <= 5; i++) {
-    for (let j = 0; j <= 5; j++) {
-      for (let k = 0; k <= 5; k++) {
+  for (let i = 0; i <= 20; i++) {
+    for (let j = 0; j <= 20; j++) {
+      for (let k = 0; k <= 20; k++) {
         list.push(`rgb(${i},${j},${k})`)
         list.push(`rgb(${255 - i},${255 - j},${255 - k})`)
       }
@@ -22,35 +27,30 @@ if (document.getElementById('post-cover-img')) {
     paletteSize: 30,
     exclude: list,
     success: function (payload) {
-      const c = payload.dominant.match(/\d+/g)
-      const grayLevel = c[0] * 0.299 + c[1] * 0.587 + c[2] * 0.114
-      document.styleSheets[0].addRule(':root', `
-        --main: ${payload.dominant};
-        --second: ${grayLevel >= 192 ? '#000' : '#FFF'};
-        --main-light: rgba(${c[0]}, ${c[1]}, ${c[2]}, .4);
-        --main-shadow: 0 2px 3px 1px rgba(${c[0]}, ${c[1]}, ${c[2]}, .2);
-        --cover-text: ${grayLevel >= 192 ? '#4C4948' : '#EEE'};
-        --cover-bg: rgba(${c[0]}, ${c[1]}, ${c[2]});
-      `)
+      // const c = payload.dominant.match(/\d+/g)
+      // const grayLevel = c[0] * 0.299 + c[1] * 0.587 + c[2] * 0.114
+      [theme_r, theme_g, theme_b] = payload.dominant.match(/\d+/g)
+      document.documentElement.style.setProperty('--r', theme_r);
+      document.documentElement.style.setProperty('--g', theme_g);
+      document.documentElement.style.setProperty('--b', theme_b);
+      document.documentElement.style.setProperty('--second', theme_r * 0.299 + theme_g * 0.587 + theme_b * 0.114 >= 192 ? '#000' : '#FFF');
+      document.documentElement.style.setProperty('--cover-text', theme_r * 0.299 + theme_g * 0.587 + theme_b * 0.114 >= 192 ? '#4C4948' : '#EEE');
+      // document.styleSheets[0].addRule(':root', `
+      //   --r: ${theme_r};
+      //   --g: ${theme_g};
+      //   --b: ${theme_b};
+      //   --second: ${theme_r * 0.299 + theme_g * 0.587 + theme_b * 0.114 >= 192 ? '#000' : '#FFF'};
+      //   --cover-text: ${theme_r * 0.299 + theme_g * 0.587 + theme_b * 0.114 >= 192 ? '#4C4948' : '#EEE'};
+      // `)
     }
   })
 } else {
-  document.styleSheets[0].addRule(':root', `
-    --main: #1677B3;
-    --second: #FFF;
-    --main-light: rgba(22, 119, 179, .4);
-    --main-shadow: 0 2px 3px 1px rgba(22, 119, 179, .2);
-    --cover-text: #EEE;
-    --cover-bg: #1677B3;
-  `)
+  document.documentElement.style.setProperty('--r', theme_r);
+  document.documentElement.style.setProperty('--g', theme_g);
+  document.documentElement.style.setProperty('--b', theme_b);
+  document.documentElement.style.setProperty('--second', theme_r * 0.299 + theme_g * 0.587 + theme_b * 0.114 >= 192 ? '#000' : '#FFF');
+  document.documentElement.style.setProperty('--cover-text', theme_r * 0.299 + theme_g * 0.587 + theme_b * 0.114 >= 192 ? '#4C4948' : '#EEE');
 }
-
-document.styleSheets[0].addRule('[data-theme="dark"]', `
-  --main: #5C5C5C !important;
-  --second: #EEE !important;
-  --main-light: rgba(92, 92, 92, .4) !important;
-  --main-shadow: 0 2px 3px 1px rgba(92, 92, 92, .2) !important;
-`)
 
 function catalogActive (type) {
   let xscroll = document.getElementById('catalog-list')
